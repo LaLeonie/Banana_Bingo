@@ -1,7 +1,7 @@
 import React from "react";
 
-const Score = () => {
+const GameBoard = () => {
   return <div></div>;
 };
 
-export default Score;
+export default GameBoard;
