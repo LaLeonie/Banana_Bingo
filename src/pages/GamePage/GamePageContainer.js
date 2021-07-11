@@ -1,7 +1,11 @@
-import React from "react";
+import React from 'react';
 
 const GamePageContainer = () => {
-  return <div></div>;
+  return (
+    <div>
+      <h1>Game Page</h1>
+    </div>
+  );
 };
 
 export default GamePageContainer;

@@ -1,7 +1,11 @@
-import React from "react";
+import React from 'react';
 
 const TrackerPageContainer = () => {
-  return <div></div>;
+  return (
+    <div>
+      <h1>Tracker Page</h1>
+    </div>
+  );
 };
 
 export default TrackerPageContainer;
