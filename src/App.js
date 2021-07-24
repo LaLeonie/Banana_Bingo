@@ -33,24 +33,12 @@ function App() {
           </li>
         </nav>
         <Switch>
-          <Route path="/info">
-            <InfoPageContainer />
-          </Route>
-          <Route path="/game">
-            <GamePageContainer />
-          </Route>
-          <Route path="/result">
-            <ResultPageContainer />
-          </Route>
-          <Route path="/tracker">
-            <TrackerPageContainer />
-          </Route>
-          <Route path="/dashboard">
-            <DashboardPageContainer />
-          </Route>
-          <Route path="/">
-            <HomePageContainer />
-          </Route>
+          <Route exact path="/info" component={InfoPageContainer} />
+          <Route exact path="/game" component={GamePageContainer} />
+          <Route exact path="/result" component={ResultPageContainer} />
+          <Route exact path="/tracker" component={TrackerPageContainer} />
+          <Route exact path="/dashboard" component={DashboardPageContainer} />
+          <Route exact path="/" component={HomePageContainer} />
         </Switch>
       </div>
     </Router>
