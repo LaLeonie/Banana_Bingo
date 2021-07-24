@@ -6,7 +6,7 @@ const InfoPageContainer = () => {
   return (
     <div>
       <h1>Info Page</h1>
-      <RouteButton back desc="Go Back" />
+      <RouteButton back>Go Back</RouteButton>
     </div>
   );
 };

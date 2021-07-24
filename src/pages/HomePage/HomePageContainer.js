@@ -14,7 +14,7 @@ const HomePageContainer = () => {
           <h1>Banana Bingo</h1>
           <RouteButton route="game">Play</RouteButton>
           <RouteButton route="info">How to Play</RouteButton>
-          <RouteButton route="dahsboard">Stats</RouteButton>
+          <RouteButton route="dashboard">Stats</RouteButton>
         </Col>
       </Row>
     </Container>

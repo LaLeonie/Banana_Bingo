@@ -5,7 +5,7 @@ const DashboardPageContainer = () => {
   return (
     <div>
       <h1>Dashboard Page</h1>
-      <RouteButton route="" desc="Home" />
+      <RouteButton route="">Go Home</RouteButton>
     </div>
   );
 };

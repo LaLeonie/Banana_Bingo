@@ -5,8 +5,9 @@ const GamePageContainer = () => {
   return (
     <div>
       <h1>Game Page</h1>
-      <RouteButton>I'm Done</RouteButton>
+      <RouteButton route="followup">I'm Done</RouteButton>
       <RouteButton route="">Go Home</RouteButton>
+      <RouteButton route="info">How to Play</RouteButton>
     </div>
   );
 };
