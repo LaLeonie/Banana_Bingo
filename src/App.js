@@ -1,5 +1,6 @@
 import './App.css';
 import DashboardPageContainer from './pages/DashboardPage/DashboardPageContainer';
+import FollowUpPageContainer from './pages/FollowUpPage/FollowUpPageContainer';
 import GamePageContainer from './pages/GamePage/GamePageContainer';
 import HomePageContainer from './pages/HomePage/HomePageContainer';
 import InfoPageContainer from './pages/InfoPage/InfoPageContainer';

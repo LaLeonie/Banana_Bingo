@@ -12,9 +12,9 @@ const HomePageContainer = () => {
       <Row className="row">
         <Col xs={12}>
           <h1>Banana Bingo</h1>
-          <RouteButton route="game" desc="Play" />
-          <RouteButton route="info" desc="How to Play?" />
-          <RouteButton route="dahsboard" desc="Stats" />
+          <RouteButton route="game">Play</RouteButton>
+          <RouteButton route="info">How to Play</RouteButton>
+          <RouteButton route="dahsboard">Stats</RouteButton>
         </Col>
       </Row>
     </Container>
