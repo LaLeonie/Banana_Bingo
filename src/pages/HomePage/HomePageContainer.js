@@ -1,20 +1,25 @@
 import React from 'react';
-import Container from 'react-bootstrap/Container';
-import Button from 'react-bootstrap/Button';
-import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
+import { Container, Col, Row } from 'react-bootstrap';
 
+import { Layout } from './../../common/components';
 import { RouteButton } from './../../common/components';
 
 const HomePageContainer = () => {
   return (
-    <Container>
+    <Container fluid>
+      <Row>
+        <Col sm={8}></Col>
+        <Col>
+          <RouteButton route="dashboard">Stats</RouteButton>
+        </Col>
+        <Col>
+          <RouteButton route="info">?</RouteButton>
+        </Col>
+      </Row>
       <Row className="row">
         <Col xs={12}>
           <h1>Banana Bingo</h1>
           <RouteButton route="game">Play</RouteButton>
-          <RouteButton route="info">How to Play</RouteButton>
-          <RouteButton route="dashboard">Stats</RouteButton>
         </Col>
       </Row>
     </Container>
