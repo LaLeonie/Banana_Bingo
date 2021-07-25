@@ -18,5 +18,5 @@ export const LinkButton = styled(Button)`
   width: 150px;
   background: blue;
   display: inline-block;
-  margin: 1rem auto;
+  margin: 1rem;
 `;

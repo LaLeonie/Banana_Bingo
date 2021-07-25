@@ -1,5 +1,5 @@
 import React from 'react';
-import { RouteButton } from './../../common/components';
+import RouteButton from './../../common/containers/RouteButton';
 
 const DashboardPageContainer = () => {
   return (

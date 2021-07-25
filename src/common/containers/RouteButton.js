@@ -1,5 +1,5 @@
 import React from 'react';
-import { LinkButton } from './Buttons';
+import { LinkButton } from '../components/Buttons';
 import { useHistory } from 'react-router-dom';
 
 const RouteButton = ({ route, back, children }) => {
