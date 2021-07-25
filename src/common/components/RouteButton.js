@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from 'react-bootstrap';
+import { LinkButton } from './Buttons';
 import { useHistory } from 'react-router-dom';
 
 const RouteButton = ({ route, back, children }) => {
@@ -12,7 +12,11 @@ const RouteButton = ({ route, back, children }) => {
     history.push(`/${route}`);
   }
 
-  return <Button onClick={back ? handleBack : handleClick}>{children}</Button>;
+  return (
+    <LinkButton onClick={back ? handleBack : handleClick}>
+      {children}
+    </LinkButton>
+  );
 };
 
 export default RouteButton;
