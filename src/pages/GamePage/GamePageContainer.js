@@ -1,14 +1,17 @@
 import React from 'react';
 import RouteButton from '../../common/containers/RouteButton';
+import { Body, Footer } from '../../common/components';
+import NavBar from '../../common/containers/NavBar';
 
 const GamePageContainer = () => {
   return (
-    <div>
-      <h1>Game Page</h1>
-      <RouteButton route="followup">I'm Done</RouteButton>
-      <RouteButton route="">Go Home</RouteButton>
-      <RouteButton route="info">How to Play</RouteButton>
-    </div>
+    <>
+      <NavBar full />
+      <Body>Game Board</Body>
+      <Footer>
+        <RouteButton route="followup">I'm Done</RouteButton>
+      </Footer>
+    </>
   );
 };
 
