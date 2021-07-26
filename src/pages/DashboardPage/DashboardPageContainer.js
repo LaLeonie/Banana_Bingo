@@ -1,12 +1,16 @@
 import React from 'react';
 import RouteButton from './../../common/containers/RouteButton';
+import { Body } from '../../common/components';
+import NavBar from '../../common/containers/NavBar';
 
 const DashboardPageContainer = () => {
   return (
-    <div>
-      <h1>Dashboard Page</h1>
-      <RouteButton route="">Go Home</RouteButton>
-    </div>
+    <>
+      <NavBar />
+      <Body>
+        <h1>Dashboard Page</h1>
+      </Body>
+    </>
   );
 };
 
