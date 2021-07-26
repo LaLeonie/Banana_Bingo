@@ -16,7 +16,7 @@ const initialState = {
     },
   },
   gameData: {
-    planstDisplayed: [],
+    planstDisplayed: ['apples', 'bananas', 'potatoes'],
     playedToday: false,
   },
   plantsData: {},
