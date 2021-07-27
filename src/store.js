@@ -5,7 +5,7 @@ const initialState = {
     userName: '',
     totalScore: 0,
     today: {
-      dayScore: 0,
+      dayScore: { original: 0, extra: 0 },
       dailyPlants: [
         { name: 'apple', amount: 1 },
         { name: 'banana', amount: 1 },
@@ -22,7 +22,7 @@ const initialState = {
   },
   gameData: {
     planstDisplayed: ['apples', 'bananas', 'potatoes'],
-    playedToday: false,
+    playedToday: true,
   },
   plantsData: {},
 };

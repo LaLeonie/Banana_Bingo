@@ -21,12 +21,22 @@ const loseMessage = (
 
 const FollowUpPageContainer = () => {
   const gameResult = useSelector((state) => state.userData.today.victory);
+  const plantsSelected = useSelector(
+    (state) => state.userData.today.dailyPlants
+  );
 
   return (
     <>
       <NavBar />
       <Body>
         {gameResult ? victoryMessage : loseMessage}
+        {plantsSelected.map((el) => (
+          <div key={el.name}>
+            <h3>{el.name}</h3>
+            <div>amount: {el.amount}</div>
+          </div>
+        ))}
+
         <p>Have you eaten any more plants?</p>
       </Body>
       <Footer centered>
