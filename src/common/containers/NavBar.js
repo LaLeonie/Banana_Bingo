@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 
 import RouteButton from './RouteButton';
 
-const NavBar = ({}) => {
+const NavBar = () => {
   const playedToday = useSelector((state) => state.gameData.playedToday);
   const dayScore = useSelector((state) => state.userData.today.dayScore);
   let scoreSum = 0;
