@@ -6,8 +6,13 @@ const initialState = {
     totalScore: 0,
     today: {
       dayScore: 0,
-      dailyPlants: {},
+      dailyPlants: [
+        { name: 'apple', amount: 1 },
+        { name: 'banana', amount: 1 },
+        { name: 'pear', amount: 2 },
+      ],
       day: '',
+      victory: false,
     },
     thisWeek: {
       daysPlayed: [],

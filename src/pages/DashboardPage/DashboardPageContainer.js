@@ -1,5 +1,4 @@
 import React from 'react';
-import RouteButton from './../../common/containers/RouteButton';
 import { Body } from '../../common/components';
 import NavBar from '../../common/containers/NavBar';
 
