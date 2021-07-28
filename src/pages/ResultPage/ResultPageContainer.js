@@ -17,6 +17,7 @@ const ResultPageContainer = () => {
       <Body>
         <h1>Well Done!</h1>
         <p>Today you gained {scoreSum} stars. </p>
+        <p>Come back tomorrow for another round of Banana Bingo. </p>
       </Body>
       <Footer>
         <RouteButton route="dashboard">View Dashboard</RouteButton>
