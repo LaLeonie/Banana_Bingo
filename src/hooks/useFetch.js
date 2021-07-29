@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-export const useFetch = (url) => {
+export const useFetch = (url, limit) => {
   const [isLoading, setIsLoading] = useState(false);
   const [apiData, setApiData] = useState(null);
+  const [randomApiData, setRandomApiData] = useState(null);
   const [serverError, setServerError] = useState(null);
 
   axios.defaults.baseURL = `https://api.airtable.com/v0/apprXnCLMqQbaOEvK/Table%201?api_key=${process.env.REACT_APP_API_KEY}`;
@@ -26,5 +27,5 @@ export const useFetch = (url) => {
     fetchData();
   }, [url]);
 
-  return { isLoading, apiData, serverError };
+  return { isLoading, apiData, serverError, randomApiData };
 };
