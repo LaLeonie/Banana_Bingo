@@ -27,7 +27,9 @@ const GameBoard = ({ plants }) => {
   return (
     <Board>
       {plants.map((el) => (
-        <GameItem>{JSON.stringify(el.fields.Name)}</GameItem>
+        <GameItem key={el.fields.Name}>
+          <Image src={el.fields.Image[0].url} rounded responsive />
+        </GameItem>
       ))}
     </Board>
   );
