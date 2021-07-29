@@ -10,25 +10,26 @@ const GamePageContainer = () => {
   const [randomApiData, setRandomApiData] = useState(null);
 
   useEffect(() => {
-    if (isLoading) {
+    if (apiData) {
+      console.log({ apiData });
       setRandomApiData(
-        apiData.records.sort(() => 0.5 - Math.random()).slice(0, 9)
+        apiData.records.sort(() => 0.5 - Math.random()).slice(0, 25)
       );
     }
     console.log(randomApiData);
-  }, [isLoading]);
+  }, [apiData]);
 
   return (
     <>
       <NavBar full />
       <Body>
-        <GameBoard />
         {isLoading && <span>Loading ... </span>}
         {!isLoading && serverError ? (
           <span>Error in Fetching data ... </span>
         ) : (
-          <span>{JSON.stringify(randomApiData)}</span>
+          <div>"the game is on"</div>
         )}
+        {randomApiData && <GameBoard plants={randomApiData} />}
       </Body>
       <Footer>
         <RouteButton route="followup">I'm Done</RouteButton>
