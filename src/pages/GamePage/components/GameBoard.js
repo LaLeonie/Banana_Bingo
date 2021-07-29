@@ -28,7 +28,7 @@ const GameBoard = ({ plants }) => {
     <Board>
       {plants.map((el) => (
         <GameItem key={el.fields.Name}>
-          <Image src={el.fields.Image[0].url} rounded responsive />
+          <Image src={el.fields.Image[0].url} rounded />
         </GameItem>
       ))}
     </Board>
