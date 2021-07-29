@@ -24,12 +24,8 @@ const GamePageContainer = () => {
       <NavBar full />
       <Body>
         {isLoading && <span>Loading ... </span>}
-        {!isLoading && serverError ? (
-          <span>Error in Fetching data ... </span>
-        ) : (
-          <div>"the game is on"</div>
-        )}
-        {randomApiData && <GameBoard plants={randomApiData} />}
+        {!isLoading && serverError && <span>Error in Fetching data ... </span>}
+        {!isLoading && randomApiData && <GameBoard plants={randomApiData} />}
       </Body>
       <Footer>
         <RouteButton route="followup">I'm Done</RouteButton>
