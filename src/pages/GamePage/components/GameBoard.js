@@ -20,12 +20,16 @@ const GameItem = styled.li`
   border-radius: 4px;
 `;
 
+function handleItemClick(e) {
+  console.log(e.target.parentNode);
+}
+
 const GameBoard = ({ plants }) => {
   console.log(plants);
   return (
     <Board>
       {plants.map((el) => (
-        <GameItem key={el.fields.Name}>
+        <GameItem key={el.fields.Name} onClick={handleItemClick}>
           <Image src={el.fields.Image[0].url} rounded alt={el.fields.Name} />
         </GameItem>
       ))}
