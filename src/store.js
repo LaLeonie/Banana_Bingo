@@ -21,14 +21,25 @@ const initialState = {
     },
   },
   gameData: {
-    planstDisplayed: ['apples', 'bananas', 'potatoes'],
-    playedToday: true,
+    playedToday: false,
   },
   plantsData: {},
 };
 
 function reducer(state = initialState, action) {
-  return state;
+  switch (action.type) {
+    case 'gamePlayed':
+      console.log('game is played');
+      return {
+        ...state,
+        gameData: {
+          ...state.gameData,
+          playedToday: true,
+        },
+      };
+    default:
+      return state;
+  }
 }
 
 export const store = createStore(reducer);

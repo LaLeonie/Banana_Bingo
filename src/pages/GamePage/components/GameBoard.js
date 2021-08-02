@@ -1,12 +1,8 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+
 import { Image } from 'react-bootstrap';
 
 import styled from 'styled-components';
-
-const PlantIcon = styled(Image)`
-  border: solid black 1px;
-`;
 
 const Board = styled.ul`
   display: grid;
@@ -23,7 +19,6 @@ const GameItem = styled.li`
 `;
 
 const GameBoard = ({ plants }) => {
-  console.log({ plants });
   return (
     <Board>
       {plants.map((el) => (

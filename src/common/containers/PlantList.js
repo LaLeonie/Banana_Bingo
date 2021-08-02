@@ -18,7 +18,12 @@ const PlantList = () => {
   return (
     <PlantListFlex>
       {todaysPlants.map((el) => (
-        <PlantItem name={el.name} amount={el.amount} image={testImage} />
+        <PlantItem
+          key={el.name}
+          name={el.name}
+          amount={el.amount}
+          image={testImage}
+        />
       ))}
     </PlantListFlex>
   );

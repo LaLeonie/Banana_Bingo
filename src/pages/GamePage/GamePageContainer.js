@@ -11,12 +11,10 @@ const GamePageContainer = () => {
 
   useEffect(() => {
     if (apiData) {
-      console.log({ apiData });
       setRandomApiData(
         apiData.records.sort(() => 0.5 - Math.random()).slice(0, 25)
       );
     }
-    console.log(randomApiData);
   }, [apiData]);
 
   return (
@@ -28,7 +26,9 @@ const GamePageContainer = () => {
         {!isLoading && randomApiData && <GameBoard plants={randomApiData} />}
       </Body>
       <Footer>
-        <RouteButton route="followup">I'm Done</RouteButton>
+        <RouteButton route="followup" dispatchType="gamePlayed">
+          I'm Done
+        </RouteButton>
       </Footer>
     </>
   );
