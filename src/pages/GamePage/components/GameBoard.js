@@ -13,17 +13,20 @@ const Board = styled.ul`
 const GameItem = styled.li`
   display: flex;
   flex-direction: column;
-
+  cursor: pointer;
   justify-content: center;
   list-style-type: none;
+  border: solid 1px lightgrey;
+  border-radius: 4px;
 `;
 
 const GameBoard = ({ plants }) => {
+  console.log(plants);
   return (
     <Board>
       {plants.map((el) => (
         <GameItem key={el.fields.Name}>
-          <Image src={el.fields.Image[0].url} rounded />
+          <Image src={el.fields.Image[0].url} rounded alt={el.fields.Name} />
         </GameItem>
       ))}
     </Board>
