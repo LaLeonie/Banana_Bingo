@@ -8,10 +8,13 @@ import ResultPageContainer from './pages/ResultPage/ResultPageContainer';
 import TrackerPageContainer from './pages/TrackerPage/TrackerPageContainer';
 
 import { Layout } from './common/components';
+import { useSelector } from 'react-redux';
 
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 function App() {
+  const reduxStore = useSelector((state) => state);
+  console.log(reduxStore);
   return (
     <Layout>
       <Router>

@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useFetch } from '../../hooks/useFetch';
+import { useDispatch } from 'react-redux';
 import RouteButton from '../../common/containers/RouteButton';
 import GameBoard from './components/GameBoard';
 import { Body, Footer } from '../../common/components';
 import NavBar from '../../common/containers/NavBar';
 
 const GamePageContainer = () => {
+  const dispatch = useDispatch();
   const { isLoading, serverError, apiData } = useFetch('');
   const [randomApiData, setRandomApiData] = useState(null);
 
@@ -16,6 +18,11 @@ const GamePageContainer = () => {
       );
     }
   }, [apiData]);
+
+  useEffect(() => {
+    dispatch({ type: 'plantsSet', payload: randomApiData });
+    console.log({ randomApiData });
+  }, [randomApiData]);
 
   return (
     <>

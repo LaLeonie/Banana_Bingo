@@ -22,19 +22,27 @@ const initialState = {
   },
   gameData: {
     playedToday: false,
+    apiPlants: [],
   },
-  plantsData: {},
 };
 
 function reducer(state = initialState, action) {
   switch (action.type) {
     case 'gamePlayed':
-      console.log('game is played');
       return {
         ...state,
         gameData: {
           ...state.gameData,
           playedToday: true,
+        },
+      };
+    case 'plantsSet':
+      console.log('plants are set');
+      return {
+        ...state,
+        gameData: {
+          ...state.gameData,
+          apiPlants: action.payload,
         },
       };
     default:

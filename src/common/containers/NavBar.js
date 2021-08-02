@@ -10,7 +10,6 @@ const NavBar = () => {
   const playedToday = useSelector((state) => state.gameData.playedToday);
   const dayScore = useSelector((state) => state.userData.today.dayScore);
   let scoreSum = scoreCalculator(dayScore);
-  console.log({ playedToday });
 
   return (
     <Header full>
