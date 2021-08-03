@@ -5,6 +5,7 @@ import RouteButton from './../../common/containers/RouteButton';
 import { Footer, Body } from '../../common/components';
 import NavBar from '../../common/containers/NavBar';
 import PlantList from '../../common/containers/PlantList';
+import { getToday } from '../../store/user';
 
 const victoryMessage = (
   <>
@@ -21,13 +22,13 @@ const loseMessage = (
 );
 
 const FollowUpPageContainer = () => {
-  const gameResult = useSelector((state) => state.user.today.victory);
+  const today = useSelector(getToday);
 
   return (
     <>
       <NavBar />
       <Body>
-        {gameResult ? victoryMessage : loseMessage}
+        {today.victory ? victoryMessage : loseMessage}
         <PlantList />
         <p>Have you eaten any more plants?</p>
       </Body>

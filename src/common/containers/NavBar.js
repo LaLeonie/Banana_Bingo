@@ -3,13 +3,15 @@ import { Header, Logo } from '../components';
 import { useSelector } from 'react-redux';
 
 import { scoreCalculator } from '../../utils';
+import { getPlayedToday } from '../../store/game';
+import { getToday } from '../../store/user';
 
 import RouteButton from './RouteButton';
 
 const NavBar = () => {
-  const playedToday = useSelector((state) => state.game.playedToday);
-  const dayScore = useSelector((state) => state.user.today.dayScore);
-  let scoreSum = scoreCalculator(dayScore);
+  const playedToday = useSelector(getPlayedToday);
+  const today = useSelector(getToday);
+  let scoreSum = scoreCalculator(today.dayScore);
 
   return (
     <Header full>

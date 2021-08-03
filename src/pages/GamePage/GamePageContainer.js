@@ -20,7 +20,7 @@ const GamePageContainer = () => {
   }, [apiData]);
 
   useEffect(() => {
-    dispatch({ type: 'plantsSet', payload: randomApiData });
+    dispatch({ type: 'game/plantsSet', payload: randomApiData });
   }, [randomApiData]);
 
   return (
@@ -32,7 +32,7 @@ const GamePageContainer = () => {
         {!isLoading && randomApiData && <GameBoard plants={randomApiData} />}
       </Body>
       <Footer>
-        <RouteButton route="followup" dispatchType="gamePlayed">
+        <RouteButton route="followup" dispatchType="game/gamePlayed">
           I'm Done
         </RouteButton>
       </Footer>

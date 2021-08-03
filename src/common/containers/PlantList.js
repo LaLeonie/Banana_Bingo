@@ -4,6 +4,7 @@ import testImage from './../../logo.svg'; //test image
 
 import { useSelector } from 'react-redux';
 import { PlantItem } from '../components';
+import { getToday } from '../../store/user';
 
 const PlantListFlex = styled.ul`
   display: flex;
@@ -13,11 +14,11 @@ const PlantListFlex = styled.ul`
 `;
 
 const PlantList = () => {
-  const todaysPlants = useSelector((state) => state.user.today.dailyPlants);
+  const today = useSelector(getToday);
 
   return (
     <PlantListFlex>
-      {todaysPlants.map((el) => (
+      {today.dailyPlants.map((el) => (
         <PlantItem
           key={el.name}
           name={el.name}

@@ -2,14 +2,14 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 
 import RouteButton from '../../common/containers/RouteButton';
-
 import { Body, Footer } from '../../common/components';
 import NavBar from './../../common/containers/NavBar';
 import { scoreCalculator } from '../../utils';
+import { getToday } from '../../store/user';
 
 const ResultPageContainer = () => {
-  const dayScore = useSelector((state) => state.userData.today.dayScore);
-  let scoreSum = scoreCalculator(dayScore);
+  const today = useSelector(getToday);
+  let scoreSum = scoreCalculator(today.dayScore);
 
   return (
     <>
