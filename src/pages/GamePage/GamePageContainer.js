@@ -21,7 +21,6 @@ const GamePageContainer = () => {
 
   useEffect(() => {
     dispatch({ type: 'plantsSet', payload: randomApiData });
-    console.log({ randomApiData });
   }, [randomApiData]);
 
   return (

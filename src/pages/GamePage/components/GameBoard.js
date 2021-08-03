@@ -20,12 +20,9 @@ const GameItem = styled.li`
   border-radius: 4px;
 `;
 
-function handleItemClick(e) {
-  console.log(e.target.parentNode);
-}
+function handleItemClick(e) {}
 
 const GameBoard = ({ plants }) => {
-  console.log(plants);
   return (
     <Board>
       {plants.map((el) => (

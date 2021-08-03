@@ -6,20 +6,16 @@ const initialState = {
 export function gameReducer(state = initialState, action) {
   switch (action.type) {
     case 'gamePlayed':
+      console.log('game is played');
       return {
         ...state,
-        game: {
-          ...state.game,
-          playedToday: true,
-        },
+        playedToday: true,
       };
     case 'plantsSet':
       return {
         ...state,
-        game: {
-          ...state.game,
-          apiPlants: action.payload,
-        },
+
+        apiPlants: action.payload,
       };
     default:
       return state;
