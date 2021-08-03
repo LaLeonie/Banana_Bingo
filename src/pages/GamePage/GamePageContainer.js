@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { changePlants } from '../../store/game';
+import { changeGameStatus } from '../../store/game';
 import { useFetch } from '../../hooks/useFetch';
 import { useDispatch } from 'react-redux';
 import RouteButton from '../../common/containers/RouteButton';
@@ -20,7 +22,7 @@ const GamePageContainer = () => {
   }, [apiData]);
 
   useEffect(() => {
-    dispatch({ type: 'game/plantsSet', payload: randomApiData });
+    dispatch(changePlants(randomApiData));
   }, [randomApiData]);
 
   return (
@@ -32,7 +34,7 @@ const GamePageContainer = () => {
         {!isLoading && randomApiData && <GameBoard plants={randomApiData} />}
       </Body>
       <Footer>
-        <RouteButton route="followup" dispatchType="game/gamePlayed">
+        <RouteButton route="followup" actionCreator={changeGameStatus}>
           I'm Done
         </RouteButton>
       </Footer>
