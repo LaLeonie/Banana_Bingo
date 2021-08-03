@@ -18,4 +18,4 @@ const initialState = {
   },
 };
 
-function userReducer(state = initialState, action) {}
+export function userReducer(state = initialState, action) {}

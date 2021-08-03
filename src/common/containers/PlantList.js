@@ -13,7 +13,7 @@ const PlantListFlex = styled.ul`
 `;
 
 const PlantList = () => {
-  const todaysPlants = useSelector((state) => state.userData.today.dailyPlants);
+  const todaysPlants = useSelector((state) => state.user.today.dailyPlants);
 
   return (
     <PlantListFlex>

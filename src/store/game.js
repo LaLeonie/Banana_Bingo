@@ -3,21 +3,21 @@ const initialState = {
   apiPlants: [],
 };
 
-function gameReducer(state = initialState, action) {
+export function gameReducer(state = initialState, action) {
   switch (action.type) {
     case 'gamePlayed':
       return {
         ...state,
-        gameData: {
-          ...state.gameData,
+        game: {
+          ...state.game,
           playedToday: true,
         },
       };
     case 'plantsSet':
       return {
         ...state,
-        gameData: {
-          ...state.gameData,
+        game: {
+          ...state.game,
           apiPlants: action.payload,
         },
       };

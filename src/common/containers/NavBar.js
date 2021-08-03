@@ -7,8 +7,8 @@ import { scoreCalculator } from '../../utils';
 import RouteButton from './RouteButton';
 
 const NavBar = () => {
-  const playedToday = useSelector((state) => state.gameData.playedToday);
-  const dayScore = useSelector((state) => state.userData.today.dayScore);
+  const playedToday = useSelector((state) => state.game.playedToday);
+  const dayScore = useSelector((state) => state.user.today.dayScore);
   let scoreSum = scoreCalculator(dayScore);
 
   return (

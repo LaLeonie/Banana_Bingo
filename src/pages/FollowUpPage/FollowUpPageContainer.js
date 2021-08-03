@@ -21,7 +21,7 @@ const loseMessage = (
 );
 
 const FollowUpPageContainer = () => {
-  const gameResult = useSelector((state) => state.userData.today.victory);
+  const gameResult = useSelector((state) => state.user.today.victory);
 
   return (
     <>
