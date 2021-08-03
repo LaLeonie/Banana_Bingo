@@ -37,7 +37,6 @@ function reducer(state = initialState, action) {
         },
       };
     case 'plantsSet':
-      console.log('plants are set');
       return {
         ...state,
         gameData: {
