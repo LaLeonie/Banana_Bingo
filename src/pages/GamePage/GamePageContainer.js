@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { changePlants } from '../../store/game';
 import { changeGameStatus } from '../../store/game';
-import { useFetch } from '../../hooks/useFetch';
 import { useDispatch } from 'react-redux';
 import RouteButton from '../../common/containers/RouteButton';
 import GameBoard from './components/GameBoard';
 import { Body, Footer } from '../../common/components';
 import NavBar from '../../common/containers/NavBar';
 
-const GamePageContainer = () => {
+const GamePageContainer = ({ isLoading, serverError, apiData }) => {
   const dispatch = useDispatch();
-  const { isLoading, serverError, apiData } = useFetch('');
+
   const [randomApiData, setRandomApiData] = useState(null);
 
   useEffect(() => {
