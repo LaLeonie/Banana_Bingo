@@ -26,7 +26,6 @@ const GameBoard = ({ plants }) => {
   const dispatch = useDispatch();
   const displayedPlants = useSelector(getApiPlants);
   const today = useSelector(getToday);
-  console.log(displayedPlants);
 
   function handleItemClick(e) {
     const plantName = e.target.alt;
@@ -37,7 +36,6 @@ const GameBoard = ({ plants }) => {
     );
     selectedPlant.position = positionCalculator(index);
 
-    //add item to dailyPlants
     dispatch(selectPlant(selectedPlant));
 
     console.log(today.dailyPlants);
