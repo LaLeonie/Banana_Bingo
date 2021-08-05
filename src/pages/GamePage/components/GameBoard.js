@@ -42,7 +42,7 @@ const GameBoard = ({ plants }) => {
     selectedPlant.position = positionCalculator(index);
 
     dispatch(selectPlant(selectedPlant));
-
+    console.log(today.dailyPlants);
     e.target.classList.toggle('selected');
     //add class to item
   }

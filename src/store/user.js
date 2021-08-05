@@ -16,6 +16,20 @@ const initialState = {
 export function userReducer(state = initialState, action) {
   switch (action.type) {
     case PLANT_SELECTED:
+      const plantName = action.payload.fields.Name;
+      console.log(state.today.dailyPlants);
+      if (state.today.dailyPlants.some((e) => e.fields.Name === plantName)) {
+        return {
+          ...state,
+          today: {
+            ...state.today,
+            dailyPlants: state.today.dailyPlants.filter(
+              (e) => e.fields.Name !== plantName
+            ),
+          },
+        };
+      }
+
       return {
         ...state,
         today: {
