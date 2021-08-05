@@ -33,13 +33,15 @@ const GameBoard = ({ plants }) => {
 
   function handleItemClick(e) {
     const plantName = e.target.alt;
-    const index = e.target.parentNode.id;
-    const selectedPlant = displayedPlants.find(
-      (plant) => plant.fields.Name === plantName
-    );
-    selectedPlant.position = positionCalculator(index);
-    dispatch(selectPlant(selectedPlant));
-    e.target.classList.toggle('selected');
+    if (plantName) {
+      const index = e.target.parentNode.id;
+      const selectedPlant = displayedPlants.find(
+        (plant) => plant.fields.Name === plantName
+      );
+      selectedPlant.position = positionCalculator(index);
+      dispatch(selectPlant(selectedPlant));
+      e.target.classList.toggle('selected');
+    }
   }
   return (
     <Board>
