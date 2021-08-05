@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { changePlants } from '../../store/game';
 import { changeGameStatus } from '../../store/game';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import RouteButton from '../../common/containers/RouteButton';
 import GameBoard from './components/GameBoard';
 import { Body, Footer } from '../../common/components';
 import NavBar from '../../common/containers/NavBar';
+import { getToday } from '../../store/user';
 
 const GamePageContainer = ({ isLoading, serverError, apiData }) => {
   const dispatch = useDispatch();
-
+  const today = useSelector(getToday);
+  const selectedPlants = today.dailyPlants;
   const [randomApiData, setRandomApiData] = useState(null);
 
   useEffect(() => {
@@ -23,6 +25,12 @@ const GamePageContainer = ({ isLoading, serverError, apiData }) => {
   useEffect(() => {
     dispatch(changePlants(randomApiData));
   }, [randomApiData]);
+
+  useEffect(() => {
+    if (selectedPlants.length >= 5) {
+      console.log('more than 5 plants');
+    }
+  }, [selectedPlants]);
 
   return (
     <>

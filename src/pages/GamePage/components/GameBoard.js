@@ -30,21 +30,16 @@ const GameItem = styled.li`
 const GameBoard = ({ plants }) => {
   const dispatch = useDispatch();
   const displayedPlants = useSelector(getApiPlants);
-  const today = useSelector(getToday);
 
   function handleItemClick(e) {
     const plantName = e.target.alt;
     const index = e.target.parentNode.id;
-
     const selectedPlant = displayedPlants.find(
       (plant) => plant.fields.Name === plantName
     );
     selectedPlant.position = positionCalculator(index);
-
     dispatch(selectPlant(selectedPlant));
-    console.log(today.dailyPlants);
     e.target.classList.toggle('selected');
-    //add class to item
   }
   return (
     <Board>
