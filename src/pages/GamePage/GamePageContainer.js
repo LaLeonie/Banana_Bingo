@@ -6,7 +6,7 @@ import RouteButton from '../../common/containers/RouteButton';
 import GameBoard from './components/GameBoard';
 import { Body, Footer } from '../../common/components';
 import NavBar from '../../common/containers/NavBar';
-import { getToday } from '../../store/user';
+import { getToday, addVictory } from '../../store/user';
 import { bingoLogic } from '../../utils';
 
 const GamePageContainer = ({ isLoading, serverError, apiData }) => {
@@ -31,7 +31,7 @@ const GamePageContainer = ({ isLoading, serverError, apiData }) => {
     if (selectedPlants.length >= 5) {
       const positions = selectedPlants.map((el) => el.position);
       if (bingoLogic(positions)) {
-        console.log('you win');
+        dispatch(addVictory());
       }
     }
   }, [selectedPlants]);

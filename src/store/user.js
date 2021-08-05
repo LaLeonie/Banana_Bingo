@@ -15,9 +15,17 @@ const initialState = {
 
 export function userReducer(state = initialState, action) {
   switch (action.type) {
+    case ADD_VICTORY:
+      return {
+        ...state,
+        today: {
+          ...state.today,
+          victory: true,
+        },
+      };
     case PLANT_SELECTED:
       const plantName = action.payload.fields.Name;
-      console.log(state.today.dailyPlants);
+
       if (state.today.dailyPlants.some((e) => e.fields.Name === plantName)) {
         return {
           ...state,
@@ -29,7 +37,6 @@ export function userReducer(state = initialState, action) {
           },
         };
       }
-
       return {
         ...state,
         today: {
@@ -37,6 +44,7 @@ export function userReducer(state = initialState, action) {
           dailyPlants: [...state.today.dailyPlants, action.payload],
         },
       };
+
     default:
       return state;
   }
@@ -48,9 +56,14 @@ export const getToday = (state) => state.user.today;
 export const getThisWeek = (state) => state.user.thisWeek;
 
 //action types
+export const ADD_VICTORY = 'user/addVictory';
 export const PLANT_SELECTED = 'user/plantSelected';
 
 //action creators
+export const addVictory = () => ({
+  type: ADD_VICTORY,
+});
+
 export const selectPlant = (plant) => ({
   type: PLANT_SELECTED,
   payload: plant,
