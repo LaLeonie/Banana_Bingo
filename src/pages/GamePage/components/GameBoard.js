@@ -20,6 +20,11 @@ const GameItem = styled.li`
   list-style-type: none;
   border: solid 1px lightgrey;
   border-radius: 4px;
+
+  .selected {
+    background-color: lightskyblue;
+    border: 2px solid slateblue;
+  }
 `;
 
 const GameBoard = ({ plants }) => {
@@ -38,7 +43,7 @@ const GameBoard = ({ plants }) => {
 
     dispatch(selectPlant(selectedPlant));
 
-    console.log(today.dailyPlants);
+    e.target.classList.toggle('selected');
     //add class to item
   }
   return (
