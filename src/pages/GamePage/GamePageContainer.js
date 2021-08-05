@@ -7,6 +7,7 @@ import GameBoard from './components/GameBoard';
 import { Body, Footer } from '../../common/components';
 import NavBar from '../../common/containers/NavBar';
 import { getToday } from '../../store/user';
+import { bingoLogic } from '../../utils';
 
 const GamePageContainer = ({ isLoading, serverError, apiData }) => {
   const dispatch = useDispatch();
@@ -28,7 +29,10 @@ const GamePageContainer = ({ isLoading, serverError, apiData }) => {
 
   useEffect(() => {
     if (selectedPlants.length >= 5) {
-      console.log('more than 5 plants');
+      const positions = selectedPlants.map((el) => el.position);
+      if (bingoLogic(positions)) {
+        console.log('you win');
+      }
     }
   }, [selectedPlants]);
 
