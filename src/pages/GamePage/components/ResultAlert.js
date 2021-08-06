@@ -3,21 +3,23 @@ import styled from 'styled-components';
 
 const ResultCard = styled.div`
   position: absolute;
-  border-radius: 200px;
-  background-color: lightgreen;
-  border: solid darkgreen 10px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-200px, -50%);
-  width: 400px;
-  height: 240px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
 
   div {
-    align-items: center;
+    border-radius: 200px;
+    background-color: lightgreen;
+    border: solid darkgreen 10px;
     display: flex;
+    align-items: center;
     flex-direction: column;
-    height: 100%;
     justify-content: center;
+    height: 240px;
+    width: 400px;
   }
 
   h1 {
