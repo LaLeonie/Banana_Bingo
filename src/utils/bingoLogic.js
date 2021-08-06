@@ -1,13 +1,25 @@
 function bingoLogic(array) {
   const posArr = array.reduce((a, v) => a.concat(v.split('')), []);
   const uniques = [...new Set(posArr)];
+  console.log(posArr, uniques);
 
-  //check for diagnoal bingo
-  if (uniques.length === posArr.length) {
+  //check for diagnoal Bingo
+  const topToBottom = ['A1', 'B2', 'C3', 'D4', 'E5'];
+  const bottomToTop = ['E1', 'D2', 'C3', 'B4', 'A5'];
+
+  const checkArrayContains = (positions, diagonal) => {
+    return diagonal.every((elem) => positions.includes(elem));
+  };
+
+  if (checkArrayContains(array, topToBottom)) {
     return true;
   }
 
-  //check for horizontal or vertical bingo
+  if (checkArrayContains(array, bottomToTop)) {
+    return true;
+  }
+
+  //check for horizontal or vertical Bingo
   const countOccurrences = (arr, val) =>
     arr.reduce((a, v) => (v === val ? a + 1 : a), 0);
 
