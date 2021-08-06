@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
 import { changePlants } from '../../store/game';
 import { changeGameStatus } from '../../store/game';
-import { useDispatch, useSelector } from 'react-redux';
-import RouteButton from '../../common/containers/RouteButton';
-import GameBoard from './components/GameBoard';
-import { Body, Footer } from '../../common/components';
-import NavBar from '../../common/containers/NavBar';
-import { getToday, addVictory } from '../../store/user';
 import { bingoLogic } from '../../utils';
+import { getToday, addVictory } from '../../store/user';
+
+import { Body, Footer } from '../../common/components';
+import GameBoard from './components/GameBoard';
+import NavBar from '../../common/containers/NavBar';
+import ResultAlert from './components/ResultAlert';
+import RouteButton from '../../common/containers/RouteButton';
 
 const GamePageContainer = ({ isLoading, serverError, apiData }) => {
   const dispatch = useDispatch();
@@ -41,6 +44,7 @@ const GamePageContainer = ({ isLoading, serverError, apiData }) => {
     <>
       <NavBar full />
       <Body>
+        <ResultAlert />
         {isLoading && <span>Loading ... </span>}
         {!isLoading && serverError && <span>Error in Fetching data ... </span>}
         {!isLoading && randomApiData && <GameBoard plants={randomApiData} />}

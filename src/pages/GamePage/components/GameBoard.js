@@ -8,6 +8,7 @@ import styled from 'styled-components';
 
 const Board = styled.ul`
   display: grid;
+  padding: 0;
   grid-template-columns: repeat(5, 100px);
   grid-template-rows: repeat(5, 100px);
 `;
