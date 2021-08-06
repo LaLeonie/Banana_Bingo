@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
+import { addOriginalScore, addVictory, getToday } from '../../store/user';
 import { changePlants } from '../../store/game';
 import { changeGameStatus } from '../../store/game';
 import { bingoLogic } from '../../utils';
-import { getToday, addVictory } from '../../store/user';
 import { getPlayedToday } from '../../store/game';
 
 import { Body, Footer } from '../../common/components';
@@ -38,6 +38,7 @@ const GamePageContainer = ({ isLoading, serverError, apiData }) => {
       const positions = selectedPlants.map((el) => el.position);
       if (bingoLogic(positions)) {
         dispatch(addVictory());
+        dispatch(addOriginalScore(10));
         changeGameStatus(true);
         setPlayedToday(true);
       }

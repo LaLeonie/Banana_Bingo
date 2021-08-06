@@ -17,11 +17,12 @@ const initialState = {
 export function userReducer(state = initialState, action) {
   switch (action.type) {
     case ADD_ORIGINAL_SCORE:
+      console.log('adding score');
       return {
         ...state,
         today: {
           ...state.today,
-          dayScore: {},
+          originalScore: state.today.originalScore + action.payload,
         },
       };
     case ADD_VICTORY:
