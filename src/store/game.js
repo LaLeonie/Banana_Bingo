@@ -8,7 +8,7 @@ export function gameReducer(state = initialState, action) {
     case GAME_PLAYED:
       return {
         ...state,
-        playedToday: true,
+        playedToday: action.payload,
       };
     case PLANTS_SET:
       return {
@@ -29,8 +29,9 @@ export const GAME_PLAYED = 'game/gamePlayed';
 export const PLANTS_SET = 'game/plantsSet';
 
 //action creators
-export const changeGameStatus = () => ({
+export const changeGameStatus = (bool) => ({
   type: GAME_PLAYED,
+  payload: bool,
 });
 
 export const changePlants = (plants) => ({

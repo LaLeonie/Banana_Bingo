@@ -14,7 +14,7 @@ const RouteButton = ({ route, back, children, actionCreator }) => {
   function handleClick() {
     history.push(`/${route}`);
     if (actionCreator) {
-      dispatch(actionCreator());
+      dispatch(actionCreator(true));
     }
   }
 

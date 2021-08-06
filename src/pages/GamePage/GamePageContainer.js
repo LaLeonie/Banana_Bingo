@@ -32,6 +32,7 @@ const GamePageContainer = ({ isLoading, serverError, apiData }) => {
       const positions = selectedPlants.map((el) => el.position);
       if (bingoLogic(positions)) {
         dispatch(addVictory());
+        changeGameStatus(true);
       }
     }
   }, [selectedPlants]);
