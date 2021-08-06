@@ -8,8 +8,8 @@ import { getToday } from '../../store/user';
 import RouteButton from './RouteButton';
 
 const NavBar = ({ gameStatus }) => {
-  const today = useSelector(getToday);
-  let scoreSum = scoreCalculator(today.dayScore);
+  const { originalScore, extraScore } = useSelector(getToday);
+  let scoreSum = scoreCalculator({ originalScore, extraScore });
 
   return (
     <Header full>

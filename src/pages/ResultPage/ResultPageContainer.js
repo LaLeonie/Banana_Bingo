@@ -8,8 +8,8 @@ import { scoreCalculator } from '../../utils';
 import { getToday } from '../../store/user';
 
 const ResultPageContainer = () => {
-  const today = useSelector(getToday);
-  let scoreSum = scoreCalculator(today.dayScore);
+  const { originalScore, extraScore } = useSelector(getToday);
+  let scoreSum = scoreCalculator({ originalScore, extraScore });
 
   return (
     <>
