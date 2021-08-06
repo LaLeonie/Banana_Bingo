@@ -5,6 +5,7 @@ import { changePlants } from '../../store/game';
 import { changeGameStatus } from '../../store/game';
 import { bingoLogic } from '../../utils';
 import { getToday, addVictory } from '../../store/user';
+import { getPlayedToday } from '../../store/game';
 
 import { Body, Footer } from '../../common/components';
 import GameBoard from './components/GameBoard';
@@ -15,8 +16,10 @@ import RouteButton from '../../common/containers/RouteButton';
 const GamePageContainer = ({ isLoading, serverError, apiData }) => {
   const dispatch = useDispatch();
   const today = useSelector(getToday);
+
   const selectedPlants = today.dailyPlants;
   const [randomApiData, setRandomApiData] = useState(null);
+  const [playedToday, setPlayedToday] = useState(useSelector(getPlayedToday));
 
   useEffect(() => {
     if (apiData) {
@@ -36,6 +39,7 @@ const GamePageContainer = ({ isLoading, serverError, apiData }) => {
       if (bingoLogic(positions)) {
         dispatch(addVictory());
         changeGameStatus(true);
+        setPlayedToday(true);
       }
     }
   }, [selectedPlants]);
@@ -44,7 +48,7 @@ const GamePageContainer = ({ isLoading, serverError, apiData }) => {
     <>
       <NavBar full />
       <Body>
-        <ResultAlert />
+        {playedToday && <ResultAlert />}
         {isLoading && <span>Loading ... </span>}
         {!isLoading && serverError && <span>Error in Fetching data ... </span>}
         {!isLoading && randomApiData && <GameBoard plants={randomApiData} />}
