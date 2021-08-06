@@ -1,7 +1,7 @@
 const initialState = {
   totalScore: 0,
   today: {
-    originalScore: 0,
+    initialScore: 0,
     extraScore: 0,
     dailyPlants: [],
     day: '',
@@ -16,13 +16,13 @@ const initialState = {
 
 export function userReducer(state = initialState, action) {
   switch (action.type) {
-    case ADD_ORIGINAL_SCORE:
+    case ADD_INITIAL_SCORE:
       console.log('adding score');
       return {
         ...state,
         today: {
           ...state.today,
-          originalScore: state.today.originalScore + action.payload,
+          initialScore: state.today.initialScore + action.payload,
         },
       };
     case ADD_VICTORY:
@@ -66,13 +66,13 @@ export const getToday = (state) => state.user.today;
 export const getThisWeek = (state) => state.user.thisWeek;
 
 //action types
-export const ADD_ORIGINAL_SCORE = 'user/addOriginalScore';
+export const ADD_INITIAL_SCORE = 'user/addInitialScore';
 export const ADD_VICTORY = 'user/addVictory';
 export const PLANT_SELECTED = 'user/plantSelected';
 
 //action creators
-export const addOriginalScore = (score) => ({
-  type: ADD_ORIGINAL_SCORE,
+export const addInitialScore = (score) => ({
+  type: ADD_INITIAL_SCORE,
   payload: score,
 });
 

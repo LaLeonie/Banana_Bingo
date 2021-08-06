@@ -3,9 +3,9 @@ import styled from 'styled-components';
 
 const ResultCard = styled.div`
   position: absolute;
-  border-radius: 80px;
-  background-color: orange;
-  border: solid orangered 10px;
+  border-radius: 200px;
+  background-color: lightgreen;
+  border: solid darkgreen 10px;
   top: 50%;
   left: 50%;
   transform: translate(-200px, -50%);
