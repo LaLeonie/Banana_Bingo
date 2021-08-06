@@ -9,7 +9,7 @@ import { Form, Col, Row, Button } from 'react-bootstrap';
 const TrackerPageContainer = () => {
   return (
     <>
-      <NavBar score />
+      <NavBar score gameStatus="true" />
       <Body flex>
         <div>
           <h1>More Plants for you</h1>

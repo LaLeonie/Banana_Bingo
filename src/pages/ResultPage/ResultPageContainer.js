@@ -13,7 +13,7 @@ const ResultPageContainer = () => {
 
   return (
     <>
-      <NavBar score />
+      <NavBar score gameStatus="true" />
       <Body>
         <h1>Well Done!</h1>
         <p>Today you gained {scoreSum} stars. </p>

@@ -26,7 +26,7 @@ const FollowUpPageContainer = () => {
 
   return (
     <>
-      <NavBar />
+      <NavBar gameStatus="true" />
       <Body>
         {today.victory ? victoryMessage : loseMessage}
         <PlantList />

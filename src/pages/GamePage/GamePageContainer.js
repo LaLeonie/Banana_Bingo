@@ -46,7 +46,7 @@ const GamePageContainer = ({ isLoading, serverError, apiData }) => {
 
   return (
     <>
-      <NavBar full />
+      <NavBar full gameStatus={playedToday} />
       <Body>
         {playedToday && <ResultAlert />}
         {isLoading && <span>Loading ... </span>}
