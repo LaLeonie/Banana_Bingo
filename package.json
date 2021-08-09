@@ -24,7 +24,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -58,5 +58,8 @@
   },
   "prettier": {
     "singleQuote": true
+  },
+  "devDependencies": {
+    "jest": "^27.0.6"
   }
 }
