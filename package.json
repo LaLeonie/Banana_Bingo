@@ -24,7 +24,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "test",
+    "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -60,6 +60,7 @@
     "singleQuote": true
   },
   "devDependencies": {
+    "babel-core": "^7.0.0-bridge.0",
     "jest": "^27.0.6"
   }
 }
