@@ -19,7 +19,7 @@ const PlantImage = styled(Image)`
 const PlantItem = ({ name, amount, img }) => {
   return (
     <PlantCard key={name}>
-      <PlantImage src={img} roundedCircle responsive />
+      <PlantImage src={img} roundedCircle responsive="true" />
       <h3>{name}</h3>
       <p>{amount}</p>
     </PlantCard>
