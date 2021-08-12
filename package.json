@@ -65,7 +65,9 @@
   },
   "devDependencies": {
     "babel-core": "^7.0.0-bridge.0",
-    "jest": "^27.0.6",
-    "codecov": "^3.8.3"
+    "codecov": "^3.8.3",
+    "eslint-plugin-jest-dom": "^3.9.0",
+    "eslint-plugin-testing-library": "^4.10.1",
+    "jest": "^27.0.6"
   }
 }
