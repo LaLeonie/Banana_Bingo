@@ -3,7 +3,7 @@ import { render, screen, fireEvent } from './test/testUtils';
 import App from './App';
 import userEvent from '@testing-library/user-event';
 
-describe('happy path functions as expected', () => {
+describe('happy path renders and functions as expected', () => {
   test('HomePage renders on starting app with header and button', () => {
     render(<App />);
     expect(
