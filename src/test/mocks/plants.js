@@ -1,6 +1,13 @@
 const plants = [
-  { name: 'apple', color: 'red' },
-  { name: 'pear', color: 'green' },
+  { fields: { Name: 'apple', Type: 'Fruit', Color: 'red' } },
+  { fields: { Name: 'apple', Type: 'Fruit', Color: 'red' } },
+  { fields: { Name: 'apple', Type: 'Fruit', Color: 'red' } },
+  { fields: { Name: 'apple', Type: 'Fruit', Color: 'red' } },
+  { fields: { Name: 'apple', Type: 'Fruit', Color: 'red' } },
+  { fields: { Name: 'apple', Type: 'Fruit', Color: 'red' } },
+  { fields: { Name: 'apple', Type: 'Fruit', Color: 'red' } },
+  { fields: { Name: 'apple', Type: 'Fruit', Color: 'red' } },
+  { fields: { Name: 'apple', Type: 'Fruit', Color: 'red' } },
 ];
 
 export default plants;
