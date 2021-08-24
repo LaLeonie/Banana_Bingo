@@ -2,8 +2,13 @@ import React from 'react';
 import { render, screen, fireEvent } from './test/testUtils';
 import App from './App';
 import userEvent from '@testing-library/user-event';
+import { server } from './test/mocks/server';
 
 describe('happy path renders and functions as expected', () => {
+  beforeAll(() => server.listen({ onUnhandledRequest: 'error' }));
+  afterAll(() => server.close());
+  afterEach(() => server.resetHandlers());
+
   test('HomePage renders on starting app with header and button', () => {
     render(<App />);
     expect(
