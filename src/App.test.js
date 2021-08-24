@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen, fireEvent } from './test/testUtils';
+import { render, screen, act, fireEvent, waitFor } from './test/testUtils';
 import App from './App';
 import userEvent from '@testing-library/user-event';
 import { server } from './test/mocks/server';
@@ -17,13 +17,17 @@ describe('happy path renders and functions as expected', () => {
     expect(screen.getByRole('button', { name: 'Stats' })).toBeInTheDocument();
   });
 
-  test('I can navigate to GamePage', () => {
+  test('I can navigate to GamePage & API data is loaded', async () => {
     render(<App />);
-    userEvent.click(screen.getByText(/play/i));
 
-    expect(screen.getByText(/Loading/)).toBeInTheDocument();
+    act(() => {
+      userEvent.click(screen.getByText(/play/i));
+    });
     expect(
       screen.getByRole('button', { name: "I'm Done" })
     ).toBeInTheDocument();
+    expect(screen.getByText(/Loading/)).toBeInTheDocument();
+
+    await waitFor(() => expect(screen.getAllByText('apple')).toHaveLength(9));
   });
 });

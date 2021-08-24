@@ -45,13 +45,16 @@ const GameBoard = ({ plants }) => {
     }
   }
   return (
-    <Board>
-      {plants.map((el, i) => (
-        <GameItem key={i} id={i} onClick={handleItemClick}>
-          <Image src={el.fields.Image[0].url} rounded alt={el.fields.Name} />
-        </GameItem>
-      ))}
-    </Board>
+    <>
+      <h2>Game Board</h2>
+      <Board>
+        {plants.map((el, i) => (
+          <GameItem key={i} id={i} onClick={handleItemClick}>
+            <Image src={el.fields.Image[0].url} rounded alt={el.fields.Name} />
+          </GameItem>
+        ))}
+      </Board>
+    </>
   );
 };
 
