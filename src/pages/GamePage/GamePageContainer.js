@@ -12,25 +12,17 @@ import GameBoard from './components/GameBoard';
 import NavBar from '../../common/containers/NavBar';
 import ResultAlert from './components/ResultAlert';
 import RouteButton from '../../common/containers/RouteButton';
-import { useFetch } from '../../hooks/index';
+import { useFetch, useRandom } from '../../hooks/index';
 
 const GamePageContainer = () => {
-  const { isLoading, serverError, apiData } = useFetch('');
   const dispatch = useDispatch();
   const today = useSelector(getToday);
 
-  const selectedPlants = today.dailyPlants;
-  const [randomApiData, setRandomApiData] = useState(null);
-  const [playedToday, setPlayedToday] = useState(useSelector(getPlayedToday));
+  const { isLoading, serverError, apiData } = useFetch('');
+  const randomApiData = useRandom(apiData);
 
-  useEffect(() => {
-    if (apiData) {
-      console.log({ apiData });
-      setRandomApiData(
-        apiData.records.sort(() => 0.5 - Math.random()).slice(0, 25)
-      );
-    }
-  }, [apiData]);
+  const selectedPlants = today.dailyPlants;
+  const [playedToday, setPlayedToday] = useState(useSelector(getPlayedToday));
 
   useEffect(() => {
     dispatch(changePlants(randomApiData));

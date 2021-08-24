@@ -27,7 +27,7 @@ describe('happy path renders and functions as expected', () => {
       screen.getByRole('button', { name: "I'm Done" })
     ).toBeInTheDocument();
     expect(screen.getByText(/Loading/)).toBeInTheDocument();
-
+    screen.debug();
     await waitFor(() => expect(screen.getAllByText('apple')).toHaveLength(9));
   });
 });
