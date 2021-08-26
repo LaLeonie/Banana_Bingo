@@ -41,6 +41,7 @@ const GameBoard = ({ plants }) => {
       );
       selectedPlant.position = positionCalculator(index);
       dispatch(selectPlant(selectedPlant));
+      console.log(e.target);
       e.target.classList.toggle('selected');
     }
   }
@@ -49,7 +50,7 @@ const GameBoard = ({ plants }) => {
       <h2>Game Board</h2>
       <Board>
         {plants.map((el, i) => (
-          <GameItem key={i} id={i} onClick={handleItemClick}>
+          <GameItem key={i} id={i} data-testid={i} onClick={handleItemClick}>
             <Image src={el.fields.Image[0].url} rounded alt={el.fields.Name} />
           </GameItem>
         ))}

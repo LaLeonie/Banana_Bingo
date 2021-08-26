@@ -1,7 +1,15 @@
 import React from 'react';
-import { render, screen, act, fireEvent, waitFor } from './test/testUtils';
+import {
+  render,
+  screen,
+  act,
+  fireEvent,
+  waitFor,
+  cleanup,
+} from './test/testUtils';
 import App from './App';
 import userEvent from '@testing-library/user-event';
+import { within } from '@testing-library/dom';
 
 jest.mock('./hooks/useRandom');
 
@@ -36,7 +44,7 @@ jest.mock('./hooks/useRandom', () => ({
   useRandom: () => mockPlants,
 }));
 
-describe('happy path renders and functions as expected', () => {
+describe('Testing the happy path', () => {
   test('HomePage renders on starting app with header and button', () => {
     render(<App />);
     expect(
@@ -45,14 +53,25 @@ describe('happy path renders and functions as expected', () => {
     expect(screen.getByRole('button', { name: 'Stats' })).toBeInTheDocument();
   });
 
-  test('I can navigate to GamePage & plants are populated on screen', async () => {
+  test('GamePage renders as expected & WIN alert displays when user selects bingo', async () => {
     render(<App />);
     userEvent.click(screen.getByText(/play/i));
 
     expect(
       screen.getByRole('button', { name: "I'm Done" })
     ).toBeInTheDocument();
+
     const items = await screen.findAllByAltText(/apple/);
     expect(items).toHaveLength(25);
+
+    const firstPlant = await screen.findByTestId(0);
+    const firstImage = within(firstPlant).getByRole('img');
+    userEvent.click(firstImage);
+    expect(firstImage).toHaveClass('selected');
+
+    userEvent.click(within(await screen.findByTestId(1)).getByRole('img'));
+    userEvent.click(within(await screen.findByTestId(2)).getByRole('img'));
+    userEvent.click(within(await screen.findByTestId(3)).getByRole('img'));
+    userEvent.click(within(await screen.findByTestId(4)).getByRole('img'));
   });
 });

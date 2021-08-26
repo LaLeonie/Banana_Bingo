@@ -12,14 +12,18 @@ const ResultCard = styled.div`
 
   div {
     border-radius: 200px;
-    background-color: lightgreen;
-    border: solid darkgreen 10px;
+
     display: flex;
     align-items: center;
     flex-direction: column;
     justify-content: center;
     height: 240px;
     width: 400px;
+  }
+
+  .result--win {
+    background-color: lightgreen;
+    border: solid darkgreen 10px;
   }
 
   h1 {
@@ -34,7 +38,7 @@ const ResultCard = styled.div`
 const ResultAlert = () => {
   return (
     <ResultCard>
-      <div>
+      <div role="dialog" className="result--win">
         <h1>BINGO</h1>
         <p>You win 10 stars</p>
       </div>
