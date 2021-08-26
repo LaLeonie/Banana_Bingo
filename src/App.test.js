@@ -5,122 +5,28 @@ import userEvent from '@testing-library/user-event';
 
 jest.mock('./hooks/useRandom');
 
-const mockPlants = [
-  {
-    fields: {
-      Name: 'apple',
-      Type: 'Fruit',
-      Color: 'red',
-      Image: [
-        {
-          url: 'https://dl.airtable.com/.attachments/4bb8bc6a4b9e91b9cb80c5886570ca40/1f290e67/Icon_Browncapboletus.png',
-        },
-      ],
-    },
-  },
-  {
-    fields: {
-      Name: 'apple',
-      Type: 'Fruit',
-      Color: 'red',
-      Image: [
-        {
-          url: 'https://dl.airtable.com/.attachments/4bb8bc6a4b9e91b9cb80c5886570ca40/1f290e67/Icon_Browncapboletus.png',
-        },
-      ],
-    },
-  },
-  {
-    fields: {
-      Name: 'apple',
-      Type: 'Fruit',
-      Color: 'red',
-      Image: [
-        {
-          url: 'https://dl.airtable.com/.attachments/4bb8bc6a4b9e91b9cb80c5886570ca40/1f290e67/Icon_Browncapboletus.png',
-        },
-      ],
-    },
-  },
-  {
-    fields: {
-      Name: 'apple',
-      Type: 'Fruit',
-      Color: 'red',
-      Image: [
-        {
-          url: 'https://dl.airtable.com/.attachments/4bb8bc6a4b9e91b9cb80c5886570ca40/1f290e67/Icon_Browncapboletus.png',
-        },
-      ],
-    },
-  },
-  {
-    fields: {
-      Name: 'apple',
-      Type: 'Fruit',
-      Color: 'red',
-      Image: [
-        {
-          url: 'https://dl.airtable.com/.attachments/4bb8bc6a4b9e91b9cb80c5886570ca40/1f290e67/Icon_Browncapboletus.png',
-        },
-      ],
-    },
-  },
-  {
-    fields: {
-      Name: 'apple',
-      Type: 'Fruit',
-      Color: 'red',
-      Image: [
-        {
-          url: 'https://dl.airtable.com/.attachments/4bb8bc6a4b9e91b9cb80c5886570ca40/1f290e67/Icon_Browncapboletus.png',
-        },
-      ],
-    },
-  },
-  {
-    fields: {
-      Name: 'apple',
-      Type: 'Fruit',
-      Color: 'red',
-      Image: [
-        {
-          url: 'https://dl.airtable.com/.attachments/4bb8bc6a4b9e91b9cb80c5886570ca40/1f290e67/Icon_Browncapboletus.png',
-        },
-      ],
-    },
-  },
-  {
-    fields: {
-      Name: 'apple',
-      Type: 'Fruit',
-      Color: 'red',
-      Image: [
-        {
-          url: 'https://dl.airtable.com/.attachments/4bb8bc6a4b9e91b9cb80c5886570ca40/1f290e67/Icon_Browncapboletus.png',
-        },
-      ],
-    },
-  },
-  {
-    fields: {
-      Name: 'apple',
-      Type: 'Fruit',
-      Color: 'red',
-      Image: [
-        {
-          url: 'https://dl.airtable.com/.attachments/4bb8bc6a4b9e91b9cb80c5886570ca40/1f290e67/Icon_Browncapboletus.png',
-        },
-      ],
-    },
-  },
-];
+const mockPlants = [];
 
 const mockApi = {
   isLoading: false,
   serverError: false,
   apiData: mockPlants,
 };
+
+for (let i = 0; i < 25; i++) {
+  mockPlants.push({
+    fields: {
+      Name: 'apple',
+      Type: 'Fruit',
+      Color: 'red',
+      Image: [
+        {
+          url: 'https://dl.airtable.com/.attachments/4bb8bc6a4b9e91b9cb80c5886570ca40/1f290e67/Icon_Browncapboletus.png',
+        },
+      ],
+    },
+  });
+}
 
 jest.mock('./hooks/useFetch', () => ({
   useFetch: () => mockApi,
@@ -147,6 +53,6 @@ describe('happy path renders and functions as expected', () => {
       screen.getByRole('button', { name: "I'm Done" })
     ).toBeInTheDocument();
     const items = await screen.findAllByAltText(/apple/);
-    expect(items).toHaveLength(9);
+    expect(items).toHaveLength(25);
   });
 });
