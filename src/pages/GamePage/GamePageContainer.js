@@ -18,7 +18,10 @@ const GamePageContainer = () => {
   const dispatch = useDispatch();
   const today = useSelector(getToday);
 
+  //get data from API
   const { isLoading, serverError, apiData } = useFetch('');
+
+  //select 25 random plants from APII data
   const randomApiData = useRandom(apiData);
 
   const selectedPlants = today.dailyPlants;
