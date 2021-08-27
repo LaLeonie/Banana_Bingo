@@ -47,7 +47,6 @@ const GameBoard = ({ plants }) => {
   }
   return (
     <>
-      <h2>Game Board</h2>
       <Board>
         {plants.map((el, i) => (
           <GameItem key={i} id={i} data-testid={i} onClick={handleItemClick}>

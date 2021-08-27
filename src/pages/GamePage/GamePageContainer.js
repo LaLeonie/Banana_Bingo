@@ -8,6 +8,7 @@ import { bingoLogic } from '../../utils';
 import { getPlayedToday } from '../../store/game';
 
 import { Body, Footer } from '../../common/components';
+import CountDown from './components/CountDown';
 import GameBoard from './components/GameBoard';
 import NavBar from '../../common/containers/NavBar';
 import ResultAlert from './components/ResultAlert';
@@ -15,6 +16,7 @@ import RouteButton from '../../common/containers/RouteButton';
 import { useFetch, useRandom } from '../../hooks/index';
 
 const GamePageContainer = () => {
+  const [countdownDisplay, setCountdownDisplay] = useState(true);
   const dispatch = useDispatch();
   const today = useSelector(getToday);
 
@@ -47,6 +49,9 @@ const GamePageContainer = () => {
     <>
       <NavBar full gameStatus={playedToday} />
       <Body>
+        {countdownDisplay && (
+          <CountDown setCountdownDisplay={setCountdownDisplay} />
+        )}
         {playedToday && <ResultAlert />}
         {isLoading && <span>Loading ... </span>}
         {!isLoading && serverError && <span>Error in Fetching data ... </span>}
