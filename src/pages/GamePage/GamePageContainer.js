@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import styled from 'styled-components';
 
 import { addInitialScore, addVictory, getToday } from '../../store/user';
 import { changePlants } from '../../store/game';
@@ -14,6 +15,11 @@ import NavBar from '../../common/containers/NavBar';
 import ResultAlert from './components/ResultAlert';
 import RouteButton from '../../common/containers/RouteButton';
 import { useFetch, useRandom } from '../../hooks/index';
+
+const GameDisplay = styled.div`
+  min-height: 550px;
+  margin: auto;
+`;
 
 const GamePageContainer = () => {
   const [countdownDisplay, setCountdownDisplay] = useState(true);
@@ -53,9 +59,13 @@ const GamePageContainer = () => {
           <CountDown setCountdownDisplay={setCountdownDisplay} />
         )}
         {playedToday && <ResultAlert />}
-        {isLoading && <span>Loading ... </span>}
-        {!isLoading && serverError && <span>Error in Fetching data ... </span>}
-        {!isLoading && randomApiData && <GameBoard plants={randomApiData} />}
+        <GameDisplay>
+          {isLoading && <span>Loading ... </span>}
+          {!isLoading && serverError && (
+            <span>Error in Fetching data ... </span>
+          )}
+          {!isLoading && randomApiData && <GameBoard plants={randomApiData} />}
+        </GameDisplay>
       </Body>
       <Footer>
         <RouteButton route="followup" actionCreator={changeGameStatus}>

@@ -13,13 +13,13 @@ const CountdownDialog = styled.div`
   .countdown-card {
     background-color: lightgrey;
     border: solid grey 10px;
-    border-radius: 50%;
+    border-radius: 4px;
     display: flex;
     align-items: center;
     flex-direction: column;
     justify-content: center;
-    height: 400px;
-    width: 400px;
+    height: 550px;
+    width: 550px;
     font-size: 12rem;
   }
 `;
