@@ -41,7 +41,7 @@ const GameBoard = ({ plants }) => {
       );
       selectedPlant.position = positionCalculator(index);
       dispatch(selectPlant(selectedPlant));
-      console.log(e.target);
+
       e.target.classList.toggle('selected');
     }
   }

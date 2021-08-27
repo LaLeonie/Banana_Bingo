@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 
 import { rootReducer } from '../store/store';
 
-const render = (
+const customRender = (
   ui,
   {
     initialState,
@@ -21,4 +21,4 @@ const render = (
 
 export * from '@testing-library/react';
 
-export { render };
+export { customRender };

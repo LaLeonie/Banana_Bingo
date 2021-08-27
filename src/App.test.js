@@ -1,15 +1,13 @@
 import React from 'react';
-import {
-  render,
-  screen,
-  act,
-  fireEvent,
-  waitFor,
-  cleanup,
-} from './test/testUtils';
+import { customRender } from './test/testUtils';
+import { render, screen, act, sleep } from '@testing-library/react';
+import { Provider } from 'react-redux';
+import { store } from './store/store';
 import App from './App';
 import userEvent from '@testing-library/user-event';
 import { within } from '@testing-library/dom';
+import { useSelector } from 'react-redux';
+import { getToday } from './store/user';
 
 jest.mock('./hooks/useRandom');
 
@@ -46,7 +44,7 @@ jest.mock('./hooks/useRandom', () => ({
 
 describe('Testing the happy path', () => {
   test('HomePage renders on starting app with header and button', () => {
-    render(<App />);
+    customRender(<App />);
     expect(
       screen.getByRole('heading', { name: 'Banana Bingo' })
     ).toBeInTheDocument();
@@ -54,7 +52,11 @@ describe('Testing the happy path', () => {
   });
 
   test('GamePage renders as expected & WIN alert displays when user selects bingo', async () => {
-    render(<App />);
+    render(
+      <Provider store={store}>
+        <App />
+      </Provider>
+    );
     userEvent.click(screen.getByText(/play/i));
 
     expect(
