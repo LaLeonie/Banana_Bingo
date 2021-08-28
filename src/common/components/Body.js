@@ -7,6 +7,9 @@ const Body = styled.section`
   margin: auto;
   text-align: center;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
 
 export default Body;

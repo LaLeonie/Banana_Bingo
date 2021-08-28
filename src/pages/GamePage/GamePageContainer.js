@@ -49,6 +49,7 @@ const GamePageContainer = () => {
         dispatch(addInitialScore(10));
         changeGameStatus(true);
         setPlayedToday(true);
+        setTimerdisplay(false);
       }
     }
   }, [selectedPlants]);
