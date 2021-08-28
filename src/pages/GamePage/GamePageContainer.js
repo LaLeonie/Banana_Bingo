@@ -24,6 +24,7 @@ const GameDisplay = styled.div`
 
 const GamePageContainer = () => {
   const [countdownDisplay, setCountdownDisplay] = useState(true);
+  const [timerDisplay, setTimerdisplay] = useState(true);
   const dispatch = useDispatch();
   const today = useSelector(getToday);
 
@@ -59,7 +60,7 @@ const GamePageContainer = () => {
         {countdownDisplay ? (
           <CountDown setCountdownDisplay={setCountdownDisplay} />
         ) : (
-          <Timer />
+          timerDisplay && <Timer setTimerdisplay={setTimerdisplay} />
         )}
         {playedToday && <ResultAlert />}
         <GameDisplay>

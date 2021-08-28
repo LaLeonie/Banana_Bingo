@@ -7,7 +7,7 @@ export const useCountdown = (time) => {
   useEffect(() => {
     const timerId = setInterval(() => {
       setCount(count--);
-    }, 500);
+    }, 1000);
     if (count === 0) {
       setDisplay(false);
     }
