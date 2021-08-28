@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import { useCountdown } from '../../../hooks/useCountdown';
 
 const CountdownDialog = styled.div`
   position: absolute;
@@ -25,17 +26,11 @@ const CountdownDialog = styled.div`
 `;
 
 const CountDown = ({ setCountdownDisplay }) => {
-  let [count, setCount] = useState(3);
+  let { display, count } = useCountdown(3);
 
   useEffect(() => {
-    const timerId = setInterval(() => {
-      setCount(count--);
-    }, 500);
-    if (count === 0) {
-      setCountdownDisplay(false);
-    }
-    return () => clearInterval(timerId);
-  });
+    setCountdownDisplay(display);
+  }, [setCountdownDisplay, display]);
 
   return (
     <CountdownDialog>
