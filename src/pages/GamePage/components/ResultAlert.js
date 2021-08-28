@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 
@@ -44,6 +45,7 @@ const ResultDialog = styled.div`
 `;
 
 const ResultAlert = () => {
+  const history = useHistory();
   const { victory } = useSelector(getToday);
   const cardClass = victory ? `result-card--win` : `result-card--loose`;
   const message = victory ? (
@@ -58,7 +60,11 @@ const ResultAlert = () => {
     </>
   );
 
-  console.log(victory);
+  useEffect(() => {
+    setTimeout(() => {
+      history.push('/followup');
+    }, 2000);
+  }, []);
 
   return (
     <ResultDialog role="dialog">

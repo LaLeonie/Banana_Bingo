@@ -22,13 +22,13 @@ const loseMessage = (
 );
 
 const FollowUpPageContainer = () => {
-  const today = useSelector(getToday);
+  const { victory } = useSelector(getToday);
 
   return (
     <>
       <NavBar gameStatus="true" />
       <Body>
-        {today.victory ? victoryMessage : loseMessage}
+        {victory ? victoryMessage : loseMessage}
         <PlantList />
         <p>Have you eaten any more plants?</p>
       </Body>
