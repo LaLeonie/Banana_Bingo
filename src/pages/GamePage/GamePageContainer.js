@@ -14,6 +14,7 @@ import GameBoard from './components/GameBoard';
 import NavBar from '../../common/containers/NavBar';
 import ResultAlert from './components/ResultAlert';
 import RouteButton from '../../common/containers/RouteButton';
+import Timer from './components/Timer';
 import { useFetch, useRandom } from '../../hooks/index';
 
 const GameDisplay = styled.div`
@@ -55,8 +56,10 @@ const GamePageContainer = () => {
     <>
       <NavBar full gameStatus={playedToday} />
       <Body>
-        {countdownDisplay && (
+        {countdownDisplay ? (
           <CountDown setCountdownDisplay={setCountdownDisplay} />
+        ) : (
+          <Timer />
         )}
         {playedToday && <ResultAlert />}
         <GameDisplay>
