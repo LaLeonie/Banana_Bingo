@@ -23,9 +23,11 @@ const GameDisplay = styled.div`
 `;
 
 const GamePageContainer = () => {
+  const dispatch = useDispatch();
   const [countdownDisplay, setCountdownDisplay] = useState(true);
   const [timerDisplay, setTimerdisplay] = useState(true);
-  const dispatch = useDispatch();
+  const [playedToday, setPlayedToday] = useState(useSelector(getPlayedToday));
+
   const today = useSelector(getToday);
 
   //get data from API
@@ -35,7 +37,6 @@ const GamePageContainer = () => {
   const randomApiData = useRandom(apiData);
 
   const selectedPlants = today.dailyPlants;
-  const [playedToday, setPlayedToday] = useState(useSelector(getPlayedToday));
 
   useEffect(() => {
     dispatch(changePlants(randomApiData));
@@ -47,7 +48,7 @@ const GamePageContainer = () => {
       if (bingoLogic(positions)) {
         dispatch(addVictory());
         dispatch(addInitialScore(10));
-        changeGameStatus(true);
+        dispatch(changeGameStatus(true));
         setPlayedToday(true);
         setTimerdisplay(false);
       }
@@ -61,7 +62,12 @@ const GamePageContainer = () => {
         {countdownDisplay ? (
           <CountDown setCountdownDisplay={setCountdownDisplay} />
         ) : (
-          timerDisplay && <Timer setTimerdisplay={setTimerdisplay} />
+          timerDisplay && (
+            <Timer
+              setTimerdisplay={setTimerdisplay}
+              setPlayedToday={setPlayedToday}
+            />
+          )
         )}
         {playedToday && <ResultAlert />}
         <GameDisplay>

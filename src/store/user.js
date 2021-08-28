@@ -17,7 +17,6 @@ const initialState = {
 export function userReducer(state = initialState, action) {
   switch (action.type) {
     case ADD_INITIAL_SCORE:
-      console.log('adding score');
       return {
         ...state,
         today: {

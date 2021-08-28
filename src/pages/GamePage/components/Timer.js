@@ -1,6 +1,9 @@
 import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { useCountdown } from '../../../hooks/useCountdown';
 import styled from 'styled-components';
+
+import { changeGameStatus } from '../../../store/game';
 
 const TimerDialog = styled.div`
   position: absolute;
@@ -17,12 +20,20 @@ const TimerDialog = styled.div`
   align-items: center;
 `;
 
-const Timer = ({ setTimerdisplay }) => {
+const Timer = ({ setTimerdisplay, setPlayedToday }) => {
   const { display, count } = useCountdown(30);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     setTimerdisplay(display);
   }, [setTimerdisplay, display]);
+
+  useEffect(() => {
+    if (count === 0) {
+      setPlayedToday(true);
+      dispatch(changeGameStatus(true));
+    }
+  }, [count]);
 
   return <TimerDialog role="dialog">{count}</TimerDialog>;
 };
