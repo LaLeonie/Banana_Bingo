@@ -1,5 +1,8 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import styled from 'styled-components';
+
+import { getToday } from '../../../store/user';
 
 const ResultDialog = styled.div`
   position: absolute;
@@ -16,13 +19,19 @@ const ResultDialog = styled.div`
     align-items: center;
     flex-direction: column;
     justify-content: center;
-    height: 240px;
-    width: 400px;
+    padding: 0 40px;
+    height: 260px;
+    min-width: 400px;
   }
 
   .result-card--win {
     background-color: lightgreen;
     border: solid darkgreen 10px;
+  }
+
+  .result-card--loose {
+    background-color: salmon;
+    border: solid red 10px;
   }
 
   h1 {
@@ -35,12 +44,25 @@ const ResultDialog = styled.div`
 `;
 
 const ResultAlert = () => {
+  const { victory } = useSelector(getToday);
+  const cardClass = victory ? `result-card--win` : `result-card--loose`;
+  const message = victory ? (
+    <>
+      <h1>BINGO</h1>
+      <p>You win 10 stars</p>
+    </>
+  ) : (
+    <>
+      <h1>TIME'S UP</h1>
+      <p>No Bingo today</p>
+    </>
+  );
+
+  console.log(victory);
+
   return (
     <ResultDialog role="dialog">
-      <div className="result-card result-card--win">
-        <h1>BINGO</h1>
-        <p>You win 10 stars</p>
-      </div>
+      <div className={`result-card ${cardClass}  `}>{message}</div>
     </ResultDialog>
   );
 };
