@@ -21,7 +21,7 @@ const TimerDialog = styled.div`
 `;
 
 const Timer = ({ setTimerdisplay, setPlayedToday }) => {
-  const { display, count } = useCountdown(10);
+  const { display, count } = useCountdown(10, 1000);
   const dispatch = useDispatch();
 
   useEffect(() => {

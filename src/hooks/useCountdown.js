@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react';
 
-export const useCountdown = (time) => {
+export const useCountdown = (time, interval) => {
   let [count, setCount] = useState(time);
   let [display, setDisplay] = useState(true);
 
   useEffect(() => {
     const timerId = setInterval(() => {
       setCount(count--);
-    }, 1000);
+    }, interval);
     if (count === 0) {
       setDisplay(false);
     }

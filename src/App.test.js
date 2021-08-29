@@ -1,6 +1,6 @@
 import React from 'react';
 import { customRender } from './test/testUtils';
-import { render, screen, act, sleep } from '@testing-library/react';
+import { render, screen, waitFor, act } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import { store } from './store/store';
 import App from './App';
@@ -8,8 +8,6 @@ import userEvent from '@testing-library/user-event';
 import { within } from '@testing-library/dom';
 import { useSelector } from 'react-redux';
 import { getToday } from './store/user';
-
-jest.mock('./hooks/useRandom');
 
 const mockPlants = [];
 
@@ -62,6 +60,9 @@ describe('Testing the happy path', () => {
     expect(
       screen.getByRole('button', { name: "I'm Done" })
     ).toBeInTheDocument();
+
+    const countdown = await screen.findByTestId('countdown-dialog');
+    expect(countdown).toBeInTheDocument();
 
     const items = await screen.findAllByAltText(/apple/);
     expect(items).toHaveLength(25);

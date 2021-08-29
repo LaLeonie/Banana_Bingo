@@ -26,7 +26,7 @@ const CountdownDialog = styled.div`
 
 const CountDown = ({ setCountdownDisplay }) => {
   let [displayText, setDisplayText] = useState('');
-  let { display, count } = useCountdown(3);
+  let { display, count } = useCountdown(3, 500);
 
   useEffect(() => {
     setCountdownDisplay(display);
@@ -49,7 +49,7 @@ const CountDown = ({ setCountdownDisplay }) => {
   }, [setDisplayText, count]);
 
   return (
-    <CountdownDialog>
+    <CountdownDialog role="dialog" data-testid="countdown-dialog">
       <div className="countdown-card">{displayText}</div>
     </CountdownDialog>
   );
