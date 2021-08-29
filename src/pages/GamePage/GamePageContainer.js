@@ -29,6 +29,7 @@ const GamePageContainer = () => {
   const [playedToday, setPlayedToday] = useState(useSelector(getPlayedToday));
 
   const today = useSelector(getToday);
+  const gamePlayedToday = useSelector(getPlayedToday);
 
   //get data from API
   const { isLoading, serverError, apiData } = useFetch('');
@@ -48,7 +49,6 @@ const GamePageContainer = () => {
       if (bingoLogic(positions)) {
         dispatch(addVictory());
         dispatch(addInitialScore(10));
-        dispatch(changeGameStatus(true));
         setPlayedToday(true);
         setTimerdisplay(false);
       }
@@ -59,24 +59,32 @@ const GamePageContainer = () => {
     <>
       <NavBar full gameStatus={playedToday} />
       <Body>
-        {countdownDisplay ? (
-          <CountDown setCountdownDisplay={setCountdownDisplay} />
+        {gamePlayedToday ? (
+          <p>You have played already today</p>
         ) : (
-          timerDisplay && (
-            <Timer
-              setTimerdisplay={setTimerdisplay}
-              setPlayedToday={setPlayedToday}
-            />
-          )
+          <>
+            {countdownDisplay ? (
+              <CountDown setCountdownDisplay={setCountdownDisplay} />
+            ) : (
+              timerDisplay && (
+                <Timer
+                  setTimerdisplay={setTimerdisplay}
+                  setPlayedToday={setPlayedToday}
+                />
+              )
+            )}
+            {playedToday && <ResultAlert />}
+            <GameDisplay>
+              {isLoading && <span>Loading ... </span>}
+              {!isLoading && serverError && (
+                <span>Error in Fetching data ... </span>
+              )}
+              {!isLoading && randomApiData && (
+                <GameBoard plants={randomApiData} />
+              )}
+            </GameDisplay>
+          </>
         )}
-        {playedToday && <ResultAlert />}
-        <GameDisplay>
-          {isLoading && <span>Loading ... </span>}
-          {!isLoading && serverError && (
-            <span>Error in Fetching data ... </span>
-          )}
-          {!isLoading && randomApiData && <GameBoard plants={randomApiData} />}
-        </GameDisplay>
       </Body>
       <Footer>
         <RouteButton route="followup" actionCreator={changeGameStatus}>

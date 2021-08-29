@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import styled from 'styled-components';
 
+import { changeGameStatus } from '../../../store/game';
 import { getToday } from '../../../store/user';
 
 const ResultDialog = styled.div`
@@ -46,6 +47,7 @@ const ResultDialog = styled.div`
 
 const ResultAlert = () => {
   const history = useHistory();
+  const dispatch = useDispatch();
   const { victory } = useSelector(getToday);
   const cardClass = victory ? `result-card--win` : `result-card--loose`;
   const message = victory ? (
@@ -63,6 +65,7 @@ const ResultAlert = () => {
   useEffect(() => {
     setTimeout(() => {
       history.push('/followup');
+      dispatch(changeGameStatus(true));
     }, 2000);
   }, []);
 
