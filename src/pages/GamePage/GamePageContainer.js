@@ -1,26 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import styled from 'styled-components';
 
-import { addInitialScore, addVictory, getToday } from '../../store/user';
-import { changePlants } from '../../store/game';
+import { addInitialScore, addVictory } from '../../store/user';
 import { changeGameStatus } from '../../store/game';
 import { bingoLogic } from '../../utils';
 import { getPlayedToday } from '../../store/game';
 
 import { Body, Footer } from '../../common/components';
 import CountDown from './components/CountDown';
-import GameBoard from './components/GameBoard';
+import GameDisplay from './components/GameDisplay';
 import NavBar from '../../common/containers/NavBar';
 import ResultAlert from './components/ResultAlert';
 import RouteButton from '../../common/containers/RouteButton';
 import Timer from './components/Timer';
-import { useFetch, useRandom } from '../../hooks/index';
-
-const GameDisplay = styled.div`
-  min-height: 550px;
-  margin: auto;
-`;
 
 const GamePageContainer = () => {
   const dispatch = useDispatch();
@@ -29,18 +21,7 @@ const GamePageContainer = () => {
   const [playedToday, setPlayedToday] = useState(useSelector(getPlayedToday));
   const [selection, setSelection] = useState([]);
 
-  const today = useSelector(getToday);
   const gamePlayedToday = useSelector(getPlayedToday);
-
-  //get data from API
-  const { isLoading, serverError, apiData } = useFetch('');
-
-  //select 25 random plants from APII data
-  const randomApiData = useRandom(apiData);
-
-  useEffect(() => {
-    dispatch(changePlants(randomApiData));
-  }, [randomApiData]);
 
   useEffect(() => {
     if (selection.length >= 5) {
@@ -73,19 +54,7 @@ const GamePageContainer = () => {
               )
             )}
             {playedToday && <ResultAlert selection={selection} />}
-            <GameDisplay>
-              {isLoading && <span>Loading ... </span>}
-              {!isLoading && serverError && (
-                <span>Error in Fetching data ... </span>
-              )}
-              {!isLoading && randomApiData && (
-                <GameBoard
-                  randomApiData={randomApiData}
-                  selection={selection}
-                  setSelection={setSelection}
-                />
-              )}
-            </GameDisplay>
+            <GameDisplay selection={selection} setSelection={setSelection} />
           </>
         )}
       </Body>

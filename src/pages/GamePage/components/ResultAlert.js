@@ -68,7 +68,7 @@ const ResultAlert = ({ selection }) => {
       history.push('/followup');
       dispatch(changeGameStatus(true));
       dispatch(addSelectedPlans(selection));
-    }, 2000);
+    }, 3000);
   }, []);
 
   return (
