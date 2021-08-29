@@ -40,7 +40,12 @@ const GamePageContainer = () => {
       <NavBar full gameStatus={playedToday} />
       <Body>
         {gamePlayedToday ? (
-          <p>You have played already today</p>
+          <>
+            <p>You have played already today</p>
+            <RouteButton route="dashboard" actionCreator={changeGameStatus}>
+              Check out dashboard
+            </RouteButton>
+          </>
         ) : (
           <>
             {countdownDisplay ? (
