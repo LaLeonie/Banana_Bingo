@@ -1,7 +1,6 @@
 import React from 'react';
-import { selectPlant, getToday } from '../../../store/user';
 import { getApiPlants } from '../../../store/game';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { positionCalculator } from '../../../utils';
 import { Image } from 'react-bootstrap';
 import styled from 'styled-components';
@@ -28,27 +27,32 @@ const GameItem = styled.li`
   }
 `;
 
-const GameBoard = ({ plants }) => {
-  const dispatch = useDispatch();
+const GameBoard = ({ randomApiData, selection, setSelection }) => {
   const displayedPlants = useSelector(getApiPlants);
 
   function handleItemClick(e) {
     const plantName = e.target.alt;
     if (plantName) {
-      const index = e.target.parentNode.id;
-      const selectedPlant = displayedPlants.find(
-        (plant) => plant.fields.Name === plantName
-      );
-      selectedPlant.position = positionCalculator(index);
-      dispatch(selectPlant(selectedPlant));
-
-      e.target.classList.toggle('selected');
+      if (e.target.classList.contains('selected')) {
+        setSelection(
+          selection.filter((plant) => plant.fields.Name !== plantName)
+        );
+        e.target.classList.remove('selected');
+      } else {
+        const index = e.target.parentNode.id;
+        const selectedPlant = displayedPlants.find(
+          (plant) => plant.fields.Name === plantName
+        );
+        selectedPlant.position = positionCalculator(index);
+        setSelection([...selection, selectedPlant]);
+        e.target.classList.toggle('selected');
+      }
     }
   }
   return (
     <>
       <Board>
-        {plants.map((el, i) => (
+        {randomApiData.map((el, i) => (
           <GameItem key={i} id={i} data-testid={i} onClick={handleItemClick}>
             <Image src={el.fields.Image[0].url} rounded alt={el.fields.Name} />
           </GameItem>

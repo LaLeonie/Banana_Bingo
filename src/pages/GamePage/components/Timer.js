@@ -31,7 +31,6 @@ const Timer = ({ setTimerdisplay, setPlayedToday }) => {
   useEffect(() => {
     if (count === 0) {
       setPlayedToday(true);
-      dispatch(changeGameStatus(true));
     }
   }, [count]);
 

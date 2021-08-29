@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import styled from 'styled-components';
 
+import { addSelectedPlans } from '../../../store/user';
 import { changeGameStatus } from '../../../store/game';
 import { getToday } from '../../../store/user';
 
@@ -45,7 +46,7 @@ const ResultDialog = styled.div`
   }
 `;
 
-const ResultAlert = () => {
+const ResultAlert = ({ selection }) => {
   const history = useHistory();
   const dispatch = useDispatch();
   const { victory } = useSelector(getToday);
@@ -66,12 +67,13 @@ const ResultAlert = () => {
     setTimeout(() => {
       history.push('/followup');
       dispatch(changeGameStatus(true));
+      dispatch(addSelectedPlans(selection));
     }, 2000);
   }, []);
 
   return (
     <ResultDialog role="dialog">
-      <div className={`result-card ${cardClass}  `}>{message}</div>
+      <div className={`result-card ${cardClass}`}>{message}</div>
     </ResultDialog>
   );
 };

@@ -1,7 +1,6 @@
 function bingoLogic(array) {
   const posArr = array.reduce((a, v) => a.concat(v.split('')), []);
   const uniques = [...new Set(posArr)];
-  console.log(posArr, uniques);
 
   //check for diagnoal Bingo
   const topToBottom = ['A1', 'B2', 'C3', 'D4', 'E5'];

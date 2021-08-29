@@ -27,6 +27,7 @@ const GamePageContainer = () => {
   const [countdownDisplay, setCountdownDisplay] = useState(true);
   const [timerDisplay, setTimerdisplay] = useState(true);
   const [playedToday, setPlayedToday] = useState(useSelector(getPlayedToday));
+  const [selection, setSelection] = useState([]);
 
   const today = useSelector(getToday);
   const gamePlayedToday = useSelector(getPlayedToday);
@@ -37,15 +38,13 @@ const GamePageContainer = () => {
   //select 25 random plants from APII data
   const randomApiData = useRandom(apiData);
 
-  const selectedPlants = today.dailyPlants;
-
   useEffect(() => {
     dispatch(changePlants(randomApiData));
   }, [randomApiData]);
 
   useEffect(() => {
-    if (selectedPlants.length >= 5) {
-      const positions = selectedPlants.map((el) => el.position);
+    if (selection.length >= 5) {
+      const positions = selection.map((el) => el.position);
       if (bingoLogic(positions)) {
         dispatch(addVictory());
         dispatch(addInitialScore(10));
@@ -53,7 +52,7 @@ const GamePageContainer = () => {
         setTimerdisplay(false);
       }
     }
-  }, [selectedPlants]);
+  }, [selection]);
 
   return (
     <>
@@ -73,14 +72,18 @@ const GamePageContainer = () => {
                 />
               )
             )}
-            {playedToday && <ResultAlert />}
+            {playedToday && <ResultAlert selection={selection} />}
             <GameDisplay>
               {isLoading && <span>Loading ... </span>}
               {!isLoading && serverError && (
                 <span>Error in Fetching data ... </span>
               )}
               {!isLoading && randomApiData && (
-                <GameBoard plants={randomApiData} />
+                <GameBoard
+                  randomApiData={randomApiData}
+                  selection={selection}
+                  setSelection={setSelection}
+                />
               )}
             </GameDisplay>
           </>
