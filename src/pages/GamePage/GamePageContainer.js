@@ -1,12 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
-import { addInitialScore, addVictory } from '../../store/user';
-import { changeGameStatus } from '../../store/game';
+import {
+  addInitialScore,
+  addVictory,
+  addSelectedPlans,
+} from '../../store/user';
+import { changeGameStatus, getPlayedToday } from '../../store/game';
 import { bingoLogic } from '../../utils';
-import { getPlayedToday } from '../../store/game';
 
 import { Body, Footer } from '../../common/components';
+import { LinkButton } from '../../common/components/Buttons';
 import CountDown from './components/CountDown';
 import GameDisplay from './components/GameDisplay';
 import NavBar from '../../common/containers/NavBar';
@@ -16,12 +21,20 @@ import Timer from './components/Timer';
 
 const GamePageContainer = () => {
   const dispatch = useDispatch();
+  const history = useHistory();
+
   const [countdownDisplay, setCountdownDisplay] = useState(true);
   const [timerDisplay, setTimerdisplay] = useState(true);
   const [playedToday, setPlayedToday] = useState(useSelector(getPlayedToday));
   const [selection, setSelection] = useState([]);
 
   const gamePlayedToday = useSelector(getPlayedToday);
+
+  const endGame = () => {
+    history.push('/followup');
+    dispatch(changeGameStatus(true));
+    dispatch(addSelectedPlans(selection));
+  };
 
   useEffect(() => {
     if (selection.length >= 5) {
@@ -58,15 +71,13 @@ const GamePageContainer = () => {
                 />
               )
             )}
-            {playedToday && <ResultAlert selection={selection} />}
+            {playedToday && <ResultAlert endGame={endGame} />}
             <GameDisplay selection={selection} setSelection={setSelection} />
           </>
         )}
       </Body>
       <Footer>
-        <RouteButton route="followup" actionCreator={changeGameStatus}>
-          I'm Done
-        </RouteButton>
+        <LinkButton onClick={endGame}>I'm Done</LinkButton>
       </Footer>
     </>
   );

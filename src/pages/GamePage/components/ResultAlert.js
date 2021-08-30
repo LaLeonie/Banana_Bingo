@@ -46,7 +46,7 @@ const ResultDialog = styled.div`
   }
 `;
 
-const ResultAlert = ({ selection }) => {
+const ResultAlert = ({ endGame }) => {
   const history = useHistory();
   const dispatch = useDispatch();
   const { victory } = useSelector(getToday);
@@ -65,9 +65,7 @@ const ResultAlert = ({ selection }) => {
 
   useEffect(() => {
     setTimeout(() => {
-      history.push('/followup');
-      dispatch(changeGameStatus(true));
-      dispatch(addSelectedPlans(selection));
+      endGame();
     }, 3000);
   }, []);
 

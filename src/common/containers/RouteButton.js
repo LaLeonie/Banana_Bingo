@@ -1,11 +1,9 @@
 import React from 'react';
 import { LinkButton } from '../components/Buttons';
 import { useHistory } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
 
-const RouteButton = ({ route, back, children, actionCreator }) => {
+const RouteButton = ({ route, back, children }) => {
   const history = useHistory();
-  const dispatch = useDispatch();
 
   function handleBack() {
     history.goBack();
@@ -13,9 +11,6 @@ const RouteButton = ({ route, back, children, actionCreator }) => {
 
   function handleClick() {
     history.push(`/${route}`);
-    if (actionCreator) {
-      dispatch(actionCreator(true));
-    }
   }
 
   return (
