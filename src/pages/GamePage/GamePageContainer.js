@@ -21,9 +21,9 @@ import { Body, Footer } from '../../common/components';
 import { LinkButton } from '../../common/components/Buttons';
 import CountDown from './components/CountDown';
 import GameDisplay from './components/GameDisplay';
+import MessageDisplay from './components/MessageDisplay';
 import NavBar from '../../common/containers/NavBar';
 import ResultAlert from './components/ResultAlert';
-import RouteButton from '../../common/containers/RouteButton';
 import Timer from './components/Timer';
 
 const GamePageContainer = () => {
@@ -93,12 +93,7 @@ const GamePageContainer = () => {
       <NavBar full gameStatus={playedToday} />
       <Body>
         {gamePlayedToday ? (
-          <>
-            <p>You have played already today</p>
-            <RouteButton route="dashboard" actionCreator={changeGameStatus}>
-              Check out dashboard
-            </RouteButton>
-          </>
+          <MessageDisplay />
         ) : (
           <>
             {countdownDisplay ? (
