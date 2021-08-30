@@ -1,9 +1,6 @@
 import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
 import { useCountdown } from '../../../hooks/useCountdown';
 import styled from 'styled-components';
-
-import { changeGameStatus } from '../../../store/game';
 
 const TimerDialog = styled.div`
   position: absolute;
@@ -22,7 +19,6 @@ const TimerDialog = styled.div`
 
 const Timer = ({ setTimerdisplay, setPlayedToday }) => {
   const { display, count } = useCountdown(10, 1000);
-  const dispatch = useDispatch();
 
   useEffect(() => {
     setTimerdisplay(display);
