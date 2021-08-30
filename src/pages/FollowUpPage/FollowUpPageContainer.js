@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import styled from 'styled-components';
 
 import { getToday } from '../../store/user';
@@ -29,6 +29,7 @@ const loseMessage = (
 );
 
 const FollowUpPageContainer = () => {
+  const dispatch = useDispatch();
   const { victory, dailyPlants } = useSelector(getToday);
 
   return (
