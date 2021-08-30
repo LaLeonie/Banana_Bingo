@@ -7,8 +7,15 @@ import {
   addVictory,
   addSelectedPlans,
 } from '../../store/user';
-import { changeGameStatus, getPlayedToday } from '../../store/game';
+import {
+  changeGameStatus,
+  changePlants,
+  getPlayedToday,
+  getApiPlants,
+} from '../../store/game';
 import { bingoLogic } from '../../utils';
+import { positionCalculator } from '../../utils';
+import { useFetch, useRandom } from '../../hooks';
 
 import { Body, Footer } from '../../common/components';
 import { LinkButton } from '../../common/components/Buttons';
@@ -29,6 +36,27 @@ const GamePageContainer = () => {
   const [selection, setSelection] = useState([]);
 
   const gamePlayedToday = useSelector(getPlayedToday);
+  const displayedPlants = useSelector(getApiPlants);
+
+  const handleItemClick = (e) => {
+    const plantName = e.target.alt;
+    if (plantName) {
+      if (e.target.classList.contains('selected')) {
+        setSelection(
+          selection.filter((plant) => plant.fields.Name !== plantName)
+        );
+        e.target.classList.remove('selected');
+      } else {
+        const index = e.target.parentNode.id;
+        const selectedPlant = displayedPlants.find(
+          (plant) => plant.fields.Name === plantName
+        );
+        selectedPlant.position = positionCalculator(index);
+        setSelection([...selection, selectedPlant]);
+        e.target.classList.toggle('selected');
+      }
+    }
+  };
 
   const endGame = () => {
     history.push('/followup');
@@ -36,6 +64,18 @@ const GamePageContainer = () => {
     dispatch(addSelectedPlans(selection));
   };
 
+  //get data from API
+  const { isLoading, serverError, apiData } = useFetch('');
+
+  //select 25 random plants from API data
+  const randomApiData = useRandom(apiData);
+
+  //update Redux store
+  useEffect(() => {
+    dispatch(changePlants(randomApiData));
+  }, [randomApiData]);
+
+  //check for bingo every time selection changes when selection >=5
   useEffect(() => {
     if (selection.length >= 5) {
       const positions = selection.map((el) => el.position);
@@ -46,7 +86,7 @@ const GamePageContainer = () => {
         setTimerdisplay(false);
       }
     }
-  }, [selection]);
+  }, [selection, dispatch]);
 
   return (
     <>
@@ -72,7 +112,14 @@ const GamePageContainer = () => {
               )
             )}
             {playedToday && <ResultAlert endGame={endGame} />}
-            <GameDisplay selection={selection} setSelection={setSelection} />
+            <GameDisplay
+              isLoading={isLoading}
+              serverError={serverError}
+              randomApiData={randomApiData}
+              selection={selection}
+              setSelection={setSelection}
+              handleItemClick={handleItemClick}
+            />
           </>
         )}
       </Body>

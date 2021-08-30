@@ -1,7 +1,4 @@
 import React from 'react';
-import { getApiPlants } from '../../../store/game';
-import { useSelector } from 'react-redux';
-import { positionCalculator } from '../../../utils';
 import { Image } from 'react-bootstrap';
 import styled from 'styled-components';
 
@@ -27,28 +24,7 @@ const GameItem = styled.li`
   }
 `;
 
-const GameBoard = ({ randomApiData, selection, setSelection }) => {
-  const displayedPlants = useSelector(getApiPlants);
-
-  function handleItemClick(e) {
-    const plantName = e.target.alt;
-    if (plantName) {
-      if (e.target.classList.contains('selected')) {
-        setSelection(
-          selection.filter((plant) => plant.fields.Name !== plantName)
-        );
-        e.target.classList.remove('selected');
-      } else {
-        const index = e.target.parentNode.id;
-        const selectedPlant = displayedPlants.find(
-          (plant) => plant.fields.Name === plantName
-        );
-        selectedPlant.position = positionCalculator(index);
-        setSelection([...selection, selectedPlant]);
-        e.target.classList.toggle('selected');
-      }
-    }
-  }
+const GameBoard = ({ randomApiData, handleItemClick }) => {
   return (
     <>
       <Board>
