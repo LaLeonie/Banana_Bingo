@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import styled from 'styled-components';
 
-import { getToday } from '../../store/user';
+import { getToday, addExtraScore } from '../../store/user';
 
 import { Footer, Body } from '../../common/components';
 import ExtraScore from './components/ExtraScore';
@@ -30,7 +30,15 @@ const loseMessage = (
 
 const FollowUpPageContainer = () => {
   const dispatch = useDispatch();
-  const { victory, dailyPlants } = useSelector(getToday);
+  const { victory, dailyPlants, extraScore } = useSelector(getToday);
+  const newScore = dailyPlants.length;
+
+  useEffect(() => {
+    if (extraScore === 0) {
+      dispatch(addExtraScore(newScore));
+    }
+    console.log('adding extra score');
+  }, [newScore]);
 
   return (
     <>
@@ -38,7 +46,7 @@ const FollowUpPageContainer = () => {
       <Body>
         {victory ? victoryMessage : loseMessage}
         <PlantList plants={dailyPlants} />
-        <ExtraScore amount={dailyPlants.length} />
+        <ExtraScore amount={newScore} />
         <FollowupQuestion>Have you eaten any more plants?</FollowupQuestion>
       </Body>
       <Footer centered>

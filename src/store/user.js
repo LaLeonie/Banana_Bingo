@@ -61,10 +61,9 @@ export const getThisWeek = (state) => state.user.thisWeek;
 
 //action types
 export const ADD_INITIAL_SCORE = 'user/addInitialScore';
-export const ADD_EXTRA_SCORE = 'user/addExtraScore'
+export const ADD_EXTRA_SCORE = 'user/addExtraScore';
 export const ADD_VICTORY = 'user/addVictory';
 export const ADD_SELECTED_PLANTS = 'user/plantSelected';
-
 
 //action creators
 export const addInitialScore = (score) => ({
@@ -72,10 +71,10 @@ export const addInitialScore = (score) => ({
   payload: score,
 });
 
-export const addExtraScore = (score) => {
-  type: ADD_EXTRA_SCORE, 
-  payload: score
-}
+export const addExtraScore = (score) => ({
+  type: ADD_EXTRA_SCORE,
+  payload: score,
+});
 
 export const addVictory = () => ({
   type: ADD_VICTORY,
