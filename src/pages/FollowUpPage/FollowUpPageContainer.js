@@ -1,12 +1,18 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import styled from 'styled-components';
 
 import { getToday } from '../../store/user';
 
 import { Footer, Body } from '../../common/components';
+import ExtraScore from './components/ExtraScore';
 import NavBar from '../../common/containers/NavBar';
 import PlantList from '../../common/components/PlantList';
 import RouteButton from './../../common/containers/RouteButton';
+
+const FollowupQuestion = styled.div`
+  margin-top: 10vh;
+`;
 
 const victoryMessage = (
   <>
@@ -31,7 +37,8 @@ const FollowUpPageContainer = () => {
       <Body>
         {victory ? victoryMessage : loseMessage}
         <PlantList plants={dailyPlants} />
-        <p>Have you eaten any more plants?</p>
+        <ExtraScore amount={dailyPlants.length} />
+        <FollowupQuestion>Have you eaten any more plants?</FollowupQuestion>
       </Body>
       <Footer centered>
         <RouteButton route="tracker">Yes, I had more</RouteButton>

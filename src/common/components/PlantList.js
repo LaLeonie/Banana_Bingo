@@ -11,7 +11,6 @@ const PlantListFlex = styled.ul`
 `;
 
 const PlantList = ({ plants }) => {
-  console.log(plants);
   return (
     <PlantListFlex>
       {plants.map((el) => (

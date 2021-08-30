@@ -13,11 +13,11 @@ const PlantCard = styled.li`
 `;
 
 const PlantImage = styled(Image)`
-  border: solid black 1px;
+  width: 80px;
+  margin: auto;
 `;
 
 const PlantItem = ({ name, image }) => {
-  console.log(image);
   return (
     <PlantCard key={name}>
       <PlantImage src={image} roundedCircle responsive="true" />
