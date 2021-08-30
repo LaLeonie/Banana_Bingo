@@ -16,12 +16,12 @@ const PlantImage = styled(Image)`
   border: solid black 1px;
 `;
 
-const PlantItem = ({ name, amount, img }) => {
+const PlantItem = ({ name, image }) => {
+  console.log(image);
   return (
     <PlantCard key={name}>
-      <PlantImage src={img} roundedCircle responsive="true" />
-      <h3>{name}</h3>
-      <p>{amount}</p>
+      <PlantImage src={image} roundedCircle responsive="true" />
+      <p>{name}</p>
     </PlantCard>
   );
 };

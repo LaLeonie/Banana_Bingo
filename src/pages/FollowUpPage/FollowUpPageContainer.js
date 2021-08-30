@@ -1,11 +1,12 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-import RouteButton from './../../common/containers/RouteButton';
+import { getToday } from '../../store/user';
+
 import { Footer, Body } from '../../common/components';
 import NavBar from '../../common/containers/NavBar';
-import PlantList from '../../common/containers/PlantList';
-import { getToday } from '../../store/user';
+import PlantList from '../../common/components/PlantList';
+import RouteButton from './../../common/containers/RouteButton';
 
 const victoryMessage = (
   <>
@@ -22,14 +23,14 @@ const loseMessage = (
 );
 
 const FollowUpPageContainer = () => {
-  const { victory } = useSelector(getToday);
+  const { victory, dailyPlants } = useSelector(getToday);
 
   return (
     <>
       <NavBar gameStatus="true" />
       <Body>
         {victory ? victoryMessage : loseMessage}
-        <PlantList />
+        <PlantList plants={dailyPlants} />
         <p>Have you eaten any more plants?</p>
       </Body>
       <Footer centered>

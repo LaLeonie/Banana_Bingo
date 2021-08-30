@@ -73,7 +73,7 @@ const GamePageContainer = () => {
   //update Redux store
   useEffect(() => {
     dispatch(changePlants(randomApiData));
-  }, [randomApiData]);
+  }, [dispatch, randomApiData]);
 
   //check for bingo every time selection changes when selection >=5
   useEffect(() => {

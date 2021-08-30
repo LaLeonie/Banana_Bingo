@@ -2,7 +2,7 @@ import React from 'react';
 import RouteButton from '../../common/containers/RouteButton';
 import { Body, Footer } from '../../common/components';
 import NavBar from '../../common/containers/NavBar';
-import PlantList from '../../common/containers/PlantList';
+import PlantList from '../../common/components/PlantList';
 
 import { Form, Col, Row, Button } from 'react-bootstrap';
 

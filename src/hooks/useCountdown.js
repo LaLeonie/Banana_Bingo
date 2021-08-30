@@ -12,7 +12,7 @@ export const useCountdown = (time, interval) => {
       setDisplay(false);
     }
     return () => clearInterval(timerId);
-  }, [count]);
+  }, [count, interval]);
 
   return { display, count };
 };
