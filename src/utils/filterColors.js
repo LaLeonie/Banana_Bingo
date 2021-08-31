@@ -1,5 +1,6 @@
 const filterColors = (array) => {
-  return new Set(array.map((el) => el.fields.Color));
+  const filteredSet = new Set(array.map((el) => el.fields.Color));
+  return Array.from(filteredSet);
 };
 
 export default filterColors;

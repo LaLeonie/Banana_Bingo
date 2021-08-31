@@ -7,6 +7,7 @@ import { useFetch } from '../../hooks';
 import { filterColors } from '../../utils';
 
 import { Body, Footer } from '../../common/components';
+import ColorFilter from './components/ColorFilter';
 import NavBar from '../../common/containers/NavBar';
 import PlantList from '../../common/components/PlantList';
 import RouteButton from '../../common/containers/RouteButton';
@@ -48,7 +49,6 @@ const TrackerPageContainer = () => {
     if (apiData) {
       setColors(filterColors(apiData.records));
     }
-    console.log(colors);
   }, [apiData]);
 
   return (
@@ -59,6 +59,7 @@ const TrackerPageContainer = () => {
           <MainContent>
             <h1>More Plants for you</h1>
             <p>Tell me what other fruit you had</p>
+            <ColorFilter colors={colors} />
           </MainContent>
           <SideBar>
             <h2>Your Plant List</h2>
