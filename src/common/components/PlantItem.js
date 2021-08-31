@@ -17,11 +17,11 @@ const PlantImage = styled(Image)`
   margin: auto;
 `;
 
-const PlantItem = ({ name, image }) => {
+const PlantItem = ({ name, image, displayName }) => {
   return (
     <PlantCard key={name}>
       <PlantImage src={image} roundedCircle responsive="true" />
-      <p>{name}</p>
+      {displayName && <p>{name}</p>}
     </PlantCard>
   );
 };
