@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 import { getToday } from '../../store/user';
 import { useFetch } from '../../hooks';
+import { filterColors } from '../../utils';
 
 import { Body, Footer } from '../../common/components';
 import NavBar from '../../common/containers/NavBar';
@@ -16,7 +17,6 @@ const TrackerWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 5px;
-  border: solid black 2px;
 `;
 
 const SideBar = styled.div`
@@ -39,12 +39,16 @@ const MainContent = styled.div`
 
 const TrackerPageContainer = () => {
   let [allPlants, setAllPlants] = useState();
+  let [colors, setColors] = useState();
   const { dailyPlants } = useSelector(getToday);
   const { apiData } = useFetch('');
 
   useEffect(() => {
     setAllPlants(apiData);
-    console.log(allPlants);
+    if (apiData) {
+      setColors(filterColors(apiData.records));
+    }
+    console.log(colors);
   }, [apiData]);
 
   return (
