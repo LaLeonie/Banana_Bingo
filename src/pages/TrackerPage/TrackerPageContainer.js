@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
 import { getToday } from '../../store/user';
@@ -10,7 +10,15 @@ import PlantList from '../../common/components/PlantList';
 import RouteButton from '../../common/containers/RouteButton';
 
 const TrackerPageContainer = () => {
+  let [allPlants, setAllPlants] = useState();
   const { dailyPlants } = useSelector(getToday);
+  const { apiData } = useFetch('');
+
+  useEffect(() => {
+    setAllPlants(apiData);
+    console.log(allPlants);
+  }, [apiData]);
+
   return (
     <>
       <NavBar score gameStatus="true" />
