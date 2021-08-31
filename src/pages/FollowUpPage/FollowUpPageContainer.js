@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import styled from 'styled-components';
 
@@ -37,7 +37,6 @@ const FollowUpPageContainer = () => {
     if (extraScore === 0) {
       dispatch(addExtraScore(newScore));
     }
-    console.log('adding extra score');
   }, [newScore]);
 
   return (
