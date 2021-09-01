@@ -39,6 +39,12 @@ const MainContent = styled.div`
   min-width: 50%;
 `;
 
+const FilterPanel = styled.div`
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-around;
+`;
+
 const TrackerPageContainer = () => {
   let [allPlants, setAllPlants] = useState();
   let [filteredPlants, setFilteredPlants] = useState([]);
@@ -67,11 +73,14 @@ const TrackerPageContainer = () => {
         <TrackerWrapper>
           <MainContent>
             <h1>Tell me what other fruit you had</h1>
-            <ColorFilter
-              filterPlantsByColor={filterPlantsByColor}
-              colors={colors}
-            />
-            <TypeSelector />
+            <FilterPanel>
+              <ColorFilter
+                filterPlantsByColor={filterPlantsByColor}
+                colors={colors}
+              />
+              <TypeSelector />
+            </FilterPanel>
+
             <PlantList displayName plants={filteredPlants} />
           </MainContent>
           <SideBar>

@@ -1,16 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const ColorFilterWrapper = styled.div`
-  max-width: 50%;
-  margin-top: 40px;
-  text-align: center;
-`;
+import { FilterWrapper } from '../../../common/components/Filter';
 
 const ColorPanel = styled.div`
   margin: 20px 0;
   display: flex;
   justify-content: space-between;
+  gap: 20px;
   flex-wrap: wrap;
 
   .Red {
@@ -52,7 +49,7 @@ const ColorItem = styled.div`
 
 const ColorFilter = ({ colors, filterPlantsByColor }) => {
   return (
-    <ColorFilterWrapper>
+    <FilterWrapper>
       <div>What color had the plant you ate today?</div>
       <ColorPanel>
         {colors.map((el) => (
@@ -63,7 +60,7 @@ const ColorFilter = ({ colors, filterPlantsByColor }) => {
           />
         ))}
       </ColorPanel>
-    </ColorFilterWrapper>
+    </FilterWrapper>
   );
 };
 
