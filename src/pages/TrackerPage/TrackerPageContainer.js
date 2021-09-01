@@ -58,6 +58,7 @@ const TrackerPageContainer = () => {
     setFilteredPlants(
       allPlants.records.filter((el) => el.fields.Color === color)
     );
+    console.log(filteredPlants);
   };
 
   const changeCheck = (type) => {
@@ -74,6 +75,16 @@ const TrackerPageContainer = () => {
       setColors(filterColors(apiData.records));
     }
   }, [apiData]);
+
+  useEffect(() => {
+    if (filteredPlants && fruitCheck && !vegCheck) {
+      setFilteredPlants((el) => el.fields.Type === 'fruit');
+    }
+
+    if (filteredPlants && !fruitCheck && vegCheck) {
+      setFilteredPlants((el) => el.fields.Type === 'veg');
+    }
+  }, [fruitCheck, vegCheck]);
 
   return (
     <>

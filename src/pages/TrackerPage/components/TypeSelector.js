@@ -11,27 +11,31 @@ const TypePanel = styled.div`
   margin: 20px 0;
 `;
 
+const Checkbox = styled(Form.Group)`
+  cursor: pointer;
+`;
+
 const TypeSelector = ({ changeCheck, vegCheck, fruitCheck }) => {
   return (
     <FilterWrapper>
       <div>What other type of plants did you eat today?</div>
       <TypePanel>
-        <Form.Group>
+        <Checkbox>
           <Form.Check
             onChange={() => changeCheck('fruit')}
             checked={fruitCheck}
             type="checkbox"
             label="Fruit"
           />
-        </Form.Group>
-        <Form.Group>
+        </Checkbox>
+        <Checkbox>
           <Form.Check
             onChange={() => changeCheck('veg')}
             checked={vegCheck}
             type="checkbox"
             label="Veg"
           />
-        </Form.Group>
+        </Checkbox>
       </TypePanel>
     </FilterWrapper>
   );
