@@ -11,20 +11,27 @@ const returnColor = (color) => {
       return 'black';
   }
 };
+const ColorPanel = styled.div`
+  display: flex;
+  max-width: 400px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+`;
 
 const ColorItem = styled.div`
-  width: 10px;
-  height: 10px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
   border: 1px solid black;
 `;
 
 const ColorFilter = ({ colors }) => {
   return (
-    <>
+    <ColorPanel>
       {colors.map((el) => (
-        <ColorItem className={el} />
+        <ColorItem key={el} className={el} />
       ))}
-    </>
+    </ColorPanel>
   );
 };
 

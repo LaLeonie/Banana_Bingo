@@ -40,7 +40,7 @@ const MainContent = styled.div`
 
 const TrackerPageContainer = () => {
   let [allPlants, setAllPlants] = useState();
-  let [colors, setColors] = useState();
+  let [colors, setColors] = useState([]);
   const { dailyPlants } = useSelector(getToday);
   const { apiData } = useFetch('');
 
@@ -48,6 +48,7 @@ const TrackerPageContainer = () => {
     setAllPlants(apiData);
     if (apiData) {
       setColors(filterColors(apiData.records));
+      console.log(colors);
     }
   }, [apiData]);
 
