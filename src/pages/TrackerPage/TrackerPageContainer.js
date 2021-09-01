@@ -11,6 +11,7 @@ import ColorFilter from './components/ColorFilter';
 import NavBar from '../../common/containers/NavBar';
 import PlantList from '../../common/components/PlantList';
 import RouteButton from '../../common/containers/RouteButton';
+import TypeSelector from './components/TypeSelector';
 
 const TrackerWrapper = styled.div`
   height: 100%;
@@ -70,6 +71,7 @@ const TrackerPageContainer = () => {
               filterPlantsByColor={filterPlantsByColor}
               colors={colors}
             />
+            <TypeSelector />
             <PlantList displayName plants={filteredPlants} />
           </MainContent>
           <SideBar>
