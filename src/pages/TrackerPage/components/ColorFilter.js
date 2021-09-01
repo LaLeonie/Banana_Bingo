@@ -1,15 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
 
+const ColorFilterWrapper = styled.div`
+  max-width: 50%;
+  margin-top: 40px;
+  text-align: center;
+`;
+
 const ColorPanel = styled.div`
+  margin: 20px 0;
   display: flex;
-  max-width: 400px;
   justify-content: space-between;
   flex-wrap: wrap;
-
-  .Black {
-    background-color: black;
-  }
 
   .Red {
     background-color: red;
@@ -23,14 +25,6 @@ const ColorPanel = styled.div`
     background-color: yellow;
   }
 
-  .White {
-    background-color: white;
-  }
-
-  .Blue {
-    background-color: blue;
-  }
-
   .Orange {
     background-color: orange;
   }
@@ -42,22 +36,34 @@ const ColorPanel = styled.div`
   .Brown {
     background-color: brown;
   }
+
+  .Blue {
+    background-color: darkblue;
+  }
 `;
 
 const ColorItem = styled.div`
-  width: 30px;
-  height: 30px;
+  cursor: pointer;
   border-radius: 50%;
   border: 1px solid black;
+  height: 30px;
+  width: 30px;
 `;
 
-const ColorFilter = ({ colors }) => {
+const ColorFilter = ({ colors, filterPlantsByColor }) => {
   return (
-    <ColorPanel>
-      {colors.map((el) => (
-        <ColorItem key={el} className={el} />
-      ))}
-    </ColorPanel>
+    <ColorFilterWrapper>
+      <div>What color had the plant you ate today?</div>
+      <ColorPanel>
+        {colors.map((el) => (
+          <ColorItem
+            onClick={() => filterPlantsByColor(el)}
+            key={el}
+            className={el}
+          />
+        ))}
+      </ColorPanel>
+    </ColorFilterWrapper>
   );
 };
 

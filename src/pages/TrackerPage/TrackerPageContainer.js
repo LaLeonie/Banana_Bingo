@@ -40,15 +40,22 @@ const MainContent = styled.div`
 
 const TrackerPageContainer = () => {
   let [allPlants, setAllPlants] = useState();
+  let [filteredPlants, setFilteredPlants] = useState([]);
   let [colors, setColors] = useState([]);
   const { dailyPlants } = useSelector(getToday);
   const { apiData } = useFetch('');
+
+  const filterPlantsByColor = (color) => {
+    console.log(allPlants);
+    setFilteredPlants(
+      allPlants.records.filter((el) => el.fields.Color === color)
+    );
+  };
 
   useEffect(() => {
     setAllPlants(apiData);
     if (apiData) {
       setColors(filterColors(apiData.records));
-      console.log(colors);
     }
   }, [apiData]);
 
@@ -58,9 +65,12 @@ const TrackerPageContainer = () => {
       <Body>
         <TrackerWrapper>
           <MainContent>
-            <h1>More Plants for you</h1>
-            <p>Tell me what other fruit you had</p>
-            <ColorFilter colors={colors} />
+            <h1>Tell me what other fruit you had</h1>
+            <ColorFilter
+              filterPlantsByColor={filterPlantsByColor}
+              colors={colors}
+            />
+            <PlantList displayName plants={filteredPlants} />
           </MainContent>
           <SideBar>
             <h2>Your Plant List</h2>
