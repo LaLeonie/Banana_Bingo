@@ -49,14 +49,23 @@ const TrackerPageContainer = () => {
   let [allPlants, setAllPlants] = useState();
   let [filteredPlants, setFilteredPlants] = useState([]);
   let [colors, setColors] = useState([]);
+  let [fruitCheck, setFruitCheck] = useState(true);
+  let [vegCheck, setVegCheck] = useState(true);
   const { dailyPlants } = useSelector(getToday);
   const { apiData } = useFetch('');
 
   const filterPlantsByColor = (color) => {
-    console.log(allPlants);
     setFilteredPlants(
       allPlants.records.filter((el) => el.fields.Color === color)
     );
+  };
+
+  const changeCheck = (type) => {
+    if (type === 'fruit') {
+      setFruitCheck(!fruitCheck);
+    } else {
+      setVegCheck(!vegCheck);
+    }
   };
 
   useEffect(() => {
@@ -78,7 +87,11 @@ const TrackerPageContainer = () => {
                 filterPlantsByColor={filterPlantsByColor}
                 colors={colors}
               />
-              <TypeSelector />
+              <TypeSelector
+                changeCheck={changeCheck}
+                vegCheck={vegCheck}
+                fruitCheck={fruitCheck}
+              />
             </FilterPanel>
 
             <PlantList displayName plants={filteredPlants} />

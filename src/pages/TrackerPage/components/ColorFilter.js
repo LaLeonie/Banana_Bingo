@@ -50,7 +50,7 @@ const ColorItem = styled.div`
 const ColorFilter = ({ colors, filterPlantsByColor }) => {
   return (
     <FilterWrapper>
-      <div>What color had the plant you ate today?</div>
+      <div>What other colors did you eat today?</div>
       <ColorPanel>
         {colors.map((el) => (
           <ColorItem

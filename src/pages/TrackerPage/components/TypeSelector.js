@@ -11,16 +11,26 @@ const TypePanel = styled.div`
   margin: 20px 0;
 `;
 
-const TypeSelector = () => {
+const TypeSelector = ({ changeCheck, vegCheck, fruitCheck }) => {
   return (
     <FilterWrapper>
-      <div>What color had the plant you ate today?</div>
+      <div>What other type of plants did you eat today?</div>
       <TypePanel>
         <Form.Group>
-          <Form.Check checked type="checkbox" label="Fruit" />
+          <Form.Check
+            onChange={() => changeCheck('fruit')}
+            checked={fruitCheck}
+            type="checkbox"
+            label="Fruit"
+          />
         </Form.Group>
         <Form.Group>
-          <Form.Check checked type="checkbox" label="Veg" />
+          <Form.Check
+            onChange={() => changeCheck('veg')}
+            checked={vegCheck}
+            type="checkbox"
+            label="Veg"
+          />
         </Form.Group>
       </TypePanel>
     </FilterWrapper>
