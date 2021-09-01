@@ -45,20 +45,25 @@ const FilterPanel = styled.div`
   justify-content: space-around;
 `;
 
+const getFilteredPlants = (plants, color, fruit, veg) =>
+  plants.filter(
+    (el) =>
+      el.fields.Color === color &&
+      ((fruit && el.fields.Type === 'Fruit') ||
+        (veg && el.fields.Type === 'Veg'))
+  );
+
 const TrackerPageContainer = () => {
-  let [allPlants, setAllPlants] = useState();
-  let [filteredPlants, setFilteredPlants] = useState([]);
+  let [allPlants, setAllPlants] = useState([]);
   let [colors, setColors] = useState([]);
+  let [color, setColor] = useState('');
   let [fruitCheck, setFruitCheck] = useState(true);
   let [vegCheck, setVegCheck] = useState(true);
   const { dailyPlants } = useSelector(getToday);
   const { apiData } = useFetch('');
 
-  const filterPlantsByColor = (color) => {
-    setFilteredPlants(
-      allPlants.records.filter((el) => el.fields.Color === color)
-    );
-    console.log(filteredPlants);
+  const filterPlantsByColor = (col) => {
+    setColor(col);
   };
 
   const changeCheck = (type) => {
@@ -70,22 +75,13 @@ const TrackerPageContainer = () => {
   };
 
   useEffect(() => {
-    setAllPlants(apiData);
     if (apiData) {
+      setAllPlants(apiData.records);
       setColors(filterColors(apiData.records));
     }
   }, [apiData]);
 
-  useEffect(() => {
-    if (filteredPlants && fruitCheck && !vegCheck) {
-      setFilteredPlants((el) => el.fields.Type === 'fruit');
-    }
-
-    if (filteredPlants && !fruitCheck && vegCheck) {
-      setFilteredPlants((el) => el.fields.Type === 'veg');
-    }
-  }, [fruitCheck, vegCheck]);
-
+  console.log({ color, fruitCheck, vegCheck, allPlants });
   return (
     <>
       <NavBar score gameStatus="true" />
@@ -105,7 +101,10 @@ const TrackerPageContainer = () => {
               />
             </FilterPanel>
 
-            <PlantList displayName plants={filteredPlants} />
+            <PlantList
+              displayName
+              plants={getFilteredPlants(allPlants, color, fruitCheck, vegCheck)}
+            />
           </MainContent>
           <SideBar>
             <h2>Your Plant List</h2>
