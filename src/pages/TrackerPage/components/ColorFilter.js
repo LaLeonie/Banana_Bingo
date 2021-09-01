@@ -1,21 +1,47 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const returnColor = (color) => {
-  switch (color) {
-    case 'Red':
-      return 'red';
-    case 'Yellow':
-      return 'yellow';
-    default:
-      return 'black';
-  }
-};
 const ColorPanel = styled.div`
   display: flex;
   max-width: 400px;
   justify-content: space-between;
   flex-wrap: wrap;
+
+  .Black {
+    background-color: black;
+  }
+
+  .Red {
+    background-color: red;
+  }
+
+  .Green {
+    background-color: green;
+  }
+
+  .Yellow {
+    background-color: yellow;
+  }
+
+  .White {
+    background-color: white;
+  }
+
+  .Blue {
+    background-color: blue;
+  }
+
+  .Orange {
+    background-color: orange;
+  }
+
+  .Purple {
+    background-color: purple;
+  }
+
+  .Brown {
+    background-color: brown;
+  }
 `;
 
 const ColorItem = styled.div`
