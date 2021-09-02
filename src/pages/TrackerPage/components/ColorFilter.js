@@ -47,17 +47,13 @@ const ColorItem = styled.div`
   width: 30px;
 `;
 
-const ColorFilter = ({ colors, filterPlantsByColor }) => {
+const ColorFilter = ({ setColor, colors }) => {
   return (
     <FilterWrapper>
       <div>What other colors did you eat today?</div>
       <ColorPanel>
         {colors.map((el) => (
-          <ColorItem
-            onClick={() => filterPlantsByColor(el)}
-            key={el}
-            className={el}
-          />
+          <ColorItem onClick={() => setColor(el)} key={el} className={el} />
         ))}
       </ColorPanel>
     </FilterWrapper>

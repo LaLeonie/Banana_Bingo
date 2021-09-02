@@ -62,10 +62,6 @@ const TrackerPageContainer = () => {
   const { dailyPlants } = useSelector(getToday);
   const { apiData } = useFetch('');
 
-  const filterPlantsByColor = (col) => {
-    setColor(col);
-  };
-
   const handlePlanItemClick = (e) => {
     console.log(e);
   };
@@ -94,10 +90,7 @@ const TrackerPageContainer = () => {
           <MainContent>
             <h1>Tell me what other fruit you had</h1>
             <FilterPanel>
-              <ColorFilter
-                filterPlantsByColor={filterPlantsByColor}
-                colors={colors}
-              />
+              <ColorFilter setColor={setColor} colors={colors} />
               <TypeSelector
                 changeCheck={changeCheck}
                 vegCheck={vegCheck}
