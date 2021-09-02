@@ -13,16 +13,18 @@ const PlantListFlex = styled.ul`
 `;
 
 const PlantList = ({ plants, displayName }) => {
+  console.log(plants);
   return (
     <PlantListFlex>
-      {plants.map((el) => (
-        <PlantItem
-          displayName={displayName}
-          key={el.id}
-          name={el.fields.Name}
-          image={el.fields.Image[0].url}
-        />
-      ))}
+      {plants &&
+        plants.map((el) => (
+          <PlantItem
+            displayName={displayName}
+            key={el.id}
+            name={el.fields.Name}
+            image={el.fields.Image[0].url}
+          />
+        ))}
     </PlantListFlex>
   );
 };

@@ -76,5 +76,8 @@ describe('Testing the happy path', () => {
     userEvent.click(within(await screen.findByTestId(2)).getByRole('img'));
     userEvent.click(within(await screen.findByTestId(3)).getByRole('img'));
     userEvent.click(within(await screen.findByTestId(4)).getByRole('img'));
+
+    const winAlert = await screen.findByText(/You win 10 stars/);
+    expect(winAlert).toBeInTheDocument();
   });
 });
