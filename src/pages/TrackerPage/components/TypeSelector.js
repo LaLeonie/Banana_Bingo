@@ -12,7 +12,9 @@ const TypePanel = styled.div`
 `;
 
 const Checkbox = styled(Form.Group)`
-  cursor: pointer;
+  input {
+    cursor: pointer;
+  }
 `;
 
 const TypeSelector = ({ changeCheck, vegCheck, fruitCheck }) => {
