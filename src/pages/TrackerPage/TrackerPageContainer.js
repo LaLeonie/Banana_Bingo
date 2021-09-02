@@ -100,7 +100,6 @@ const TrackerPageContainer = () => {
                 fruitCheck={fruitCheck}
               />
             </FilterPanel>
-
             <PlantList
               displayName
               plants={getFilteredPlants(allPlants, color, fruitCheck, vegCheck)}

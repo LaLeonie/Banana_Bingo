@@ -17,9 +17,12 @@ const PlantImage = styled(Image)`
   margin: auto;
 `;
 
-const PlantItem = ({ name, image, displayName }) => {
+const PlantItem = ({ name, image, displayName, selected }) => {
   return (
-    <PlantCard key={name}>
+    <PlantCard
+      key={name}
+      className={selected ? 'item--selected' : 'item--unselected'}
+    >
       <PlantImage src={image} roundedCircle responsive="true" />
       {displayName && <p>{name}</p>}
     </PlantCard>

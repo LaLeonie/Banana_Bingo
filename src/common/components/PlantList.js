@@ -12,13 +12,14 @@ const PlantListFlex = styled.ul`
   padding: 0;
 `;
 
-const PlantList = ({ plants, displayName }) => {
+const PlantList = ({ plants, displayName, selected }) => {
   console.log(plants);
   return (
     <PlantListFlex>
       {plants &&
         plants.map((el) => (
           <PlantItem
+            selected={selected}
             displayName={displayName}
             key={el.id}
             name={el.fields.Name}

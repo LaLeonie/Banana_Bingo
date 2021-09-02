@@ -44,7 +44,7 @@ const FollowUpPageContainer = () => {
       <NavBar gameStatus="true" />
       <Body>
         {victory ? victoryMessage : loseMessage}
-        <PlantList plants={dailyPlants} />
+        <PlantList selected plants={dailyPlants} />
         <ExtraScore amount={newScore} />
         <FollowupQuestion>Have you eaten any more plants?</FollowupQuestion>
       </Body>
