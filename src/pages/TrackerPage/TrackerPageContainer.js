@@ -66,14 +66,6 @@ const TrackerPageContainer = () => {
     console.log(e);
   };
 
-  const changeCheck = (type) => {
-    if (type === 'fruit') {
-      setFruitCheck(!fruitCheck);
-    } else {
-      setVegCheck(!vegCheck);
-    }
-  };
-
   useEffect(() => {
     if (apiData) {
       setAllPlants(apiData.records);
@@ -81,7 +73,6 @@ const TrackerPageContainer = () => {
     }
   }, [apiData]);
 
-  console.log({ color, fruitCheck, vegCheck, allPlants });
   return (
     <>
       <NavBar score gameStatus="true" />
@@ -92,7 +83,8 @@ const TrackerPageContainer = () => {
             <FilterPanel>
               <ColorFilter setColor={setColor} colors={colors} />
               <TypeSelector
-                changeCheck={changeCheck}
+                setFruitCheck={setFruitCheck}
+                setVegCheck={setVegCheck}
                 vegCheck={vegCheck}
                 fruitCheck={fruitCheck}
               />

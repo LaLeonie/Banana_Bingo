@@ -17,7 +17,15 @@ const Checkbox = styled(Form.Group)`
   }
 `;
 
-const TypeSelector = ({ changeCheck, vegCheck, fruitCheck }) => {
+const TypeSelector = ({ setFruitCheck, setVegCheck, vegCheck, fruitCheck }) => {
+  const changeCheck = (type) => {
+    if (type === 'fruit') {
+      setFruitCheck(!fruitCheck);
+    } else {
+      setVegCheck(!vegCheck);
+    }
+  };
+
   return (
     <FilterWrapper>
       <div>What other type of plants did you eat today?</div>
