@@ -10,6 +10,7 @@ const PlantCard = styled.li`
   list-style-type: none;
   padding: 0;
   margin: 0;
+  cursor: ${(props) => (props.planItemClick ? 'pointer' : 'auto')};
 `;
 
 const PlantImage = styled(Image)`
@@ -17,11 +18,12 @@ const PlantImage = styled(Image)`
   margin: auto;
 `;
 
-const PlantItem = ({ name, image, displayName, selected }) => {
+const PlantItem = ({ name, image, displayName, selected, planItemClick }) => {
   return (
     <PlantCard
       key={name}
       className={selected ? 'item--selected' : 'item--unselected'}
+      onClick={planItemClick}
     >
       <PlantImage src={image} roundedCircle responsive="true" />
       {displayName && <p>{name}</p>}
