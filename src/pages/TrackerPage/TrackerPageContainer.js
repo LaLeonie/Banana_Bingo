@@ -66,6 +66,10 @@ const TrackerPageContainer = () => {
     setColor(col);
   };
 
+  const handlePlanItemClick = (e) => {
+    console.log(e);
+  };
+
   const changeCheck = (type) => {
     if (type === 'fruit') {
       setFruitCheck(!fruitCheck);
@@ -101,6 +105,7 @@ const TrackerPageContainer = () => {
               />
             </FilterPanel>
             <PlantList
+              handlePlanItemClick={handlePlanItemClick}
               displayName
               plants={getFilteredPlants(allPlants, color, fruitCheck, vegCheck)}
             />
@@ -108,7 +113,11 @@ const TrackerPageContainer = () => {
           <SideBar>
             <h2>Your Plant List</h2>
             <div className="list">
-              <PlantList displayName plants={dailyPlants} />
+              <PlantList
+                handlePlanItemClick={handlePlanItemClick}
+                displayName
+                plants={dailyPlants}
+              />
             </div>
           </SideBar>
         </TrackerWrapper>
