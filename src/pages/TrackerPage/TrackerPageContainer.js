@@ -65,10 +65,26 @@ const TrackerPageContainer = () => {
   let [vegCheck, setVegCheck] = useState(true);
 
   const handlePlanItemClick = (e) => {
-    //if classList contains selected, remove from store
+    let node = e.target.parentNode;
+    let plantName;
+    if (e.target.nodeName === 'LI') {
+      node = e.target;
+    }
+
+    plantName = node.getAttribute('name');
+
+    if (node.classList.contains('item--selected')) {
+      setSelectedPlants(
+        selectedPlants.filter((obj) => obj.fields.Name !== plantName)
+      );
+    }
+
+    if (!node.classList.contains('item--selected')) {
+      let plantObject = allPlants.find((obj) => obj.fields.Name === plantName);
+      setSelectedPlants([...selectedPlants, plantObject]);
+    }
 
     //if classList doesn't contain selected, add to store
-    console.log(e);
   };
 
   useEffect(() => {
@@ -106,6 +122,7 @@ const TrackerPageContainer = () => {
               <PlantList
                 handlePlanItemClick={handlePlanItemClick}
                 displayName
+                selected
                 plants={selectedPlants}
               />
             </div>
