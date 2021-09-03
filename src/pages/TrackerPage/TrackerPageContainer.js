@@ -54,15 +54,20 @@ const getFilteredPlants = (plants, color, fruit, veg) =>
   );
 
 const TrackerPageContainer = () => {
-  let [allPlants, setAllPlants] = useState([]);
-  let [colors, setColors] = useState([]);
-  let [color, setColor] = useState('');
-  let [fruitCheck, setFruitCheck] = useState(true);
-  let [vegCheck, setVegCheck] = useState(true);
   const { dailyPlants } = useSelector(getToday);
   const { apiData } = useFetch('');
 
+  let [allPlants, setAllPlants] = useState([]);
+  let [colors, setColors] = useState([]);
+  let [selectedPlants, setSelectedPlants] = useState(dailyPlants);
+  let [color, setColor] = useState('');
+  let [fruitCheck, setFruitCheck] = useState(true);
+  let [vegCheck, setVegCheck] = useState(true);
+
   const handlePlanItemClick = (e) => {
+    //if classList contains selected, remove from store
+
+    //if classList doesn't contain selected, add to store
     console.log(e);
   };
 
@@ -101,7 +106,7 @@ const TrackerPageContainer = () => {
               <PlantList
                 handlePlanItemClick={handlePlanItemClick}
                 displayName
-                plants={dailyPlants}
+                plants={selectedPlants}
               />
             </div>
           </SideBar>

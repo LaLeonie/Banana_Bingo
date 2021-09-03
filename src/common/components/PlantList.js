@@ -13,7 +13,6 @@ const PlantListFlex = styled.ul`
 `;
 
 const PlantList = ({ plants, displayName, selected, handlePlanItemClick }) => {
-  console.log(plants);
   return (
     <PlantListFlex>
       {plants &&
