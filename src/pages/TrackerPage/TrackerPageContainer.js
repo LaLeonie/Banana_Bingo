@@ -45,14 +45,6 @@ const FilterPanel = styled.div`
   justify-content: space-around;
 `;
 
-const getFilteredPlants = (plants, color, fruit, veg) =>
-  plants.filter(
-    (el) =>
-      el.fields.Color === color &&
-      ((fruit && el.fields.Type === 'Fruit') ||
-        (veg && el.fields.Type === 'Veg'))
-  );
-
 const TrackerPageContainer = () => {
   const { dailyPlants } = useSelector(getToday);
   const { apiData } = useFetch('');
@@ -63,6 +55,19 @@ const TrackerPageContainer = () => {
   let [color, setColor] = useState('');
   let [fruitCheck, setFruitCheck] = useState(true);
   let [vegCheck, setVegCheck] = useState(true);
+
+  const getFilteredPlants = (plants, color, fruit, veg) => {
+    let displayPlants = plants.filter(
+      (obj) => selectedPlants.findIndex((el) => el.id === obj.id) === -1
+    );
+
+    return displayPlants.filter(
+      (el) =>
+        el.fields.Color === color &&
+        ((fruit && el.fields.Type === 'Fruit') ||
+          (veg && el.fields.Type === 'Veg'))
+    );
+  };
 
   const handlePlanItemClick = (e) => {
     let node = e.target.parentNode;
@@ -81,7 +86,9 @@ const TrackerPageContainer = () => {
 
     if (!node.classList.contains('item--selected')) {
       let plantObject = allPlants.find((obj) => obj.fields.Name === plantName);
-      setSelectedPlants([...selectedPlants, plantObject]);
+      if (!selectedPlants.find((obj) => obj.fields.Name === plantName)) {
+        setSelectedPlants([...selectedPlants, plantObject]);
+      }
     }
   };
 
