@@ -12,12 +12,19 @@ const PlantListFlex = styled.ul`
   padding: 0;
 `;
 
-const PlantList = ({ plants, displayName, selected, handlePlanItemClick }) => {
+const PlantList = ({
+  selectable,
+  plants,
+  displayName,
+  selected,
+  handlePlanItemClick,
+}) => {
   return (
     <PlantListFlex>
       {plants &&
         plants.map((el) => (
           <PlantItem
+            selectable
             handlePlanItemClick={handlePlanItemClick}
             selected={selected}
             displayName={displayName}

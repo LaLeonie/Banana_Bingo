@@ -83,8 +83,6 @@ const TrackerPageContainer = () => {
       let plantObject = allPlants.find((obj) => obj.fields.Name === plantName);
       setSelectedPlants([...selectedPlants, plantObject]);
     }
-
-    //if classList doesn't contain selected, add to store
   };
 
   useEffect(() => {
@@ -113,6 +111,7 @@ const TrackerPageContainer = () => {
             <PlantList
               handlePlanItemClick={handlePlanItemClick}
               displayName
+              selectable
               plants={getFilteredPlants(allPlants, color, fruitCheck, vegCheck)}
             />
           </MainContent>
@@ -123,6 +122,7 @@ const TrackerPageContainer = () => {
                 handlePlanItemClick={handlePlanItemClick}
                 displayName
                 selected
+                selectable
                 plants={selectedPlants}
               />
             </div>

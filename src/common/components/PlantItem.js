@@ -10,7 +10,7 @@ const PlantCard = styled.li`
   list-style-type: none;
   padding: 0;
   margin: 0;
-  cursor: ${(props) => (props.handlePlanItemClick ? 'pointer' : 'auto')};
+  cursor: ${(props) => (props.selectable ? 'pointer' : 'auto')};
 `;
 
 const PlantImage = styled(Image)`
@@ -19,6 +19,7 @@ const PlantImage = styled(Image)`
 `;
 
 const PlantItem = ({
+  selectable,
   name,
   image,
   displayName,
@@ -27,6 +28,7 @@ const PlantItem = ({
 }) => {
   return (
     <PlantCard
+      selectable
       name={name}
       key={name}
       className={selected ? 'item--selected' : 'item--unselected'}
