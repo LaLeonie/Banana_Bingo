@@ -32,6 +32,14 @@ export function userReducer(state = initialState, action) {
           extraScore: state.today.extraScore + action.payload,
         },
       };
+    case SUBTRACT_EXTA_SCORE:
+      return {
+        ...state,
+        today: {
+          ...state.today,
+          extraScore: state.today.extraScore - action.payload,
+        },
+      };
     case ADD_VICTORY:
       return {
         ...state,
@@ -72,6 +80,7 @@ export const getThisWeek = (state) => state.user.thisWeek;
 //action types
 export const ADD_INITIAL_SCORE = 'user/addInitialScore';
 export const ADD_EXTRA_SCORE = 'user/addExtraScore';
+export const SUBTRACT_EXTA_SCORE = 'user/subtractExtraScore';
 export const ADD_VICTORY = 'user/addVictory';
 export const ADD_SELECTED_PLANTS = 'user/plantSelected';
 export const REMOVE_SELECTED_PLANT = 'user/plantRemoved';
@@ -84,6 +93,11 @@ export const addInitialScore = (score) => ({
 
 export const addExtraScore = (score) => ({
   type: ADD_EXTRA_SCORE,
+  payload: score,
+});
+
+export const subtractExtraScore = (score) => ({
+  type: SUBTRACT_EXTA_SCORE,
   payload: score,
 });
 
