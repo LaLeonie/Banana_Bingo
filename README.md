@@ -4,6 +4,8 @@
 
 ## Live Version
 
+[Live Version](https://laleonie.github.io/Banana_Bingo/)
+
 Note: optimized for tablet use only.
 
 ## Local installation instructions
