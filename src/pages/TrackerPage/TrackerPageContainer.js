@@ -6,6 +6,8 @@ import styled from 'styled-components';
 import {
   removeSelectedPlant,
   addSelectedPlants,
+  addExtraScore,
+  subtractExtraScore,
   getToday,
 } from '../../store/user';
 import { useFetch } from '../../hooks';
@@ -87,6 +89,7 @@ const TrackerPageContainer = () => {
 
     if (node.classList.contains('item--selected')) {
       dispatch(removeSelectedPlant(plantName));
+      dispatch(subtractExtraScore(1));
     }
 
     if (!node.classList.contains('item--selected')) {
@@ -94,6 +97,7 @@ const TrackerPageContainer = () => {
 
       if (!dailyPlants.find((obj) => obj.fields.Name === plantName)) {
         dispatch(addSelectedPlants([plantObject]));
+        dispatch(addExtraScore(1));
       }
     }
   };
