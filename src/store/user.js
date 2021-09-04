@@ -49,6 +49,16 @@ export function userReducer(state = initialState, action) {
         },
       };
 
+    case REMOVE_SELECTED_PLANT:
+      return {
+        ...state,
+        today: {
+          ...state.today,
+          dailyPlants: state.today.dailyPlants.filter(
+            (obj) => obj.fields.Name !== action.payload
+          ),
+        },
+      };
     default:
       return state;
   }
@@ -64,6 +74,7 @@ export const ADD_INITIAL_SCORE = 'user/addInitialScore';
 export const ADD_EXTRA_SCORE = 'user/addExtraScore';
 export const ADD_VICTORY = 'user/addVictory';
 export const ADD_SELECTED_PLANTS = 'user/plantSelected';
+export const REMOVE_SELECTED_PLANT = 'user/plantRemoved';
 
 //action creators
 export const addInitialScore = (score) => ({
@@ -80,7 +91,12 @@ export const addVictory = () => ({
   type: ADD_VICTORY,
 });
 
-export const addSelectedPlans = (plants) => ({
+export const addSelectedPlants = (plants) => ({
   type: ADD_SELECTED_PLANTS,
   payload: plants,
+});
+
+export const removeSelectedPlant = (name) => ({
+  type: REMOVE_SELECTED_PLANT,
+  payload: name,
 });

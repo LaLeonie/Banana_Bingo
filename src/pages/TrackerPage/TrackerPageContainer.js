@@ -3,7 +3,11 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router';
 import styled from 'styled-components';
 
-import { addSelectedPlans, getToday } from '../../store/user';
+import {
+  removeSelectedPlant,
+  addSelectedPlants,
+  getToday,
+} from '../../store/user';
 import { useFetch } from '../../hooks';
 import { filterColors } from '../../utils';
 
@@ -48,20 +52,20 @@ const FilterPanel = styled.div`
 
 const TrackerPageContainer = () => {
   const { dailyPlants } = useSelector(getToday);
+
   const { apiData } = useFetch('');
   const history = useHistory();
   const dispatch = useDispatch();
 
   let [allPlants, setAllPlants] = useState([]);
   let [colors, setColors] = useState([]);
-  let [selectedPlants, setSelectedPlants] = useState(dailyPlants);
   let [color, setColor] = useState('');
   let [fruitCheck, setFruitCheck] = useState(true);
   let [vegCheck, setVegCheck] = useState(true);
 
   const getFilteredPlants = (plants, color, fruit, veg) => {
     let displayPlants = plants.filter(
-      (obj) => selectedPlants.findIndex((el) => el.id === obj.id) === -1
+      (obj) => dailyPlants.findIndex((el) => el.id === obj.id) === -1
     );
 
     return displayPlants.filter(
@@ -82,22 +86,20 @@ const TrackerPageContainer = () => {
     plantName = node.getAttribute('name');
 
     if (node.classList.contains('item--selected')) {
-      setSelectedPlants(
-        selectedPlants.filter((obj) => obj.fields.Name !== plantName)
-      );
+      dispatch(removeSelectedPlant(plantName));
     }
 
     if (!node.classList.contains('item--selected')) {
       let plantObject = allPlants.find((obj) => obj.fields.Name === plantName);
-      if (!selectedPlants.find((obj) => obj.fields.Name === plantName)) {
-        setSelectedPlants([...selectedPlants, plantObject]);
+
+      if (!dailyPlants.find((obj) => obj.fields.Name === plantName)) {
+        dispatch(addSelectedPlants([plantObject]));
       }
     }
   };
 
   const endTracking = () => {
     history.push('/result');
-    dispatch(addSelectedPlans(selectedPlants));
   };
 
   useEffect(() => {
@@ -107,6 +109,7 @@ const TrackerPageContainer = () => {
     }
   }, [apiData]);
 
+  console.log({ dailyPlants });
   return (
     <>
       <NavBar score gameStatus="true" />
@@ -138,7 +141,7 @@ const TrackerPageContainer = () => {
                 displayName
                 selected
                 selectable
-                plants={selectedPlants}
+                plants={dailyPlants}
               />
             </div>
           </SideBar>

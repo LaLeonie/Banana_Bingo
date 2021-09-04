@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom';
 import {
   addInitialScore,
   addVictory,
-  addSelectedPlans,
+  addSelectedPlants,
 } from '../../store/user';
 import {
   changeGameStatus,
@@ -61,7 +61,7 @@ const GamePageContainer = () => {
   const endGame = () => {
     history.push('/followup');
     dispatch(changeGameStatus(true));
-    dispatch(addSelectedPlans(selection));
+    dispatch(addSelectedPlants(selection));
   };
 
   //get data from API
