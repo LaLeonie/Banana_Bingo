@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
+import { useHistory } from 'react-router';
 import styled from 'styled-components';
 
 import { getToday } from '../../store/user';
@@ -10,6 +11,7 @@ import { Body, Footer } from '../../common/components';
 import ColorFilter from './components/ColorFilter';
 import NavBar from '../../common/containers/NavBar';
 import PlantList from '../../common/components/PlantList';
+import { LinkButton } from '../../common/components/Buttons';
 import RouteButton from '../../common/containers/RouteButton';
 import TypeSelector from './components/TypeSelector';
 
@@ -48,6 +50,7 @@ const FilterPanel = styled.div`
 const TrackerPageContainer = () => {
   const { dailyPlants } = useSelector(getToday);
   const { apiData } = useFetch('');
+  const history = useHistory();
 
   let [allPlants, setAllPlants] = useState([]);
   let [colors, setColors] = useState([]);
@@ -90,6 +93,10 @@ const TrackerPageContainer = () => {
         setSelectedPlants([...selectedPlants, plantObject]);
       }
     }
+  };
+
+  const endTracking = () => {
+    history.push('/result');
   };
 
   useEffect(() => {
@@ -137,7 +144,7 @@ const TrackerPageContainer = () => {
         </TrackerWrapper>
       </Body>
       <Footer>
-        <RouteButton route="result">I'm Done</RouteButton>
+        <LinkButton onClick={endTracking}>I'm Done</LinkButton>
       </Footer>
     </>
   );

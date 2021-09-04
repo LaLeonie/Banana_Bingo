@@ -5,7 +5,6 @@ import styled from 'styled-components';
 const PlantCard = styled.li`
   display: flex;
   flex-direction: column;
-  border: solid 2px red;
   justify-content: center;
   list-style-type: none;
   padding: 0;
