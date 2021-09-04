@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router';
 import styled from 'styled-components';
 
-import { getToday } from '../../store/user';
+import { addSelectedPlans, getToday } from '../../store/user';
 import { useFetch } from '../../hooks';
 import { filterColors } from '../../utils';
 
@@ -12,7 +12,6 @@ import ColorFilter from './components/ColorFilter';
 import NavBar from '../../common/containers/NavBar';
 import PlantList from '../../common/components/PlantList';
 import { LinkButton } from '../../common/components/Buttons';
-import RouteButton from '../../common/containers/RouteButton';
 import TypeSelector from './components/TypeSelector';
 
 const TrackerWrapper = styled.div`
@@ -51,6 +50,7 @@ const TrackerPageContainer = () => {
   const { dailyPlants } = useSelector(getToday);
   const { apiData } = useFetch('');
   const history = useHistory();
+  const dispatch = useDispatch();
 
   let [allPlants, setAllPlants] = useState([]);
   let [colors, setColors] = useState([]);
@@ -97,6 +97,7 @@ const TrackerPageContainer = () => {
 
   const endTracking = () => {
     history.push('/result');
+    dispatch(addSelectedPlans(selectedPlants));
   };
 
   useEffect(() => {
