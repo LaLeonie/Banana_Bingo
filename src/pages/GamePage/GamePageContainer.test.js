@@ -19,8 +19,16 @@ beforeEach(() => {
   userEvent.click(screen.getByText(/play/i));
 });
 
-describe('Testing the GamePage Container', () => {});
+describe('Testing the GamePage Container', () => {
+  test('GamePageContainer renders as expecteed', async () => {
+    expect(
+      screen.getByRole('button', { name: "I'm Done" })
+    ).toBeInTheDocument();
 
-test('text runs', () => {
-  console.log('runs');
+    const countdown = await screen.findByTestId('countdown-dialog');
+    expect(countdown).toBeInTheDocument();
+
+    const items = await screen.findAllByAltText(/apple/);
+    expect(items).toHaveLength(25);
+  });
 });
