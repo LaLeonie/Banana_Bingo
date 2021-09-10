@@ -14,12 +14,18 @@ const SettingsContainer = styled.div`
   background-color: lightgray;
   border-radius: 4px;
   border: solid black 2px;
+  padding: 10px;
+`;
+
+const ClosingButton = styled(CloseButton)`
+  align-self: flex-end;
+  font-size: 2rem;
 `;
 
 const GameSettings = ({ setShowSettings }) => {
   return (
     <SettingsContainer>
-      <CloseButton onClick={() => setShowSettings(false)} aria-label="Hide" />
+      <ClosingButton onClick={() => setShowSettings(false)} aria-label="Hide" />
       <h1>Choose the difficulty level</h1>
     </SettingsContainer>
   );
