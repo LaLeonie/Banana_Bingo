@@ -30,7 +30,11 @@ const Timer = ({ setTimerdisplay, setPlayedToday }) => {
     }
   }, [count]);
 
-  return <TimerDialog role="dialog">{count}</TimerDialog>;
+  return (
+    <TimerDialog role="dialog" data-testid="timer-dialog">
+      {count}
+    </TimerDialog>
+  );
 };
 
 export default Timer;

@@ -28,6 +28,9 @@ describe('Testing the GamePage Container', () => {
     const countdown = await screen.findByTestId('countdown-dialog');
     expect(countdown).toBeInTheDocument();
 
+    // const timer = await screen.findByTestId('timer-dialog');
+    // expect(timer).toBeInTheDocument();
+
     const items = await screen.findAllByAltText(/apple/);
     expect(items).toHaveLength(25);
   });

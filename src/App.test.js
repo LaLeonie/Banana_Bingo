@@ -28,16 +28,6 @@ describe('Testing the happy path', () => {
     );
     userEvent.click(screen.getByText(/play/i));
 
-    expect(
-      screen.getByRole('button', { name: "I'm Done" })
-    ).toBeInTheDocument();
-
-    const countdown = await screen.findByTestId('countdown-dialog');
-    expect(countdown).toBeInTheDocument();
-
-    const items = await screen.findAllByAltText(/apple/);
-    expect(items).toHaveLength(25);
-
     const firstPlant = await screen.findByTestId(0);
     const firstImage = within(firstPlant).getByRole('img');
     userEvent.click(firstImage);
