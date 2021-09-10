@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
+import styled from 'styled-components';
+
 import { BasicTitle, Body, Header } from './../../common/components';
 import RouteButton from './../../common/containers/RouteButton';
 import { SecondaryButton } from '../../common/components';
-import styled from 'styled-components';
+import GameSettings from './components/GameSettings';
 
 const ButtonContainer = styled.div`
   display: flex;
@@ -10,6 +12,8 @@ const ButtonContainer = styled.div`
 `;
 
 const HomePageContainer = () => {
+  const [showSettings, setShowSettings] = useState(false);
+
   return (
     <>
       <Header>
@@ -17,9 +21,12 @@ const HomePageContainer = () => {
         <RouteButton route="info">?</RouteButton>
       </Header>
       <Body>
+        {showSettings && <GameSettings setShowSettings={setShowSettings} />}
         <BasicTitle main>Banana Bingo</BasicTitle>
         <ButtonContainer>
-          <SecondaryButton>Settings</SecondaryButton>
+          <SecondaryButton onClick={() => setShowSettings(true)}>
+            Settings
+          </SecondaryButton>
           <RouteButton route="game">Play</RouteButton>
         </ButtonContainer>
       </Body>
