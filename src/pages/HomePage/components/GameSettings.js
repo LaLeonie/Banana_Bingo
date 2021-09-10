@@ -14,7 +14,11 @@ const SettingsContainer = styled.div`
 `;
 
 const GameSettings = () => {
-  return <SettingsContainer></SettingsContainer>;
+  return (
+    <SettingsContainer>
+      <h1>Choose the difficulty level</h1>
+    </SettingsContainer>
+  );
 };
 
 export default GameSettings;

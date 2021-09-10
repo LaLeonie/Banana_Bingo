@@ -18,7 +18,7 @@ import { positionCalculator } from '../../utils';
 import { useFetch, useRandom } from '../../hooks';
 
 import { Body, Footer } from '../../common/components';
-import { LinkButton } from '../../common/components/Buttons';
+import { PrimaryButton } from '../../common/components';
 import CountDown from './components/CountDown';
 import GameDisplay from './components/GameDisplay';
 import MessageDisplay from './components/MessageDisplay';
@@ -119,7 +119,7 @@ const GamePageContainer = () => {
         )}
       </Body>
       <Footer>
-        <LinkButton onClick={endGame}>I'm Done</LinkButton>
+        <PrimaryButton onClick={endGame}>I'm Done</PrimaryButton>
       </Footer>
     </>
   );
