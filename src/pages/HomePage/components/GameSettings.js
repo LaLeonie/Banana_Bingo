@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import styled from 'styled-components';
-import Form from 'react-bootstrap/Form';
+
+import { getDifficulty, changeDifficulty } from '../../../store/game';
 
 import CloseButton from 'react-bootstrap/CloseButton';
 import { PrimaryButton } from '../../../common/components';
@@ -26,6 +28,7 @@ const ClosingButton = styled(CloseButton)`
 
 const ButtonGroup = styled.div`
   display: flex;
+  margin-top: 40px;
 
   .selected {
     background-color: blue;
@@ -52,16 +55,17 @@ const Button = styled(PrimaryButton)`
 const difficulties = ['easy', 'medium', 'hard'];
 
 const GameSettings = ({ setShowSettings }) => {
-  const [difficulty, setDifficulty] = useState('medium');
+  const dispatch = useDispatch();
+  const difficulty = useSelector(getDifficulty);
 
   const handleButtonClick = (type) => {
-    setDifficulty(type);
+    dispatch(changeDifficulty(type));
   };
 
   return (
     <SettingsContainer>
       <ClosingButton onClick={() => setShowSettings(false)} aria-label="Hide" />
-      <h1>Choose the difficulty level</h1>
+      <h1>Set The Difficulty Level</h1>
       <ButtonGroup>
         {difficulties.map((type) => (
           <Button
