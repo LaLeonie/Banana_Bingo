@@ -11,7 +11,7 @@ const SettingsContainer = styled.div`
   position: absolute;
   width: 100%;
   height: 100%;
-  min-height: 40vh;
+  min-height: 30vh;
   display: flex;
   align-items: center;
   flex-direction: column;

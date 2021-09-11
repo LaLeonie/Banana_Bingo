@@ -12,10 +12,11 @@ import {
   changePlants,
   getPlayedToday,
   getApiPlants,
+  getDifficulty,
 } from '../../store/game';
 import { bingoLogic } from '../../utils';
 import { positionCalculator } from '../../utils';
-import { useFetch, useRandom } from '../../hooks';
+import { useFetch, useRandom, useFilter } from '../../hooks';
 
 import { Body, Footer } from '../../common/components';
 import { PrimaryButton } from '../../common/components';
@@ -67,8 +68,10 @@ const GamePageContainer = () => {
   //get data from API
   const { isLoading, serverError, apiData } = useFetch('');
 
+  const filteredData = useFilter(apiData, useSelector(getDifficulty));
+
   //select 25 random plants from API data
-  const randomApiData = useRandom(apiData);
+  const randomApiData = useRandom(filteredData);
 
   //update Redux store
   useEffect(() => {
