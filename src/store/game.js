@@ -29,6 +29,7 @@ export function gameReducer(state = initialState, action) {
 //selectors
 export const getApiPlants = (state) => state.game.apiPlants;
 export const getPlayedToday = (state) => state.game.playedToday;
+export const getDifficulty = (state) => state.game.difficulty;
 
 //action types
 export const GAME_PLAYED = 'game/gamePlayed';
