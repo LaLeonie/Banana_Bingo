@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Form from 'react-bootstrap/Form';
 
 import CloseButton from 'react-bootstrap/CloseButton';
+import { PrimaryButton } from '../../../common/components';
 
 const SettingsContainer = styled.div`
   position: absolute;
@@ -23,21 +24,55 @@ const ClosingButton = styled(CloseButton)`
   font-size: 2rem;
 `;
 
+const ButtonGroup = styled.div`
+  display: flex;
+
+  .selected {
+    background-color: blue;
+    color: #fff;
+  }
+`;
+
+const Button = styled(PrimaryButton)`
+  margin: 0;
+  border-radius: 0;
+  background-color: #fff;
+  color: blue;
+  :last-child {
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+  }
+
+  :first-child {
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+  }
+`;
+
 const difficulties = ['easy', 'medium', 'hard'];
 
 const GameSettings = ({ setShowSettings }) => {
   const [difficulty, setDifficulty] = useState('medium');
+
+  const handleButtonClick = (type) => {
+    setDifficulty(type);
+  };
+
   return (
     <SettingsContainer>
       <ClosingButton onClick={() => setShowSettings(false)} aria-label="Hide" />
       <h1>Choose the difficulty level</h1>
-      <>
+      <ButtonGroup>
         {difficulties.map((type) => (
-          <div key={`default-${type}`}>
-            <Form.Check type="radio" id={`default-${type}`} label={type} />
-          </div>
+          <Button
+            className={difficulty === type ? 'selected' : ''}
+            key={type}
+            onClick={() => handleButtonClick(type)}
+          >
+            {type}
+          </Button>
         ))}
-      </>
+      </ButtonGroup>
     </SettingsContainer>
   );
 };
