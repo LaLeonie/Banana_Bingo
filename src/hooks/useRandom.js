@@ -1,13 +1,11 @@
 import { useState, useEffect } from 'react';
 
-export const useRandom = (apiData) => {
+export const useRandom = (data) => {
   const [randomApiData, setRandomApiData] = useState(null);
   useEffect(() => {
-    if (apiData) {
-      setRandomApiData(
-        apiData.records.sort(() => 0.5 - Math.random()).slice(0, 25)
-      );
+    if (data) {
+      setRandomApiData(data.sort(() => 0.5 - Math.random()).slice(0, 25));
     }
-  }, [apiData]);
+  }, [data]);
   return randomApiData;
 };

@@ -6,3 +6,4 @@ export { default as BasicTitle } from './BasicTitle';
 export { default as Body } from './Body';
 export { default as Header } from './Header';
 export { default as Footer } from './Footer';
+export { PrimaryButton, SecondaryButton } from './Buttons';

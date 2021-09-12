@@ -6,39 +6,10 @@ import { store } from './store/store';
 import App from './App';
 import userEvent from '@testing-library/user-event';
 import { within } from '@testing-library/dom';
-import { useSelector } from 'react-redux';
-import { getToday } from './store/user';
 
-const mockPlants = [];
+jest.mock('./hooks/useFetch');
 
-const mockApi = {
-  isLoading: false,
-  serverError: false,
-  apiData: mockPlants,
-};
-
-for (let i = 0; i < 25; i++) {
-  mockPlants.push({
-    fields: {
-      Name: 'apple',
-      Type: 'Fruit',
-      Color: 'red',
-      Image: [
-        {
-          url: 'https://dl.airtable.com/.attachments/4bb8bc6a4b9e91b9cb80c5886570ca40/1f290e67/Icon_Browncapboletus.png',
-        },
-      ],
-    },
-  });
-}
-
-jest.mock('./hooks/useFetch', () => ({
-  useFetch: () => mockApi,
-}));
-
-jest.mock('./hooks/useRandom', () => ({
-  useRandom: () => mockPlants,
-}));
+jest.mock('./hooks/useRandom');
 
 describe('Testing the happy path', () => {
   test('HomePage renders on starting app with header and button', () => {
@@ -49,23 +20,13 @@ describe('Testing the happy path', () => {
     expect(screen.getByRole('button', { name: 'Stats' })).toBeInTheDocument();
   });
 
-  test('GamePage renders as expected & WIN alert displays when user selects bingo', async () => {
+  test('Can play and win game when I hit Bingo', async () => {
     render(
       <Provider store={store}>
         <App />
       </Provider>
     );
     userEvent.click(screen.getByText(/play/i));
-
-    expect(
-      screen.getByRole('button', { name: "I'm Done" })
-    ).toBeInTheDocument();
-
-    const countdown = await screen.findByTestId('countdown-dialog');
-    expect(countdown).toBeInTheDocument();
-
-    const items = await screen.findAllByAltText(/apple/);
-    expect(items).toHaveLength(25);
 
     const firstPlant = await screen.findByTestId(0);
     const firstImage = within(firstPlant).getByRole('img');
@@ -79,5 +40,8 @@ describe('Testing the happy path', () => {
 
     const winAlert = await screen.findByText(/You win 10 stars/);
     expect(winAlert).toBeInTheDocument();
+
+    const victoryAlert = await screen.findByRole('heading', /What a victory!/);
+    expect(victoryAlert).toBeInTheDocument();
   });
 });

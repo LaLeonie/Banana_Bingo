@@ -1,4 +1,5 @@
 const initialState = {
+  difficulty: 'medium',
   playedToday: false,
   apiPlants: [],
 };
@@ -15,6 +16,11 @@ export function gameReducer(state = initialState, action) {
         ...state,
         apiPlants: action.payload,
       };
+    case DIFFICULTY_SET:
+      return {
+        ...state,
+        difficulty: action.payload,
+      };
     default:
       return state;
   }
@@ -23,10 +29,12 @@ export function gameReducer(state = initialState, action) {
 //selectors
 export const getApiPlants = (state) => state.game.apiPlants;
 export const getPlayedToday = (state) => state.game.playedToday;
+export const getDifficulty = (state) => state.game.difficulty;
 
 //action types
 export const GAME_PLAYED = 'game/gamePlayed';
 export const PLANTS_SET = 'game/plantsSet';
+export const DIFFICULTY_SET = 'game/difficultySet';
 
 //action creators
 export const changeGameStatus = (bool) => ({
@@ -37,4 +45,9 @@ export const changeGameStatus = (bool) => ({
 export const changePlants = (plants) => ({
   type: PLANTS_SET,
   payload: plants,
+});
+
+export const changeDifficulty = (difficulty) => ({
+  type: DIFFICULTY_SET,
+  payload: difficulty,
 });
