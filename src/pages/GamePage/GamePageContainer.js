@@ -68,9 +68,10 @@ const GamePageContainer = () => {
   //get data from API
   const { isLoading, serverError, apiData } = useFetch('');
 
+  //filter according to difficulty level
   const filteredData = useFilter(apiData, useSelector(getDifficulty));
 
-  //select 25 random plants from API data
+  //select 25 random plants
   const randomApiData = useRandom(filteredData);
 
   //update Redux store
