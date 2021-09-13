@@ -6,6 +6,7 @@ import { scoreCalculator } from '../../utils';
 import { getToday } from '../../store/user';
 
 import RouteButton from './RouteButton';
+import { ButtonContainer } from '../components';
 
 const NavBar = ({ gameStatus }) => {
   const { initialScore, extraScore } = useSelector(getToday);
@@ -13,10 +14,10 @@ const NavBar = ({ gameStatus }) => {
 
   return (
     <Header full>
-      <div>
+      <ButtonContainer>
         <RouteButton route="">Go Home</RouteButton>
         <RouteButton back>Go Back</RouteButton>
-      </div>
+      </ButtonContainer>
 
       <Logo />
       {gameStatus ? (

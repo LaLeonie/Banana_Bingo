@@ -1,15 +1,9 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
 
 import { GameTitle, Body, Header } from './../../common/components';
 import RouteButton from './../../common/containers/RouteButton';
-import { SecondaryButton } from '../../common/components';
+import { SecondaryButton, ButtonContainer } from '../../common/components';
 import GameSettings from './components/GameSettings';
-
-const ButtonContainer = styled.div`
-  display: flex;
-  gap: 4px;
-`;
 
 const HomePageContainer = () => {
   const [showSettings, setShowSettings] = useState(false);
@@ -17,8 +11,10 @@ const HomePageContainer = () => {
   return (
     <>
       <Header>
-        <RouteButton route="dashboard">Stats</RouteButton>
-        <RouteButton route="info">?</RouteButton>
+        <ButtonContainer>
+          <RouteButton route="dashboard">Stats</RouteButton>
+          <RouteButton route="info">?</RouteButton>
+        </ButtonContainer>
       </Header>
       <Body>
         {showSettings && <GameSettings setShowSettings={setShowSettings} />}

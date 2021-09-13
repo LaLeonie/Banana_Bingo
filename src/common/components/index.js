@@ -6,4 +6,4 @@ export { GameTitle, PageTitle } from './Titles';
 export { default as Body } from './Body';
 export { default as Header } from './Header';
 export { default as Footer } from './Footer';
-export { PrimaryButton, SecondaryButton } from './Buttons';
+export { PrimaryButton, SecondaryButton, ButtonContainer } from './Buttons';

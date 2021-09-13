@@ -22,3 +22,8 @@ export const SecondaryButton = styled(BasicButton)`
   background-color: #fff;
   color: blue;
 `;
+
+export const ButtonContainer = styled.div`
+  display: flex;
+  gap: 4px;
+`;
