@@ -5,10 +5,12 @@ import { store } from './store/store';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import GlobalStyle from './globalStyles';
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
+      <GlobalStyle />
       <App />
     </Provider>
   </React.StrictMode>,
