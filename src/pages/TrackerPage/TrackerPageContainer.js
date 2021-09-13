@@ -13,7 +13,7 @@ import {
 import { useFetch } from '../../hooks';
 import { filterColors } from '../../utils';
 
-import { Body, Footer } from '../../common/components';
+import { Body, Footer, PageTitle } from '../../common/components';
 import ColorFilter from './components/ColorFilter';
 import NavBar from '../../common/containers/NavBar';
 import PlantList from '../../common/components/PlantList';
@@ -118,9 +118,9 @@ const TrackerPageContainer = () => {
     <>
       <NavBar score gameStatus="true" />
       <Body>
+        <PageTitle>Let's add more</PageTitle>
         <TrackerWrapper>
           <MainContent>
-            <h1>Tell me what other fruit you had</h1>
             <FilterPanel>
               <ColorFilter setColor={setColor} colors={colors} />
               <TypeSelector

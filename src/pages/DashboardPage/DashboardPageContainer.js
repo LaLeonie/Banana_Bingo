@@ -1,5 +1,6 @@
 import React from 'react';
-import { Body } from '../../common/components';
+
+import { Body, PageTitle } from '../../common/components';
 import NavBar from '../../common/containers/NavBar';
 
 const DashboardPageContainer = () => {
@@ -7,7 +8,7 @@ const DashboardPageContainer = () => {
     <>
       <NavBar />
       <Body>
-        <h1>Dashboard Page</h1>
+        <PageTitle>Dashboard Page</PageTitle>
       </Body>
     </>
   );
