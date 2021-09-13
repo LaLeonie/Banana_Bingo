@@ -8,8 +8,8 @@ const BasicButton = styled(Button)`
   font-size: 1.5rem;
   font-weight: 700;
   text-transform: capitalize;
-  padding: 0.25rem;
-  width: 200px;
+  padding: 0.5rem 1rem;
+  min-width: 200px;
 `;
 
 export const PrimaryButton = styled(BasicButton)`

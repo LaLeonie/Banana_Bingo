@@ -8,6 +8,7 @@ import { Footer, Body } from '../../common/components';
 import ExtraScore from './components/ExtraScore';
 import NavBar from '../../common/containers/NavBar';
 import PlantList from '../../common/components/PlantList';
+import { ButtonContainer } from '../../common/components';
 import RouteButton from './../../common/containers/RouteButton';
 
 const FollowupQuestion = styled.div`
@@ -49,8 +50,10 @@ const FollowUpPageContainer = () => {
         <FollowupQuestion>Have you eaten any more plants?</FollowupQuestion>
       </Body>
       <Footer centered>
-        <RouteButton route="tracker">Yes, I had more</RouteButton>
-        <RouteButton route="result">No, that's all I've eaten</RouteButton>
+        <ButtonContainer>
+          <RouteButton route="tracker">Yes, I had more</RouteButton>
+          <RouteButton route="result">No, that's all I've eaten</RouteButton>
+        </ButtonContainer>
       </Footer>
     </>
   );
