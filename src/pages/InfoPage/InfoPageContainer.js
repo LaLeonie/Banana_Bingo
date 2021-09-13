@@ -1,12 +1,12 @@
 import React from 'react';
 
-import { Body, BasicTitle } from '../../common/components';
+import { Body, PageTitle } from '../../common/components';
 import RouteButton from '../../common/containers/RouteButton';
 
 const InfoPageContainer = () => {
   return (
     <Body>
-      <BasicTitle>How To Play?</BasicTitle>
+      <PageTitle>How To Play?</PageTitle>
       <p>
         Banana Bingo is as easy as standard Bingo. You win if you strike 5
         plants in a row - horizontally, vertically and diagonally. You may only

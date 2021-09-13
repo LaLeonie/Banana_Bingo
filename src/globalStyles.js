@@ -18,7 +18,8 @@ const GlobalStyle = createGlobalStyle`
 }
 
 body{
-    font-family: Neucha
+    font-family: Neucha; 
+    font-size: 1.5rem; 
 }
 
 `;
