@@ -4,6 +4,8 @@ import styled from 'styled-components';
 
 import { getToday } from '../../../store/user';
 
+import { TitleOne } from '../../../common/components';
+
 const ResultDialog = styled.div`
   position: absolute;
   width: 100%;
@@ -34,10 +36,6 @@ const ResultDialog = styled.div`
     border: solid red 10px;
   }
 
-  h1 {
-    font-size: 5rem;
-  }
-
   p {
     font-size: 1.6rem;
   }
@@ -48,12 +46,12 @@ const ResultAlert = ({ endGame }) => {
   const cardClass = victory ? `result-card--win` : `result-card--loose`;
   const message = victory ? (
     <>
-      <h1>BINGO</h1>
+      <TitleOne>BINGO</TitleOne>
       <p>You win 10 stars</p>
     </>
   ) : (
     <>
-      <h1>TIME'S UP</h1>
+      <TitleOne>TIME'S UP</TitleOne>
       <p>No Bingo today</p>
     </>
   );
