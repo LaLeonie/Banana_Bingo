@@ -21,8 +21,13 @@ const InfoPageContainer = () => {
       <p>
         So the more plants you eat in a day, the higher your score. Don't worry
         if you don't find all your plants first, you can add extra plants after
-        the game
+        the game.
       </p>
+      <p>
+        If the plants are too exotic for you (or not exotic enough), you can
+        always change the selection in the settings.
+      </p>
+      <p>Happy Bingo!</p>
       <RouteButton back>Go Back</RouteButton>
     </Body>
   );
