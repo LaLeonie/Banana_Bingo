@@ -10,18 +10,8 @@ const CountdownDialog = styled.div`
   align-items: center;
   flex-direction: column;
   justify-content: center;
-
-  .countdown-card {
-    background-color: #fff;
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-    height: 550px;
-    width: 550px;
-    font-size: 10rem;
-  }
+  background-color: ${({ theme: { colors } }) => colors.neutrals[50]};
+  font-size: 10rem;
 `;
 
 const CountDown = ({ setCountdownDisplay }) => {

@@ -52,9 +52,12 @@ const theme = {
     display: ['Ranchers', 'sans-serif'],
   },
   fontSizes: {
-    small: '1em',
-    medium: '2em',
-    large: '3em',
+    small: '0.875rem',
+    regular: '1rem',
+    medium: '3rem',
+    large: '3.75rem',
+    xl: '6rem',
+    xxl: '10rem',
   },
 };
 
