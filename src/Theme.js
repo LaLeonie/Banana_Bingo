@@ -12,6 +12,7 @@ const theme = {
       300: '#788985',
       400: '#2F4858',
       500: '#1d2d37',
+      600: '#111b21',
     },
     primaries: {
       red: {
@@ -47,7 +48,7 @@ const theme = {
     },
   },
   fonts: {
-    regular: ['Nuecha', 'sans-serif'],
+    regular: ['Neucha', 'sans-serif'],
     display: ['Ranchers', 'sans-serif'],
   },
   fontSizes: {

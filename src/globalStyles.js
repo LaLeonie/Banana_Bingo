@@ -18,10 +18,11 @@ const GlobalStyle = createGlobalStyle`
 }
 
 body{
-    font-family: Neucha; 
+    font-family: ${({ theme: { fonts } }) => fonts.regular[0]}; 
     font-size: 1.4rem; 
+    background-color: ${({ theme: { colors } }) => colors.neutrals[50]}; 
+    color: ${({ theme: { colors } }) => colors.neutrals[600]}
 }
-
 `;
 
 export default GlobalStyle;

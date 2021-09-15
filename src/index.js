@@ -11,8 +11,8 @@ import Theme from './Theme';
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <GlobalStyle />
       <Theme>
+        <GlobalStyle />
         <App />
       </Theme>
     </Provider>
