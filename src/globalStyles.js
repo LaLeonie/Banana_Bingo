@@ -19,7 +19,7 @@ const GlobalStyle = createGlobalStyle`
 
 body{
     font-family: ${({ theme: { fonts } }) => fonts.regular[0]}; 
-    font-size: 1.4rem; 
+    font-size: ${({ theme: { fontSizes } }) => fontSizes.regular}; 
     background-color: ${({ theme: { colors } }) => colors.neutrals[50]}; 
     color: ${({ theme: { colors } }) => colors.neutrals[600]}
 }
