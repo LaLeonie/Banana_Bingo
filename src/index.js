@@ -6,12 +6,15 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import GlobalStyle from './globalStyles';
+import Theme from './Theme';
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <GlobalStyle />
-      <App />
+      <Theme>
+        <App />
+      </Theme>
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')
