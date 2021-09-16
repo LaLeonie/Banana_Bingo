@@ -3,16 +3,16 @@ import { ThemeProvider } from 'styled-components';
 
 const theme = {
   colors: {
-    black: '#0c1216',
-    white: '#fefeff',
+    black: '#050506',
+    white: '#fcfcfc',
     neutrals: {
-      50: '#F4F1ED',
-      100: '#CDCDC5',
-      200: '#A3AAA2',
-      300: '#788985',
-      400: '#2F4858',
-      500: '#1d2d37',
-      600: '#111b21',
+      50: '#F3F6FB',
+      100: '##BDC0C4',
+      200: '#898C90',
+      300: '#696c72',
+      400: '#595B60',
+      500: '#2D2F33',
+      600: '#151618',
     },
     primaries: {
       red: {
@@ -54,6 +54,7 @@ const theme = {
   fontSizes: {
     small: '0.875rem',
     regular: '1rem',
+    regularPlus: '1.25rem',
     medium: '3rem',
     large: '3.75rem',
     xl: '6rem',
