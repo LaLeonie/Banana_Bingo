@@ -1,4 +1,6 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 import { Header, Logo } from '../components';
 import { useSelector } from 'react-redux';
 
@@ -15,15 +17,21 @@ const NavBar = ({ gameStatus }) => {
   return (
     <Header full>
       <ButtonContainer>
-        <RouteButton route="">Go Home</RouteButton>
-        <RouteButton back>Go Back</RouteButton>
+        <RouteButton route="">
+          <FontAwesomeIcon icon="home" />
+        </RouteButton>
+        <RouteButton back>
+          <FontAwesomeIcon icon="arrow-left" />
+        </RouteButton>
       </ButtonContainer>
 
       <Logo />
       {gameStatus ? (
         <div>score: {scoreSum}</div>
       ) : (
-        <RouteButton route="info">How to Play</RouteButton>
+        <RouteButton route="info">
+          <FontAwesomeIcon icon="question" />
+        </RouteButton>
       )}
     </Header>
   );

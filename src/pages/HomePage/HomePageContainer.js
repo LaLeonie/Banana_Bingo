@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { GameTitle, Body, Header } from './../../common/components';
 import RouteButton from './../../common/containers/RouteButton';
 import { BasicButton, ButtonContainer } from '../../common/components';
@@ -12,8 +12,10 @@ const HomePageContainer = () => {
     <>
       <Header>
         <ButtonContainer>
-          <RouteButton route="dashboard">Stats</RouteButton>
-          <RouteButton route="info">?</RouteButton>
+          <RouteButton route="dashboard">Dashboard</RouteButton>
+          <RouteButton route="info">
+            <FontAwesomeIcon icon="question" />
+          </RouteButton>
         </ButtonContainer>
       </Header>
       <Body>

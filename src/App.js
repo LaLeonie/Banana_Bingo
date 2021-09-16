@@ -1,4 +1,10 @@
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import {
+  faQuestion,
+  faHome,
+  faArrowLeft,
+} from '@fortawesome/free-solid-svg-icons';
 
 import DashboardPageContainer from './pages/DashboardPage/DashboardPageContainer';
 import FollowUpPageContainer from './pages/FollowUpPage/FollowUpPageContainer';
@@ -8,6 +14,8 @@ import InfoPageContainer from './pages/InfoPage/InfoPageContainer';
 import { Layout } from './common/components';
 import ResultPageContainer from './pages/ResultPage/ResultPageContainer';
 import TrackerPageContainer from './pages/TrackerPage/TrackerPageContainer';
+
+library.add(faQuestion, faHome, faArrowLeft);
 
 function App() {
   return (
