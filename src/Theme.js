@@ -36,7 +36,7 @@ const theme = {
       },
       blue: {
         lightest: '#b6cfff',
-        light: '#95B9FE',
+        light: '#84aefe',
         main: '#4082FE',
         dark: '#005adf',
         darkest: '#012261',
