@@ -17,7 +17,7 @@ import { Body, Footer, PageTitle } from '../../common/components';
 import ColorFilter from './components/ColorFilter';
 import NavBar from '../../common/containers/NavBar';
 import PlantList from '../../common/components/PlantList';
-import { PrimaryButton } from '../../common/components';
+import { BasicButton } from '../../common/components';
 import TypeSelector from './components/TypeSelector';
 
 const TrackerWrapper = styled.div`
@@ -152,7 +152,9 @@ const TrackerPageContainer = () => {
         </TrackerWrapper>
       </Body>
       <Footer>
-        <PrimaryButton onClick={endTracking}>I'm Done</PrimaryButton>
+        <BasicButton primary onClick={endTracking}>
+          I'm Done
+        </BasicButton>
       </Footer>
     </>
   );

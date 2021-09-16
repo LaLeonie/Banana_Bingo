@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import { GameTitle, Body, Header } from './../../common/components';
 import RouteButton from './../../common/containers/RouteButton';
-import { SecondaryButton, ButtonContainer } from '../../common/components';
+import { BasicButton, ButtonContainer } from '../../common/components';
 import GameSettings from './components/GameSettings';
 
 const HomePageContainer = () => {
@@ -20,9 +20,9 @@ const HomePageContainer = () => {
         {showSettings && <GameSettings setShowSettings={setShowSettings} />}
         <GameTitle>Banana Bingo</GameTitle>
         <ButtonContainer>
-          <SecondaryButton onClick={() => setShowSettings(true)}>
+          <BasicButton onClick={() => setShowSettings(true)}>
             Settings
-          </SecondaryButton>
+          </BasicButton>
           <RouteButton route="game">Play</RouteButton>
         </ButtonContainer>
       </Body>

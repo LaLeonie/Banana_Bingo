@@ -1,5 +1,5 @@
 import React from 'react';
-import { PrimaryButton } from '../components';
+import { BasicButton } from '../components';
 import { useHistory } from 'react-router-dom';
 
 const RouteButton = ({ route, back, children }) => {
@@ -14,9 +14,9 @@ const RouteButton = ({ route, back, children }) => {
   }
 
   return (
-    <PrimaryButton onClick={back ? handleBack : handleClick}>
+    <BasicButton primary onClick={back ? handleBack : handleClick}>
       {children}
-    </PrimaryButton>
+    </BasicButton>
   );
 };
 

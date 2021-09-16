@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { getDifficulty, changeDifficulty } from '../../../store/game';
 
 import CloseButton from 'react-bootstrap/CloseButton';
-import { PrimaryButton } from '../../../common/components';
+import { BasicButton } from '../../../common/components';
 
 const SettingsContainer = styled.div`
   position: absolute;
@@ -36,7 +36,7 @@ const ButtonGroup = styled.div`
   }
 `;
 
-const Button = styled(PrimaryButton)`
+const Button = styled(BasicButton)`
   margin: 0;
   border-radius: 0;
   background-color: #fff;

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Button } from 'react-bootstrap';
 
-const BasicButton = styled(Button)`
+export const BasicButton = styled(Button)`
   align-items: center;
   appearance: none;
   background-image: radial-gradient(
