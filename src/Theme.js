@@ -23,6 +23,7 @@ const theme = {
         light: '#FFAE44',
         main: '#FF9000',
         dark: '#DD7D00',
+        darkest: '#A64800',
       },
       yellow: {
         light: '#FFD465',

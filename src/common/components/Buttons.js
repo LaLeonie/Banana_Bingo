@@ -47,11 +47,16 @@ export const BasicButton = styled(Button)`
   font-weight: 700;
 
   :focus {
-    box-shadow: ${({ theme: { colors } }) => colors.primaries.blue.dark} 0 0 0
-        1.5px inset,
-      ${({ theme: { colors } }) => colors.neutrals[500]} 0 2px 4px,
-      ${({ theme: { colors } }) => colors.neutrals[400]}0 7px 13px -3px,
-      ${({ theme: { colors } }) => colors.primaries.blue.dark} 0 -3px 0 inset;
+    color: ${({ theme: { colors } }) => colors.white};
+    background-image: radial-gradient(
+      100% 100% at 100% 0,
+      ${({ theme: { colors } }) => colors.primaries.orange.light} 0,
+      ${({ theme: { colors } }) => colors.primaries.orange.dark} 100%
+    );
+    box-shadow: ${({ theme: { colors } }) => colors.primaries.orange.darkest} 0
+        0 0 1.5px inset,
+      rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px,
+      ${({ theme: { colors } }) => colors.primaries.orange.darkest} 0 -4px 0 inset;
   }
 
   :hover {
