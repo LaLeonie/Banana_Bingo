@@ -55,9 +55,14 @@ export const BasicButton = styled(Button)`
   }
 
   :hover {
+    background-image: radial-gradient(
+      100% 100% at 100% 0,
+      ${({ theme: { colors } }) => colors.primaries.green.light} 0,
+      ${({ theme: { colors } }) => colors.primaries.green.dark} 100%
+    );
     box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px,
       rgba(45, 35, 66, 0.3) 0 7px 13px -3px,
-      ${({ theme: { colors } }) => colors.primaries.blue.dark} 0 -3px 0 inset;
+      ${({ theme: { colors } }) => colors.primaries.green.darkest} 0 -3px 0 inset;
     transform: translateY(-2px);
   }
 

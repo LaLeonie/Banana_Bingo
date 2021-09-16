@@ -45,6 +45,7 @@ const theme = {
         light: '#8EE45A',
         main: '#67D723',
         dark: '#3d7f15',
+        darkest: '#005A00',
       },
     },
   },
