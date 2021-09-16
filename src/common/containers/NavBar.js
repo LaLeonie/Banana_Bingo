@@ -17,10 +17,10 @@ const NavBar = ({ gameStatus }) => {
   return (
     <Header full>
       <ButtonContainer>
-        <RouteButton route="">
+        <RouteButton isIcon route="">
           <FontAwesomeIcon icon="home" />
         </RouteButton>
-        <RouteButton back>
+        <RouteButton isIcon back>
           <FontAwesomeIcon icon="arrow-left" />
         </RouteButton>
       </ButtonContainer>
@@ -29,7 +29,7 @@ const NavBar = ({ gameStatus }) => {
       {gameStatus ? (
         <div>score: {scoreSum}</div>
       ) : (
-        <RouteButton route="info">
+        <RouteButton isIcon route="info">
           <FontAwesomeIcon icon="question" />
         </RouteButton>
       )}

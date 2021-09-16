@@ -13,7 +13,7 @@ const HomePageContainer = () => {
       <Header>
         <ButtonContainer>
           <RouteButton route="dashboard">Dashboard</RouteButton>
-          <RouteButton route="info">
+          <RouteButton isIcon route="info">
             <FontAwesomeIcon icon="question" />
           </RouteButton>
         </ButtonContainer>

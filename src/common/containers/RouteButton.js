@@ -1,8 +1,8 @@
 import React from 'react';
-import { BasicButton } from '../components';
+import { BasicButton, IconButton } from '../components';
 import { useHistory } from 'react-router-dom';
 
-const RouteButton = ({ isPrimary, route, back, children }) => {
+const RouteButton = ({ isIcon, isPrimary, route, back, children }) => {
   const history = useHistory();
 
   function handleBack() {
@@ -11,6 +11,14 @@ const RouteButton = ({ isPrimary, route, back, children }) => {
 
   function handleClick() {
     history.push(`/${route}`);
+  }
+
+  if (isIcon) {
+    return (
+      <IconButton primary={isPrimary} onClick={back ? handleBack : handleClick}>
+        {children}
+      </IconButton>
+    );
   }
 
   return (
