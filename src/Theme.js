@@ -35,9 +35,11 @@ const theme = {
         dark: '#A43597',
       },
       blue: {
+        lightest: '#b6cfff',
         light: '#95B9FE',
-        main: '#73A3FE',
-        dark: '#4082FE',
+        main: '#4082FE',
+        dark: '#005adf',
+        darkest: '#012261',
       },
       green: {
         light: '#8EE45A',
