@@ -4,15 +4,14 @@ import { ThemeProvider } from 'styled-components';
 const theme = {
   colors: {
     black: '#050506',
-    white: '#fcfcfc',
+    white: '#fff',
     neutrals: {
-      50: '#F3F6FB',
-      100: '##BDC0C4',
-      200: '#898C90',
-      300: '#696c72',
-      400: '#595B60',
-      500: '#2D2F33',
-      600: '#151618',
+      50: '#F4FAFF',
+      100: '#BDC3C7',
+      200: '#898E93',
+      300: '#585D61',
+      400: '#2B3034',
+      500: '#151618',
     },
     primaries: {
       red: {
