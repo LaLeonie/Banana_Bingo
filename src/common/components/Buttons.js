@@ -72,9 +72,16 @@ export const BasicButton = styled(Button)`
   }
 
   :active {
-    box-shadow: ${({ theme: { colors } }) => colors.primaries.blue.dark}0 3px
-      7px inset;
-    transform: translateY(2px);
+    color: ${({ theme: { colors } }) => colors.white};
+    background-image: radial-gradient(
+      100% 100% at 100% 0,
+      ${({ theme: { colors } }) => colors.primaries.green.light} 0,
+      ${({ theme: { colors } }) => colors.primaries.green.dark} 100%
+    );
+    box-shadow: ${({ theme: { colors } }) => colors.primaries.green.dark} 0 0 0
+        1.5px inset,
+      rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px,
+      ${({ theme: { colors } }) => colors.primaries.green.dark} 0 -4px 0 inset;
   }
 `;
 
