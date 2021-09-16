@@ -23,7 +23,9 @@ const HomePageContainer = () => {
           <BasicButton onClick={() => setShowSettings(true)}>
             Settings
           </BasicButton>
-          <RouteButton route="game">Play</RouteButton>
+          <RouteButton isPrimary="true" route="game">
+            Play
+          </RouteButton>
         </ButtonContainer>
       </Body>
     </>

@@ -2,7 +2,7 @@ import React from 'react';
 import { BasicButton } from '../components';
 import { useHistory } from 'react-router-dom';
 
-const RouteButton = ({ route, back, children }) => {
+const RouteButton = ({ isPrimary, route, back, children }) => {
   const history = useHistory();
 
   function handleBack() {
@@ -14,7 +14,7 @@ const RouteButton = ({ route, back, children }) => {
   }
 
   return (
-    <BasicButton primary onClick={back ? handleBack : handleClick}>
+    <BasicButton primary={isPrimary} onClick={back ? handleBack : handleClick}>
       {children}
     </BasicButton>
   );
