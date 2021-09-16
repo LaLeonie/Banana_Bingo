@@ -7,17 +7,21 @@ export const BasicButton = styled(Button)`
   background-image: radial-gradient(
     100% 100% at 100% 0,
     ${({ primary, theme: { colors } }) =>
-        primary ? colors.primaries.blue.light : colors.neutrals[50]}
+        primary ? colors.primaries.blue.light : colors.white}
       0,
     ${({ primary, theme: { colors } }) =>
-        primary ? colors.primaries.blue.dark : colors.white}
+        primary ? colors.primaries.blue.dark : colors.neutrals[50]}
       100%
   );
   border: 0;
   border-radius: 16px;
-  box-shadow: ${({ theme: { colors } }) => colors.neutrals[500]} 0 2px 4px,
-    ${({ theme: { colors } }) => colors.primaries.blue.darkest} 0 7px 13px -3px,
-    ${({ theme: { colors } }) => colors.neutrals[500]} 0 -3px 0 inset;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,
+    ${({ primary, theme: { colors } }) =>
+        primary ? colors.primaries.blue.main : colors.primaries.blue.light}
+      0 7px 13px -3px,
+    ${({ primary, theme: { colors } }) =>
+        primary ? colors.primaries.blue.darkest : colors.primaries.blue.light}
+      0 -3px 0 inset;
   box-sizing: border-box;
   color: ${({ primary, theme: { colors } }) =>
     primary ? colors.white : colors.primaries.blue.darkest};
