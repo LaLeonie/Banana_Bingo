@@ -31,6 +31,7 @@ const theme = {
         light: '#FFD465',
         main: '#FFC121',
         dark: '#EDAB00',
+        darkest: '#cb9200',
       },
       purple: {
         light: '#D57BCA',

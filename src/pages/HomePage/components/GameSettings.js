@@ -22,15 +22,27 @@ const SettingsModal = styled.div`
     ${({ theme: { colors } }) => colors.primaries.yellow.lightest} 0,
     ${({ theme: { colors } }) => colors.primaries.yellow.main} 100%
   );
+
+  box-shadow: ${({ theme: { colors } }) => colors.primaries.yellow.darkest} 0px -23px
+      25px 0px inset,
+    ${({ theme: { colors } }) => colors.primaries.yellow.dark} 0px -36px 30px 0px
+      inset,
+    ${({ theme: { colors } }) => colors.primaries.yellow.main} 0px -79px 40px 0px
+      inset,
+    rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px,
+    rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px,
+    rgba(0, 0, 0, 0.09) 0px 32px 16px;
   border-radius: 24px;
-  border: solid ${({ theme: { colors } }) => colors.primaries.yellow.dark} 15px;
+  /* border: solid ${({ theme: { colors } }) =>
+    colors.primaries.yellow.dark} 15px; */
   padding: 10px;
   z-index: 1;
 `;
 
 const ClosingButton = styled(CloseButton)`
   align-self: flex-end;
-  font-size: 2rem;
+  font-size: 3rem;
+  margin-right: 2rem;
   ${({ theme: { colors } }) => colors.neutrals[500]}
 `;
 
