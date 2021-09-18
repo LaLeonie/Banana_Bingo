@@ -1,19 +1,21 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import styled from 'styled-components';
 
+import { PageTitle } from '../../../common/components';
 import { getDifficulty, changeDifficulty } from '../../../store/game';
 
 import CloseButton from 'react-bootstrap/CloseButton';
 import { BasicButton } from '../../../common/components';
 
-const SettingsContainer = styled.div`
+const SettingsModal = styled.div`
   position: absolute;
-  width: 80%;
+  width: 100%;
   height: 100%;
-  min-height: 30vh;
+  min-height: 40vh;
   display: flex;
   align-items: center;
+  justify-content: center;
   flex-direction: column;
   background-image: radial-gradient(
     100% 100% at 100% 0,
@@ -29,6 +31,7 @@ const SettingsContainer = styled.div`
 const ClosingButton = styled(CloseButton)`
   align-self: flex-end;
   font-size: 2rem;
+  ${({ theme: { colors } }) => colors.neutrals[500]}
 `;
 
 const ButtonGroup = styled.div`
@@ -36,16 +39,22 @@ const ButtonGroup = styled.div`
   margin-top: 40px;
 
   .selected {
-    background-color: blue;
-    color: #fff;
+    background-image: radial-gradient(
+      100% 100% at 100% 0,
+      ${({ theme: { colors } }) => colors.primaries.green.light} 0,
+      ${({ theme: { colors } }) => colors.primaries.green.dark} 100%
+    );
+    color: ${({ theme: { colors } }) => colors.white};
+    box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px,
+      rgba(45, 35, 66, 0.3) 0 7px 13px -3px,
+      ${({ theme: { colors } }) => colors.primaries.green.darkest} 0 -3px 0 inset;
+    transform: translateY(0px);
   }
 `;
 
 const Button = styled(BasicButton)`
   margin: 0;
   border-radius: 0;
-  background-color: #fff;
-  color: blue;
   :last-child {
     border-top-right-radius: 4px;
     border-bottom-right-radius: 4px;
@@ -68,9 +77,9 @@ const GameSettings = ({ setShowSettings }) => {
   };
 
   return (
-    <SettingsContainer>
+    <SettingsModal>
       <ClosingButton onClick={() => setShowSettings(false)} aria-label="Hide" />
-      <h1>Set The Difficulty Level</h1>
+      <PageTitle>Set The Difficulty Level</PageTitle>
       <ButtonGroup>
         {difficulties.map((type) => (
           <Button
@@ -82,7 +91,7 @@ const GameSettings = ({ setShowSettings }) => {
           </Button>
         ))}
       </ButtonGroup>
-    </SettingsContainer>
+    </SettingsModal>
   );
 };
 

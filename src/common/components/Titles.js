@@ -8,9 +8,10 @@ export const TitleOne = styled.h1`
 
 export const GameTitle = styled(TitleOne)`
   font-size: 9rem;
-  color: ${({ theme: { colors } }) => colors.neutrals[400]};
+  color: ${({ theme: { colors } }) => colors.neutrals[600]};
 `;
 
 export const PageTitle = styled(TitleOne)`
   font-size: 4rem;
+  color: ${({ theme: { colors } }) => colors.neutrals[500]};
 `;
