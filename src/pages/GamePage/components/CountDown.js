@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { useCountdown } from '../../../hooks/useCountdown';
 
-const CountdownDialog = styled.div`
+const CountdownModal = styled.div`
   position: absolute;
   width: 100%;
   height: 100%;
@@ -12,6 +12,7 @@ const CountdownDialog = styled.div`
   justify-content: center;
   background-color: ${({ theme: { colors } }) => colors.neutrals[50]};
   font-size: 10rem;
+  text-transform: uppercase;
 `;
 
 const CountDown = ({ setCountdownDisplay }) => {
@@ -39,9 +40,9 @@ const CountDown = ({ setCountdownDisplay }) => {
   }, [setDisplayText, count]);
 
   return (
-    <CountdownDialog role="dialog" data-testid="countdown-dialog">
+    <CountdownModal role="dialog" data-testid="countdown-dialog">
       <div className="countdown-card">{displayText}</div>
-    </CountdownDialog>
+    </CountdownModal>
   );
 };
 

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const TitleOne = styled.h1`
-  font-family: Ranchers;
+  font-family: ${({ theme: { fonts } }) => fonts.display[0]};
   text-align: center;
   font-size: 5rem;
 `;

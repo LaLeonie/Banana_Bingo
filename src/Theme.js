@@ -60,7 +60,7 @@ const theme = {
   fontSizes: {
     small: '0.875rem',
     regular: '1rem',
-    regularPlus: '1.25rem',
+    regularPlus: '2rem',
     medium: '3rem',
     large: '3.75rem',
     xl: '6rem',

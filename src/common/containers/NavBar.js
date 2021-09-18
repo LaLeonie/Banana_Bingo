@@ -8,7 +8,7 @@ import { scoreCalculator } from '../../utils';
 import { getToday } from '../../store/user';
 
 import RouteButton from './RouteButton';
-import { ButtonContainer } from '../components';
+import { ButtonContainer, ScoreContainer } from '../components';
 
 const NavBar = ({ gameStatus }) => {
   const { initialScore, extraScore } = useSelector(getToday);
@@ -24,15 +24,16 @@ const NavBar = ({ gameStatus }) => {
           <FontAwesomeIcon icon="arrow-left" />
         </RouteButton>
       </ButtonContainer>
-
       <Logo />
-      {gameStatus ? (
-        <div>score: {scoreSum}</div>
-      ) : (
-        <RouteButton isIcon route="info">
-          <FontAwesomeIcon icon="question" />
-        </RouteButton>
-      )}
+      <ButtonContainer>
+        {gameStatus ? (
+          <ScoreContainer>score: {scoreSum}</ScoreContainer>
+        ) : (
+          <RouteButton isIcon route="info">
+            <FontAwesomeIcon icon="question" />
+          </RouteButton>
+        )}
+      </ButtonContainer>
     </Header>
   );
 };

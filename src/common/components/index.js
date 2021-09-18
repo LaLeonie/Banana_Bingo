@@ -1,6 +1,6 @@
 export { default as Logo } from './Logo';
 export { default as PlantItem } from './PlantItem';
-export { default as Score } from './Score';
+export { ScoreContainer } from './Score';
 export { default as Layout } from './Layout';
 export { TitleOne, GameTitle, PageTitle } from './Titles';
 export { default as Body } from './Body';
