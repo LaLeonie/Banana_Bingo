@@ -26,6 +26,7 @@ const theme = {
         darkest: '#A64800',
       },
       yellow: {
+        lightest: '#ffe298',
         light: '#FFD465',
         main: '#FFC121',
         dark: '#EDAB00',

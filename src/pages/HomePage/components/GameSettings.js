@@ -9,16 +9,21 @@ import { BasicButton } from '../../../common/components';
 
 const SettingsContainer = styled.div`
   position: absolute;
-  width: 100%;
+  width: 80%;
   height: 100%;
   min-height: 30vh;
   display: flex;
   align-items: center;
   flex-direction: column;
-  background-color: lightgray;
-  border-radius: 4px;
-  border: solid black 2px;
+  background-image: radial-gradient(
+    100% 100% at 100% 0,
+    ${({ theme: { colors } }) => colors.primaries.yellow.lightest} 0,
+    ${({ theme: { colors } }) => colors.primaries.yellow.main} 100%
+  );
+  border-radius: 24px;
+  border: solid ${({ theme: { colors } }) => colors.primaries.yellow.dark} 15px;
   padding: 10px;
+  z-index: 1;
 `;
 
 const ClosingButton = styled(CloseButton)`
