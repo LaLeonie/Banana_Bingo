@@ -5,7 +5,6 @@ import styled from 'styled-components';
 const Board = styled.ul`
   z-index: 0;
   display: grid;
-  padding: 30px;
   grid-gap: 3px;
   grid-template-columns: repeat(5, 100px);
   grid-template-rows: repeat(5, 100px);
