@@ -97,4 +97,5 @@ export const ButtonContainer = styled.div`
   display: flex;
   gap: 8px;
   min-width: 120px;
+  justify-content: ${({ rightAlign }) => (rightAlign ? 'end' : '')};
 `;

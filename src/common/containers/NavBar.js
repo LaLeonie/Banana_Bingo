@@ -25,7 +25,7 @@ const NavBar = ({ gameStatus }) => {
         </RouteButton>
       </ButtonContainer>
       <Logo />
-      <ButtonContainer>
+      <ButtonContainer rightAlign>
         {gameStatus ? (
           <ScoreContainer>score: {scoreSum}</ScoreContainer>
         ) : (
