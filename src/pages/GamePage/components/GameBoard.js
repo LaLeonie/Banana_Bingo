@@ -5,8 +5,8 @@ import styled from 'styled-components';
 const Board = styled.ul`
   z-index: 0;
   display: grid;
-  padding: 0;
-  grid-gap: 2px;
+  padding: 30px;
+  grid-gap: 3px;
   grid-template-columns: repeat(5, 100px);
   grid-template-rows: repeat(5, 100px);
 `;
@@ -25,8 +25,8 @@ const GameItem = styled.li`
   border: 1px solid rgba(255, 255, 255, 0.18);
 
   .selected {
-    background-color: lightskyblue;
-    border: 2px solid slateblue;
+    background: rgba(103, 215, 35, 0.65);
+    border: 2px solid #3d7f15;
   }
 `;
 
