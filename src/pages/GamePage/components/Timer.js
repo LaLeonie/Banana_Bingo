@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import ProgressBar from 'react-customizable-progressbar';
 import { useCountdown } from '../../../hooks/useCountdown';
 import styled from 'styled-components';
 
@@ -8,17 +9,30 @@ const TimerDialog = styled.div`
   top: 0;
   min-height: 10rem;
   min-width: 10rem;
-  font-size: 4rem;
-  background: #f4faff;
-  border-radius: 100%;
-  box-shadow: 9.91px 9.91px 26px #a2a6aa, -9.91px -9.91px 26px #ffffff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  font-size: 3rem;
 `;
 
 const Timer = ({ setTimerdisplay, setPlayedToday }) => {
-  const { display, count } = useCountdown(10, 1000);
+  const total = 10;
+  const { display, count } = useCountdown(total, 1000);
+
+  const getProgress = () => {
+    return (count / total) * 100;
+  };
+
+  const getColor = () => {
+    if (count > total * 0.4) return '#67D723';
+    if (count > total * 0.2) return '#FF9000';
+    return '#FF3A1A';
+  };
+
+  const getSeconds = () => {
+    let s = 0;
+    s = Math.trunc(count % 60);
+    s = ('00' + s).slice(-2);
+
+    return s;
+  };
 
   useEffect(() => {
     setTimerdisplay(display);
@@ -32,7 +46,14 @@ const Timer = ({ setTimerdisplay, setPlayedToday }) => {
 
   return (
     <TimerDialog role="dialog" data-testid="timer-dialog">
-      {count}
+      <ProgressBar
+        progress={getProgress()}
+        radius={80}
+        counterClockwise
+        strokeColor={getColor()}
+      >
+        {getSeconds()}
+      </ProgressBar>
     </TimerDialog>
   );
 };
