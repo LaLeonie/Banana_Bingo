@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+// import WebFont from 'webfontloader';
 import { Provider } from 'react-redux';
 import { store } from './store/store';
 import './index.css';
@@ -7,6 +8,12 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import GlobalStyle from './globalStyles';
 import Theme from './Theme';
+
+// WebFont.load({
+//   google: {
+//     families: ['Ranchers:300,400,500,700', 'sans-serif'],
+//   },
+// });
 
 ReactDOM.render(
   <React.StrictMode>

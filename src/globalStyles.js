@@ -5,7 +5,7 @@ import Ranchers from './fonts/ranchers-v8-latin-regular.woff';
 import Ranchers2 from './fonts/ranchers-v8-latin-regular.woff2';
 
 const GlobalStyle = createGlobalStyle`
-@font-face {
+/* @font-face {
     font-family: 'Neucha';
   src: url(${Neucha2}) format('woff2'),
        url(${Neucha}) format('woff');
@@ -15,7 +15,7 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Ranchers';
     src: url(${Ranchers2}) format('woff2'),
        url(${Ranchers}) format('woff');
-}
+} */
 
 body{
     font-family: ${({ theme: { fonts } }) => fonts.regular[0]}; 
