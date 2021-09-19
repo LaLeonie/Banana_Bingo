@@ -24,6 +24,7 @@ const ResultDialog = styled.div`
     padding: 0 40px;
     height: 260px;
     min-width: 400px;
+    z-index: 1;
   }
 
   .result-card--win {

@@ -3,8 +3,10 @@ import { Image } from 'react-bootstrap';
 import styled from 'styled-components';
 
 const Board = styled.ul`
+  z-index: 0;
   display: grid;
   padding: 0;
+  grid-gap: 2px;
   grid-template-columns: repeat(5, 100px);
   grid-template-rows: repeat(5, 100px);
 `;
@@ -15,8 +17,12 @@ const GameItem = styled.li`
   cursor: pointer;
   justify-content: center;
   list-style-type: none;
-  border: solid 1px lightgrey;
-  border-radius: 4px;
+  background: rgba(244, 250, 255, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
 
   .selected {
     background-color: lightskyblue;

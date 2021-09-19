@@ -13,6 +13,7 @@ const CountdownModal = styled.div`
   background-color: ${({ theme: { colors } }) => colors.neutrals[50]};
   font-size: 10rem;
   text-transform: uppercase;
+  z-index: 1;
 `;
 
 const CountDown = ({ setCountdownDisplay }) => {
