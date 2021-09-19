@@ -8,10 +8,10 @@ const TimerDialog = styled.div`
   top: 0;
   min-height: 10rem;
   min-width: 10rem;
-  border-radius: 50%;
   font-size: 4rem;
-  background-color: lightgray;
-  border: solid grey 10px;
+  background: #f4faff;
+  border-radius: 100%;
+  box-shadow: 9.91px 9.91px 26px #a2a6aa, -9.91px -9.91px 26px #ffffff;
   display: flex;
   justify-content: center;
   align-items: center;
