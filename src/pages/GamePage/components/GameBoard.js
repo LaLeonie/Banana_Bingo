@@ -26,7 +26,12 @@ const GameItem = styled.li`
 
   .selected {
     background: rgba(103, 215, 35, 0.65);
-    border: 2px solid #3d7f15;
+    background: radial-gradient(
+      circle,
+      rgba(103, 215, 35, 0.65) 40%,
+      rgba(61, 127, 21, 0.55) 100%
+    );
+    box-shadow: 0px 0px 2px 0 rgba(61, 127, 21, 0.9);
   }
 `;
 
