@@ -19,6 +19,7 @@ const theme = {
         light: '#FF745E',
         main: '#FF3A1A',
         dark: '#D51E00',
+        darkest: '#B40000',
       },
       orange: {
         light: '#FFAE44',
@@ -46,6 +47,7 @@ const theme = {
         darkest: '#012261',
       },
       green: {
+        lightest: '#a2e977',
         light: '#8EE45A',
         main: '#67D723',
         dark: '#3d7f15',

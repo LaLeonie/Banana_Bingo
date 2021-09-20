@@ -25,13 +25,14 @@ const GameItem = styled.li`
   border: 1px solid rgba(255, 255, 255, 0.18);
 
   .selected {
-    background: rgba(103, 215, 35, 0.65);
+    background: ${({ theme: { colors } }) => colors.primaries.green.lightest};
     background: radial-gradient(
       circle,
-      rgba(103, 215, 35, 0.65) 40%,
-      rgba(61, 127, 21, 0.55) 100%
+      ${({ theme: { colors } }) => colors.primaries.green.lightest} 40%,
+      ${({ theme: { colors } }) => colors.primaries.green.main} 100%
     );
-    box-shadow: 0px 0px 2px 0 rgba(61, 127, 21, 0.9);
+    box-shadow: 0px 0px 2px 0
+      ${({ theme: { colors } }) => colors.primaries.green.dark};
   }
 `;
 

@@ -58,6 +58,7 @@ const Timer = ({ setTimerdisplay, setPlayedToday }) => {
   return (
     <TimerContainer role="dialog" data-testid="timer-dialog">
       <ProgressBar
+        trackStrokeColor={'transparent'}
         progress={getProgress()}
         radius={70}
         counterClockwise
