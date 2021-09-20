@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import GameBoard from './GameBoard';
 
 const GameDisplayContainer = styled.div`
-  max-height: 90%;
   margin: auto;
 `;
 

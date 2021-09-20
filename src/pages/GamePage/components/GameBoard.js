@@ -6,10 +6,9 @@ const Board = styled.ul`
   z-index: 0;
   display: grid;
   grid-gap: 3px;
-  grid-template-columns: repeat(5, 100px);
-  grid-template-rows: repeat(5, 100px);
+  grid-template-columns: repeat(5, 85px);
+  grid-template-rows: repeat(5, 85px);
   padding: 0;
-  margin-top: 20px;
 `;
 
 const GameItem = styled.li`

@@ -5,7 +5,7 @@ import styled from 'styled-components';
 
 const TimerContainer = styled.div`
   position: absolute;
-  right: -40px;
+  right: -10px;
   top: 0;
   text-align: center;
   font-size: ${({ theme: { fontSizes } }) => fontSizes.regular};
