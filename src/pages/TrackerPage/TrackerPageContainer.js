@@ -13,7 +13,7 @@ import {
 import { useFetch } from '../../hooks';
 import { filterColors } from '../../utils';
 
-import { Body, Footer, PageTitle } from '../../common/components';
+import { Body, Footer, PageTitle, SubTitle } from '../../common/components';
 import ColorFilter from './components/ColorFilter';
 import NavBar from '../../common/containers/NavBar';
 import PlantList from '../../common/components/PlantList';
@@ -33,6 +33,18 @@ const SideBar = styled.div`
   border: green solid 2px;
   border-radius: 8px;
   background-color: lightgreen;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  justify-content: center;
+  list-style-type: none;
+  background: rgba(244, 250, 255, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 20px;
 
   .list {
     max-width: 300px;
@@ -118,7 +130,7 @@ const TrackerPageContainer = () => {
     <>
       <NavBar score gameStatus="true" />
       <Body>
-        <PageTitle>Let's add more</PageTitle>
+        <PageTitle>Let's Add More Plants</PageTitle>
         <TrackerWrapper>
           <MainContent>
             <FilterPanel>
@@ -138,16 +150,15 @@ const TrackerPageContainer = () => {
             />
           </MainContent>
           <SideBar>
-            <h2>Your Plant List</h2>
-            <div className="list">
-              <PlantList
-                handlePlanItemClick={handlePlanItemClick}
-                displayName
-                selected
-                selectable
-                plants={dailyPlants}
-              />
-            </div>
+            <SubTitle>Your Plant List</SubTitle>
+
+            <PlantList
+              handlePlanItemClick={handlePlanItemClick}
+              selected
+              selectable
+              narrow
+              plants={dailyPlants}
+            />
           </SideBar>
         </TrackerWrapper>
       </Body>
