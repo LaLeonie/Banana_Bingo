@@ -5,6 +5,7 @@ import GameBoard from './GameBoard';
 
 const GameDisplayContainer = styled.div`
   margin: auto;
+  padding: 20px;
 `;
 
 const GameDisplay = ({

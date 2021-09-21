@@ -24,7 +24,7 @@ const Time = styled.div`
 `;
 
 const Timer = ({ setTimerdisplay, setPlayedToday }) => {
-  const total = 30;
+  const total = 5;
   const { display, count } = useCountdown(total, 1000);
 
   const getProgress = () => {

@@ -73,7 +73,7 @@ const ResultAlert = ({ endGame }) => {
 
   return (
     <ResultModal>
-      <ResultContainer victory>{message}</ResultContainer>
+      <ResultContainer victory={victory}>{message}</ResultContainer>
     </ResultModal>
   );
 };
