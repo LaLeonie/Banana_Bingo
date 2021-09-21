@@ -22,6 +22,7 @@ import TypeSelector from './components/TypeSelector';
 
 const TrackerWrapper = styled.div`
   height: 100%;
+
   width: 100%;
   display: flex;
   flex-wrap: wrap;
@@ -29,27 +30,19 @@ const TrackerWrapper = styled.div`
 `;
 
 const SideBar = styled.div`
-  flex-grow: 1;
-  border: green solid 2px;
-  border-radius: 8px;
-  background-color: lightgreen;
-  display: flex;
-  flex-direction: column;
-  cursor: pointer;
-  justify-content: center;
-  list-style-type: none;
+  backdrop-filter: blur(8px);
   background: rgba(244, 250, 255, 0.2);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
   border-radius: 8px;
   border: 1px solid rgba(255, 255, 255, 0.18);
-  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: start;
 
-  .list {
-    max-width: 300px;
-    margin: auto;
-  }
+  -webkit-backdrop-filter: blur(8px);
+  overflow: scroll;
+  padding: 60px 20px;
 `;
 
 const MainContent = styled.div`

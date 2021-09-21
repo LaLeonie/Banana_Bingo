@@ -5,6 +5,7 @@ const Layout = styled(Container)`
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  max-height: 100vh;
   padding: 1em;
 `;
 

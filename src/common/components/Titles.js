@@ -12,8 +12,8 @@ export const GameTitle = styled(TitleOne)`
 
 export const PageTitle = styled(TitleOne)`
   font-size: ${({ theme: { fontSizes } }) => fontSizes.large};
-  color: ${({ theme: { colors } }) => colors.neutrals[500]};
-  margin-bottom: 4rem;
+  color: ${({ theme: { colors } }) => colors.neutrals[600]};
+  margin-bottom: 3.5rem;
 `;
 
 export const SubTitle = styled.h2`

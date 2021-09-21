@@ -4,12 +4,13 @@ import styled from 'styled-components';
 
 const PlantCard = styled.li`
   display: flex;
+  cursor: ${({ selectable }) => (selectable ? 'pointer' : 'auto')};
   flex-direction: column;
+  font-size: ${({ theme: { fontSizes } }) => fontSizes.regular};
   justify-content: center;
   list-style-type: none;
-  padding: 0;
   margin: 0;
-  cursor: ${({ selectable }) => (selectable ? 'pointer' : 'auto')};
+  padding: 0;
 `;
 
 const PlantImage = styled(Image)`
