@@ -14,7 +14,7 @@ const PlantCard = styled.li`
 `;
 
 const PlantImage = styled(Image)`
-  width: 80px;
+  width: 70px;
   margin: auto;
 `;
 

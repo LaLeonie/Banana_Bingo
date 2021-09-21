@@ -28,7 +28,6 @@ const TypeSelector = ({ setFruitCheck, setVegCheck, vegCheck, fruitCheck }) => {
 
   return (
     <FilterWrapper>
-      <div>What other type of plants did you eat today?</div>
       <TypePanel>
         <Checkbox>
           <Form.Check

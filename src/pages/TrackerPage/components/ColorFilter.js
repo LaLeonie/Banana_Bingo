@@ -65,7 +65,6 @@ const ColorFilter = ({ setColor, colors }) => {
 
   return (
     <FilterWrapper>
-      <div>What other colors did you eat today?</div>
       <ColorPanel>
         {colors.map((el) => (
           <ColorItem

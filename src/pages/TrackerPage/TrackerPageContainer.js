@@ -22,39 +22,42 @@ import TypeSelector from './components/TypeSelector';
 
 const TrackerWrapper = styled.div`
   height: 100%;
-
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  gap: 5px;
-`;
-
-const SideBar = styled.div`
-  backdrop-filter: blur(8px);
-  background: rgba(244, 250, 255, 0.2);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-  justify-content: start;
-
-  -webkit-backdrop-filter: blur(8px);
+  gap: 20px;
+  padding: 20px;
   overflow: scroll;
-  padding: 60px 20px;
 `;
 
 const MainContent = styled.div`
   flex-basis: 0;
   flex-grow: 999;
   min-width: 50%;
+  max-width: 60%;
+`;
+
+const SideBar = styled.div`
+  backdrop-filter: blur(8px);
+  background: rgba(244, 250, 255, 0.2);
+  box-shadow: 0 8px 16px 0 rgba(31, 38, 135, 0.37);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: start;
+  -webkit-backdrop-filter: blur(8px);
+  overflow: scroll;
+  padding: 25px 10px;
+  height: 45vh;
+  overflow: scroll;
 `;
 
 const FilterPanel = styled.div`
-  margin-top: 40px;
   display: flex;
-  justify-content: space-around;
+  gap: 4px;
+  justify-content: space-between;
 `;
 
 const TrackerPageContainer = () => {
@@ -123,6 +126,7 @@ const TrackerPageContainer = () => {
       <NavBar score gameStatus="true" />
       <Body>
         <PageTitle>Let's Add More Plants</PageTitle>
+        <p>You can filter the plants by color and type</p>
         <TrackerWrapper>
           <MainContent>
             <FilterPanel>

@@ -8,8 +8,8 @@ const PlantListFlex = styled.ul`
   justify-content: center;
   flex-wrap: wrap;
   gap: 5px;
-  width: ${({ narrow }) => (narrow ? '300px' : '')};
-  margin: 20px auto;
+  width: ${({ narrow }) => (narrow ? '270px' : '')};
+  margin: auto;
   padding: 0;
 `;
 
