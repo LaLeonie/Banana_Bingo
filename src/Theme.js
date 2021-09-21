@@ -1,7 +1,7 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
 
-const theme = {
+export const theme = {
   colors: {
     black: '#050506',
     white: '#fff',
@@ -38,6 +38,7 @@ const theme = {
         light: '#D57BCA',
         main: '#C448B5',
         dark: '#A43597',
+        darkest: '#64205c',
       },
       blue: {
         lightest: '#b6cfff',
@@ -52,6 +53,13 @@ const theme = {
         main: '#67D723',
         dark: '#3d7f15',
         darkest: '#005A00',
+      },
+      brown: {
+        lightest: '#E19C60',
+        light: '#C38147',
+        main: '#A6682F',
+        dark: '#763F04',
+        darkest: '#573619',
       },
     },
   },

@@ -17,40 +17,81 @@ const ColorPanel = styled.ul`
   }
 
   .Red {
-    background-color: red;
+    background: linear-gradient(
+      145deg,
+      ${({ theme: { colors } }) => colors.primaries.red.main},
+      ${({ theme: { colors } }) => colors.primaries.red.dark}
+    );
+    box-shadow: ${({ theme: { colors } }) => colors.primaries.red.darkest} 0 -3px
+      0 inset;
   }
 
   .Green {
-    background-color: green;
+    background: linear-gradient(
+      145deg,
+      ${({ theme: { colors } }) => colors.primaries.green.main},
+      ${({ theme: { colors } }) => colors.primaries.green.dark}
+    );
+    box-shadow: ${({ theme: { colors } }) => colors.primaries.green.darkest} 0 -3px
+      0 inset;
   }
 
   .Yellow {
-    background-color: yellow;
+    background: linear-gradient(
+      145deg,
+      ${({ theme: { colors } }) => colors.primaries.yellow.main},
+      ${({ theme: { colors } }) => colors.primaries.yellow.dark}
+    );
+    box-shadow: ${({ theme: { colors } }) => colors.primaries.yellow.darkest} 0 -3px
+      0 inset;
   }
 
   .Orange {
-    background-color: orange;
+    background: linear-gradient(
+      145deg,
+      ${({ theme: { colors } }) => colors.primaries.orange.main},
+      ${({ theme: { colors } }) => colors.primaries.orange.dark}
+    );
+    box-shadow: ${({ theme: { colors } }) => colors.primaries.orange.darkest} 0 -3px
+      0 inset;
   }
 
   .Purple {
-    background-color: purple;
+    background: linear-gradient(
+      145deg,
+      ${({ theme: { colors } }) => colors.primaries.purple.main},
+      ${({ theme: { colors } }) => colors.primaries.purple.dark}
+    );
+    box-shadow: ${({ theme: { colors } }) => colors.primaries.purple.darkest} 0 -3px
+      0 inset;
   }
 
   .Brown {
-    background-color: brown;
+    background: linear-gradient(
+      145deg,
+      ${({ theme: { colors } }) => colors.primaries.brown.main},
+      ${({ theme: { colors } }) => colors.primaries.brown.dark}
+    );
+    box-shadow: ${({ theme: { colors } }) => colors.primaries.brown.darkest} 0 -3px
+      0 inset;
   }
 
   .Blue {
-    background-color: darkblue;
+    background: linear-gradient(
+      145deg,
+      ${({ theme: { colors } }) => colors.primaries.blue.main},
+      ${({ theme: { colors } }) => colors.primaries.blue.dark}
+    );
+    box-shadow: ${({ theme: { colors } }) => colors.primaries.blue.darkest} 0 -3px
+      0 inset;
   }
 `;
 
 const ColorItem = styled.li`
   cursor: pointer;
-  border-radius: 50%;
-  border: 1px solid black;
   height: 30px;
   width: 30px;
+  border-radius: 100%;
 `;
 
 const ColorFilter = ({ setColor, colors }) => {
