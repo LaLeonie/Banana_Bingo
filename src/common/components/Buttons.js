@@ -33,6 +33,7 @@ export const BasicButton = styled(Button)`
   letter-spacing: 0.1rem;
   line-height: 1;
   list-style: none;
+  min-width: 160px;
   overflow: hidden;
   padding-left: 16px;
   padding-right: 16px;
@@ -46,7 +47,7 @@ export const BasicButton = styled(Button)`
   touch-action: manipulation;
   white-space: nowrap;
   will-change: box-shadow, transform;
-  width: 160px;
+
   font-size: ${({ theme: { fontSizes } }) => fontSizes.regular};
   font-weight: 700;
 
@@ -90,6 +91,7 @@ export const BasicButton = styled(Button)`
 `;
 
 export const IconButton = styled(BasicButton)`
+  min-width: 52px;
   width: 52px;
 `;
 

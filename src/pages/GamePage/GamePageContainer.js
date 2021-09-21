@@ -39,7 +39,7 @@ const GamePageContainer = () => {
   const gamePlayedToday = useSelector(getPlayedToday);
   const displayedPlants = useSelector(getApiPlants);
 
-  const handleItemClick = (e) => {
+const handleItemClick = (e) => {
     const plantName = e.target.alt;
     if (plantName) {
       if (e.target.classList.contains('selected')) {
