@@ -125,7 +125,6 @@ const TrackerPageContainer = () => {
     }
   }, [apiData]);
 
-  console.log({ dailyPlants });
   return (
     <>
       <NavBar score gameStatus="true" />
@@ -151,7 +150,6 @@ const TrackerPageContainer = () => {
           </MainContent>
           <SideBar>
             <SubTitle>Your Plant List</SubTitle>
-
             <PlantList
               handlePlanItemClick={handlePlanItemClick}
               selected

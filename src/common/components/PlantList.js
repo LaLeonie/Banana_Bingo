@@ -15,17 +15,18 @@ const PlantListFlex = styled.ul`
 
 const PlantList = ({
   selectable,
+  narrow,
   plants,
   displayName,
   selected,
   handlePlanItemClick,
 }) => {
   return (
-    <PlantListFlex>
+    <PlantListFlex narrow={narrow}>
       {plants &&
         plants.map((el) => (
           <PlantItem
-            selectable
+            selectable={selectable}
             handlePlanItemClick={handlePlanItemClick}
             selected={selected}
             displayName={displayName}

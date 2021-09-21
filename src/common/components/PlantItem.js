@@ -9,7 +9,7 @@ const PlantCard = styled.li`
   list-style-type: none;
   padding: 0;
   margin: 0;
-  cursor: ${(props) => (props.selectable ? 'pointer' : 'auto')};
+  cursor: ${({ selectable }) => (selectable ? 'pointer' : 'auto')};
 `;
 
 const PlantImage = styled(Image)`
@@ -18,7 +18,6 @@ const PlantImage = styled(Image)`
 `;
 
 const PlantItem = ({
-  selectable,
   name,
   image,
   displayName,
